@@ -43,6 +43,10 @@
     pkgs.nodejs
 
     # & co
+    pkgs.bat
+    pkgs.exa
+    pkgs.fzf
+    pkgs.hub
     pkgs.tmux
   ];
 
@@ -74,4 +78,15 @@
     package = pkgs.vscodium;
   };
 
+  programs.zsh = {
+    enable = true;
+    history = {
+      size = 20000;
+      save = 20000;
+      path = "~/.histfile";
+      share = true;
+    };
+    initExtraFirst = "source ~/.nix-profile/etc/profile.d/nix.sh";
+    initExtra = builtins.readFile (./. + "/zshrc");
+  };
 }
