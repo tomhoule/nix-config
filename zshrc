@@ -45,8 +45,6 @@ alias corgi=cargo
 alias corgo=cargo
 alias yanni=yarn
 
-export LC_ALL=en_US.UTF-8
-
 # Rust
 export PATH=~/.cargo/bin:$PATH
 

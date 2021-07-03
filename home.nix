@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let
+  homeDirectory = "/home/tom";
+in
 {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -7,7 +10,7 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "tom";
-  home.homeDirectory = "/home/tom";
+  home.homeDirectory = homeDirectory;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -83,7 +86,7 @@
     history = {
       size = 20000;
       save = 20000;
-      path = "~/.histfile";
+      path = homeDirectory + "/.histfile";
       share = true;
     };
     initExtraFirst = "source ~/.nix-profile/etc/profile.d/nix.sh";
