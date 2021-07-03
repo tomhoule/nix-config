@@ -73,8 +73,6 @@ in
     };
   };
 
-  programs.mcfly.enable = true;
-
   programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile (./. + "/tmux.conf");
@@ -99,6 +97,6 @@ in
       share = true;
     };
     initExtraFirst = "source ~/.nix-profile/etc/profile.d/nix.sh";
-    initExtra = builtins.readFile (./. + "/zshrc");
+    initExtra = builtins.readFile (./. + "/zshrc") + "\nsource ${pkgs.fzf.out}/share/fzf/key-bindings.zsh";
   };
 }
