@@ -50,7 +50,6 @@ in
     pkgs.exa
     pkgs.fzf
     pkgs.hub
-    pkgs.tmux
   ];
 
   programs.alacritty.enable = true;
@@ -75,6 +74,16 @@ in
   };
 
   programs.mcfly.enable = true;
+
+  programs.tmux = {
+    enable = true;
+    extraConfig = builtins.readFile (./. + "/tmux.conf");
+    sensibleOnTop = false;
+    terminal = "screen-256color";
+    historyLimit = 12000;
+    keyMode = "vi";
+    baseIndex = 1;
+  };
 
   programs.vscode = {
     enable = true;
