@@ -45,7 +45,7 @@ in
     pkgs.nixpkgs-fmt
 
     # Node...
-    pkgs.nodejs
+    pkgs.nodejs-14_x # LTS
 
     # & co
     pkgs.bat
