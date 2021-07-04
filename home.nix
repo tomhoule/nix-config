@@ -1,5 +1,7 @@
 { pkgs, ... }:
 
+with builtins;
+
 let
   homeDirectory = "/home/tom";
 in
@@ -75,7 +77,7 @@ in
 
   programs.tmux = {
     enable = true;
-    extraConfig = builtins.readFile ./tmux.conf;
+    extraConfig = readFile ./tmux.conf;
     sensibleOnTop = false;
     terminal = "screen-256color";
     historyLimit = 12000;
@@ -97,6 +99,6 @@ in
       share = true;
     };
     initExtraFirst = "source ~/.nix-profile/etc/profile.d/nix.sh";
-    initExtra = (builtins.readFile ./zshrc) + "\nsource ${pkgs.fzf}/share/fzf/key-bindings.zsh";
+    initExtra = (readFile ./zshrc) + "\nsource ${pkgs.fzf}/share/fzf/key-bindings.zsh";
   };
 }
