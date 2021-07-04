@@ -75,7 +75,7 @@ in
 
   programs.tmux = {
     enable = true;
-    extraConfig = builtins.readFile (./. + "/tmux.conf");
+    extraConfig = builtins.readFile ./tmux.conf;
     sensibleOnTop = false;
     terminal = "screen-256color";
     historyLimit = 12000;
@@ -93,10 +93,10 @@ in
     history = {
       size = 20000;
       save = 20000;
-      path = homeDirectory + "/.histfile";
+      path = "${homeDirectory}/.histfile";
       share = true;
     };
     initExtraFirst = "source ~/.nix-profile/etc/profile.d/nix.sh";
-    initExtra = builtins.readFile (./. + "/zshrc") + "\nsource ${pkgs.fzf.out}/share/fzf/key-bindings.zsh";
+    initExtra = (builtins.readFile ./zshrc) + "\nsource ${pkgs.fzf}/share/fzf/key-bindings.zsh";
   };
 }
