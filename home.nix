@@ -101,4 +101,21 @@ in
     initExtraFirst = "source ~/.nix-profile/etc/profile.d/nix.sh";
     initExtra = (readFile ./zshrc) + "\nsource ${pkgs.fzf}/share/fzf/key-bindings.zsh";
   };
+
+  xdg = {
+    enable = true;
+    configFile = {
+      nvim-init = {
+        source = ./init.vim;
+        target = "nvim/init.vim";
+      };
+      plug-dot-vim = {
+        source = fetchurl {
+          url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim";
+          sha256 = "1b1ayy2gsnwgfas5rla2y3gjyfsv1cai96p9jbmap4cclpl9ky97";
+        };
+        target = "nvim/autoload/plug.vim";
+      };
+    };
+  };
 }
