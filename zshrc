@@ -45,6 +45,11 @@ alias corgi=cargo
 alias corgo=cargo
 alias yanni=yarn
 
+function tn() {
+	DIRNAME=$(basename `pwd` | tr -d '\n')
+	tmux new -s $DIRNAME
+}
+
 # Rust
 export PATH=~/.cargo/bin:$PATH
 
