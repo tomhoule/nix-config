@@ -98,6 +98,9 @@ in
       path = "${homeDirectory}/.histfile";
       share = true;
     };
+    shellAliases = {
+      c = "codium";
+    };
     initExtraFirst = "source ~/.nix-profile/etc/profile.d/nix.sh";
     initExtra = (readFile ./zshrc) + "\nsource ${pkgs.fzf}/share/fzf/key-bindings.zsh";
   };
