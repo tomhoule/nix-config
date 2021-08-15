@@ -28,6 +28,12 @@ vmap <C-l> <Esc>
 set smartcase
 set autoread
 
+" Indentation
+set tabstop=4
+set shiftwidth=0
+set expandtab
+set autoindent
+
 " Replace netrw with dirvish
 let g:loaded_netrwPlugin = 1
 command! -nargs=? -complete=dir Explore Dirvish <args>

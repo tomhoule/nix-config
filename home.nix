@@ -51,7 +51,7 @@ in
     pkgs.bat
     pkgs.exa
     pkgs.fzf
-    pkgs.hub
+    pkgs.hub # GitHub CLI
   ];
 
   programs.alacritty.enable = true;
