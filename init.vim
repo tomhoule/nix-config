@@ -25,7 +25,8 @@ imap <C-l> <Esc>
 nmap <C-l> <Esc>
 vmap <C-l> <Esc>
 
-set smartcase
+set ignorecase
+set smartcase " only goes with ignorecase
 set autoread
 
 " Indentation
