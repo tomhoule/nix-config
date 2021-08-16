@@ -56,3 +56,5 @@ export PATH=~/.cargo/bin:$PATH
 # NPM
 PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
+# Emacs
+export PATH="$HOME/.emacs.d/bin:$PATH"

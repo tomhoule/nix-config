@@ -56,6 +56,8 @@ in
 
   programs.alacritty.enable = true;
 
+  programs.emacs.enable = true;
+
   programs.git = {
     enable = true;
     userName = "Tom Houlé";
@@ -108,6 +110,7 @@ in
   xdg = {
     enable = true;
     configFile = {
+      "doom".source = ./doom;
       "nvim/init.vim".source = ./init.vim;
       "nvim/autoload/plug.vim".source = fetchurl {
         url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim";
