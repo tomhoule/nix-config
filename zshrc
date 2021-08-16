@@ -51,10 +51,11 @@ function tn() {
 }
 
 # Rust
-export PATH=~/.cargo/bin:$PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # NPM
-PATH="$HOME/.node_modules/bin:$PATH"
-export npm_config_prefix=~/.node_modules
+export PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/cache/.node_modules
+
 # Emacs
 export PATH="$HOME/.emacs.d/bin:$PATH"
