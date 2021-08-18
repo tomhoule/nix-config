@@ -102,6 +102,7 @@ in
     };
     shellAliases = {
       c = "codium";
+      em = "emacs";
     };
     initExtraFirst = "source ~/.nix-profile/etc/profile.d/nix.sh";
     initExtra = (readFile ./zshrc) + "\nsource ${pkgs.fzf}/share/fzf/key-bindings.zsh";
