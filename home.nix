@@ -4,6 +4,7 @@ with builtins;
 
 let
   homeDirectory = "/home/tom";
+  homeDomain = "tomhoule.com";
 in
 {
   # Let Home Manager install and manage itself.
@@ -61,7 +62,7 @@ in
   programs.git = {
     enable = true;
     userName = "Tom Houlé";
-    userEmail = "tom@tomhoule.com";
+    userEmail = "tom@" + homeDomain;
     aliases = {
       st = "status";
       ca = "commit --amend";
