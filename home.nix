@@ -116,7 +116,7 @@ in
       "nvim/init.vim".source = ./init.vim;
       "nvim/autoload/plug.vim".source = fetchurl {
         url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim";
-        sha256 = "1b1ayy2gsnwgfas5rla2y3gjyfsv1cai96p9jbmap4cclpl9ky97";
+        sha256 = "1gpldpykvn9sgykb1ydlwz0zkiyx7y9qhf8zaknc88v1pan8n1jn";
       };
     };
   };
