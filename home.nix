@@ -25,11 +25,6 @@ in {
   home.stateVersion = "21.05";
 
   home.packages = [
-    # Coq & OCaml
-    pkgs.coq
-    pkgs.ocaml
-    pkgs.opam
-
     # Fonts
     pkgs.ibm-plex
     pkgs.fira-code
