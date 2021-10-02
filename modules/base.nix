@@ -20,6 +20,12 @@
     keyMap = "fr-bepo";
   };
 
+  fonts.fonts = with pkgs; [
+    fira-code
+    font-awesome # required for waybar
+    ibm-plex
+  ];
+
   programs = {
     neovim = {
       enable = true;

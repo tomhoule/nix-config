@@ -25,10 +25,6 @@ in {
   home.stateVersion = "21.05";
 
   home.packages = with pkgs; [
-    # Fonts
-    ibm-plex
-    fira-code
-
     # Julia
     julia_16-bin
 
