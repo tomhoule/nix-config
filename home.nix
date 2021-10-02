@@ -5,8 +5,7 @@ with builtins;
 let
   homeDirectory = "/home/tom";
   homeDomain = "tomhoule.com";
-in
-{
+in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -72,12 +71,8 @@ in
       pf = "push --force";
     };
     extraConfig = {
-      init = {
-        defaultBranch = "main";
-      };
-      pull = {
-        rebase = true;
-      };
+      init = { defaultBranch = "main"; };
+      pull = { rebase = true; };
     };
   };
 
@@ -109,7 +104,9 @@ in
       em = "emacs";
     };
     initExtraFirst = "source ~/.nix-profile/etc/profile.d/nix.sh";
-    initExtra = (readFile ./zshrc) + "\nsource ${pkgs.fzf}/share/fzf/key-bindings.zsh";
+    initExtra = (readFile ./zshrc) + ''
+
+      source ${pkgs.fzf}/share/fzf/key-bindings.zsh'';
   };
 
   xdg = {
@@ -118,7 +115,8 @@ in
       "doom".source = ./doom;
       "nvim/init.vim".source = ./init.vim;
       "nvim/autoload/plug.vim".source = fetchurl {
-        url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim";
+        url =
+          "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim";
         sha256 = "1gpldpykvn9sgykb1ydlwz0zkiyx7y9qhf8zaknc88v1pan8n1jn";
       };
     };
