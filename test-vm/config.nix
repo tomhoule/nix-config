@@ -74,7 +74,7 @@
 
   programs.sway = {
     enable = true;
-    extraPackages = [ pkgs.swaylock pkgs.swayidle pkgs.dmenu ];
+    extraPackages = [ pkgs.swaylock pkgs.swayidle pkgs.wofi ];
     wrapperFeatures = {
       base = true;
       gtk = true;
