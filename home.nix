@@ -76,7 +76,7 @@ in {
 
   programs.tmux = {
     enable = true;
-    extraConfig = readFile ./tmux.conf;
+    extraConfig = readFile ./dotfiles/tmux.conf;
     sensibleOnTop = false;
     terminal = "screen-256color";
     historyLimit = 12000;
@@ -102,7 +102,7 @@ in {
       em = "emacs";
     };
     initExtraFirst = "source ~/.nix-profile/etc/profile.d/nix.sh";
-    initExtra = (readFile ./zshrc) + ''
+    initExtra = (readFile ./dotfiles/zshrc) + ''
 
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh'';
   };
@@ -110,14 +110,14 @@ in {
   xdg = {
     enable = true;
     configFile = {
-      "doom".source = ./doom;
-      "nvim/init.vim".source = ./init.vim;
+      "doom".source = ./dotfiles/doom;
+      "nvim/init.vim".source = ./dotfiles/init.vim;
       "nvim/autoload/plug.vim".source = fetchurl {
         url =
           "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim";
         sha256 = "1gpldpykvn9sgykb1ydlwz0zkiyx7y9qhf8zaknc88v1pan8n1jn";
       };
-      "sway/config".source = ./sway/config;
+      "sway/config".source = ./dotfiles/sway/config;
     };
   };
 }
