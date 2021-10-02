@@ -13,7 +13,7 @@
         test-vm = nixpkgs.lib.nixosSystem {
           modules = [
             ./modules/base.nix
-            ./test-vm/config.nix
+            ./machines/test-vm/config.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
