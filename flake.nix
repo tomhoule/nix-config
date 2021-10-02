@@ -18,6 +18,12 @@
             }
             ({ pkgs, ... }: {
               environment.systemPackages = with pkgs; [ firefox foot vim zsh ];
+              programs = {
+                neovim = {
+                  enable = true;
+                  defaultEditor = true;
+                };
+              };
             })
           ];
           inherit system;
