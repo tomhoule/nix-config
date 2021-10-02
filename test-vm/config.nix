@@ -41,13 +41,6 @@
     keyMap = "fr-bepo";
   };
 
-  nix = {
-    package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
@@ -65,13 +58,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tom = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = "${pkgs.zsh}/bin/zsh";
-  };
-
   programs.sway = {
     enable = true;
     extraPackages = [ pkgs.swaylock pkgs.swayidle pkgs.dmenu pkgs.xorg.xev ];
@@ -80,10 +66,6 @@
       gtk = true;
     };
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [ ripgrep ];
 
   # List services that you want to enable:
 
