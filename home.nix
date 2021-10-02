@@ -54,8 +54,6 @@ in {
     pkgs.hub # GitHub CLI
   ];
 
-  programs.alacritty.enable = true;
-
   programs.emacs.enable = true;
 
   programs.git = {

@@ -16,6 +16,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.tom = ./home.nix;
             }
+            { environment.systemPackages = [ nixpkgs.foot ]; }
           ];
           inherit system;
         };
