@@ -24,31 +24,31 @@ in {
   # changes in each release.
   home.stateVersion = "21.05";
 
-  home.packages = [
+  home.packages = with pkgs; [
     # Fonts
-    pkgs.ibm-plex
-    pkgs.fira-code
+    ibm-plex
+    fira-code
 
     # Julia
-    pkgs.julia_16-bin
+    julia_16-bin
 
     # Neovim
-    pkgs.neovim
+    neovim
 
     # Nix
-    pkgs.nixfmt
-    pkgs.nixpkgs-fmt
+    nixfmt
+    nixpkgs-fmt
 
     # Node...
-    pkgs.nodejs-14_x # LTS
+    nodejs-14_x # LTS
 
     # & co
-    pkgs.bat
-    pkgs.firefox
-    pkgs.foot
-    pkgs.exa
-    pkgs.fzf
-    pkgs.hub # GitHub CLI
+    bat
+    firefox
+    foot
+    exa
+    fzf
+    hub # GitHub CLI
   ];
 
   programs.emacs.enable = true;
