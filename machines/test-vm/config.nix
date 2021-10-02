@@ -60,7 +60,14 @@
 
   programs.sway = {
     enable = true;
-    extraPackages = [ pkgs.swaylock pkgs.swayidle pkgs.dmenu pkgs.xorg.xev ];
+    extraPackages = [
+      pkgs.swaylock
+      pkgs.swayidle
+      pkgs.dmenu
+      pkgs.xorg.xev
+      pkgs.waybar
+      pkgs.font-awesome-ttf # required for waybar
+    ];
     wrapperFeatures = {
       base = true;
       gtk = true;
