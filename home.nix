@@ -44,6 +44,8 @@ in {
 
     # & co
     pkgs.bat
+    pkgs.firefox
+    pkgs.foot
     pkgs.exa
     pkgs.fzf
     pkgs.hub # GitHub CLI

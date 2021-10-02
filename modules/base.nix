@@ -2,7 +2,7 @@
 
 {
   # System packages.
-  environment.systemPackages = with pkgs; [ firefox foot ripgrep vim zsh ];
+  environment.systemPackages = with pkgs; [ ripgrep vim zsh ];
 
   nix = {
     package = pkgs.nixUnstable;
