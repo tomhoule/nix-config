@@ -83,7 +83,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ vim firefox zsh ripgrep ];
+  environment.systemPackages = with pkgs; [ ripgrep ];
 
   # List services that you want to enable:
 

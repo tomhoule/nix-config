@@ -16,7 +16,9 @@
               home-manager.useUserPackages = true;
               home-manager.users.tom = ./home.nix;
             }
-            { environment.systemPackages = [ nixpkgs.foot ]; }
+            ({ pkgs, ... }: {
+              environment.systemPackages = with pkgs; [ firefox foot vim zsh ];
+            })
           ];
           inherit system;
         };
