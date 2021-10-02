@@ -91,8 +91,10 @@ in {
       share = true;
     };
     shellAliases = {
+      cat = "bat";
       c = "codium";
       em = "emacs";
+      ls = "exa";
     };
     initExtraFirst = "source ~/.nix-profile/etc/profile.d/nix.sh";
     initExtra = (readFile ./dotfiles/zshrc) + ''
