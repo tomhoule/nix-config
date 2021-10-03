@@ -2,7 +2,7 @@
 
 {
   # System packages.
-  environment.systemPackages = with pkgs; [ ripgrep zsh ];
+  environment.systemPackages = with pkgs; [ ripgrep ];
 
   nix = {
     package = pkgs.nixUnstable;
