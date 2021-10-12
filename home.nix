@@ -45,6 +45,8 @@ in {
     exa
     fzf
     hub # GitHub CLI
+    rustup # TODO: switch to a direnv-based workflow instead
+    rust-analyzer
     zoom-us
     xdg-utils # for xdg-open
     chromium

@@ -2,7 +2,19 @@
 
 {
   # System packages.
-  environment.systemPackages = with pkgs; [ ripgrep pulseaudio ];
+  environment.systemPackages = with pkgs; [
+    ripgrep
+    pulseaudio # for utilities like pactl — not the daemon
+
+    # <Added for building rust projects>
+    gnumake
+    clang
+    lld
+    openssl
+    coreutils
+    binutils
+    # </Added for building rust>
+  ];
 
   nix = {
     package = pkgs.nixUnstable;
