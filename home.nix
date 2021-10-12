@@ -111,6 +111,7 @@ in {
     enable = true;
     configFile = {
       "doom".source = ./dotfiles/doom;
+      "foot".source = ./dotfiles/foot;
       "nvim/init.vim".source = ./dotfiles/init.vim;
       "nvim/autoload/plug.vim".source = fetchurl {
         url =
