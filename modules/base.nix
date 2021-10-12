@@ -2,7 +2,7 @@
 
 {
   # System packages.
-  environment.systemPackages = with pkgs; [ ripgrep ];
+  environment.systemPackages = with pkgs; [ ripgrep pulseaudio ];
 
   nix = {
     package = pkgs.nixUnstable;
@@ -41,6 +41,14 @@
         gtk = true;
       };
     };
+  };
+
+  # Sound and screen sharing
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
   };
 
   users.users.tom = {
