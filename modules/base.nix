@@ -56,4 +56,12 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     shell = "${pkgs.zsh}/bin/zsh";
   };
+
+  xdg = {
+    mime.enable = true;
+    portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    };
+  };
 }
