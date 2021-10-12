@@ -31,6 +31,16 @@
       enable = true;
       defaultEditor = true;
     };
+
+    sway = {
+      enable = true;
+      extraPackages =
+        [ pkgs.swaylock pkgs.swayidle pkgs.dmenu pkgs.xorg.xev pkgs.waybar ];
+      wrapperFeatures = {
+        base = true;
+        gtk = true;
+      };
+    };
   };
 
   users.users.tom = {
