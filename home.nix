@@ -103,7 +103,7 @@ in {
     };
     initExtraFirst = "source ~/.nix-profile/etc/profile.d/nix.sh";
     initExtra = (readFile ./dotfiles/zshrc) + ''
-
+      source ${pkgs.zsh-z}/share/zsh-z/zsh-z.plugin.zsh
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh'';
   };
 
