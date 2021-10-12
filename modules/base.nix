@@ -21,8 +21,13 @@
   };
 
   fonts.fonts = with pkgs; [
+    dejavu_fonts
     fira-code
     font-awesome # required for waybar
+    noto-fonts
+    noto-fonts-extra
+    noto-fonts-cjk
+    noto-fonts-emoji
     ibm-plex
   ];
 
@@ -61,7 +66,8 @@
     mime.enable = true;
     portal = {
       enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals =
+        [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
     };
   };
 }

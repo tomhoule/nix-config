@@ -45,6 +45,9 @@ in {
     exa
     fzf
     hub # GitHub CLI
+    zoom-us
+    xdg-utils # for xdg-open
+    chromium
   ];
 
   programs.emacs.enable = true;
@@ -112,7 +115,8 @@ in {
           "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim";
         sha256 = "1gpldpykvn9sgykb1ydlwz0zkiyx7y9qhf8zaknc88v1pan8n1jn";
       };
-      "sway/config".source = ./dotfiles/sway/config;
+      "sway".source = ./dotfiles/sway;
+      "waybar".source = ./dotfiles/waybar;
     };
   };
 }
