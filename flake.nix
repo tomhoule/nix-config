@@ -27,12 +27,13 @@
         prisma-desktop = nixpkgs.lib.nixosSystem {
           modules = [
             ./modules/base.nix
+            ./modules/docker.nix
             ./machines/prisma-desktop/config.nix
-             home-manager.nixosModules.home-manager
+            home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-               home-manager.users.tom = ./home.nix;
+              home-manager.users.tom = ./home.nix;
             }
           ];
           inherit system;

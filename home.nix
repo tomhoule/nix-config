@@ -31,6 +31,12 @@ in {
     # Neovim
     neovim
 
+    kakoune
+
+    docker-compose
+
+    mpv
+
     # Nix
     nixfmt
     nixpkgs-fmt

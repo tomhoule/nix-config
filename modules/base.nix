@@ -70,7 +70,10 @@
 
   users.users.tom = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "docker"
+      "wheel" # Enable ‘sudo’ for the user.
+    ];
     shell = "${pkgs.zsh}/bin/zsh";
   };
 
