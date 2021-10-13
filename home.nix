@@ -58,6 +58,15 @@ in {
     chromium
   ];
 
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv = {
+      enable = true;
+      enableFlakes = true;
+    };
+  };
+
   programs.emacs.enable = true;
 
   programs.git = {
