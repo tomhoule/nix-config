@@ -16,6 +16,8 @@
     # </Added for building rust>
   ];
 
+  environment.variables = { MOZ_ENABLE_WAYLAND = "1"; };
+
   nix = {
     package = pkgs.nixUnstable;
     extraOptions = ''
