@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 with builtins;
 
@@ -31,12 +31,6 @@ in {
     # Neovim
     neovim
 
-    kakoune
-
-    docker-compose
-
-    mpv
-
     # Nix
     nixfmt
     nixpkgs-fmt
@@ -46,16 +40,18 @@ in {
 
     # & co
     bat
-    firefox
-    foot
+    chromium
+    docker-compose
     exa
+    firefox
     fzf
     hub # GitHub CLI
-    rustup # TODO: switch to a direnv-based workflow instead
+    mpv
+    ranger
     rust-analyzer
-    zoom-us
+    rustup # TODO: switch to a direnv-based workflow instead
     xdg-utils # for xdg-open
-    chromium
+    zoom-us
   ];
 
   programs.direnv = {
@@ -68,6 +64,20 @@ in {
   };
 
   programs.emacs.enable = true;
+
+  programs.foot = {
+    enable = true;
+    server = { enable = true; };
+  };
+
+  programs.kakoune = let kakrc = readFile ./dotfiles/kak/kakrc;
+  in {
+    enable = true;
+    extraConfig = kakrc;
+    plugins = with pkgs.kakounePlugins; [ kak-lsp kak-fzf ];
+  };
+
+  programs.mako.enable = true;
 
   programs.git = {
     enable = true;
@@ -127,6 +137,7 @@ in {
     configFile = {
       "doom".source = ./dotfiles/doom;
       "foot".source = ./dotfiles/foot;
+      "kak-lsp/kak-lsp.toml".source = ./dotfiles/kak/kak-lsp.toml;
       "nvim/init.vim".source = ./dotfiles/init.vim;
       "nvim/autoload/plug.vim".source = fetchurl {
         url =

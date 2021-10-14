@@ -1,0 +1,14 @@
+snippet_support = true
+verbosity = 2
+
+[server]
+# exit session if no requests were received during given period in seconds
+# # works only in unix sockets mode (-s/--session)
+# # set to 0 to disable
+timeout = 0
+
+[language.rust]
+filetypes = ["rust"]
+roots = [".git"] # workaround for workspace detection
+command = "rust-analyzer"
+args = []
