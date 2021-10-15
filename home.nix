@@ -5,6 +5,15 @@ with builtins;
 let
   homeDirectory = "/home/tom";
   homeDomain = "tomhoule.com";
+
+  # Kakoune
+  my-kakrc = pkgs.kakouneUtils.buildKakounePlugin {
+    name = "tom-kakrc";
+    src = ./dotfiles/kak;
+  };
+  tomskak = pkgs.kakoune.override {
+    plugins = with pkgs.kakounePlugins; [ kak-lsp kak-fzf my-kakrc ];
+  };
 in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -30,6 +39,8 @@ in {
 
     # Neovim
     neovim
+
+    tomskak
 
     # Nix
     nixfmt
@@ -68,13 +79,6 @@ in {
   programs.foot = {
     enable = true;
     server = { enable = true; };
-  };
-
-  programs.kakoune = let kakrc = readFile ./dotfiles/kak/kakrc;
-  in {
-    enable = true;
-    extraConfig = kakrc;
-    plugins = with pkgs.kakounePlugins; [ kak-lsp kak-fzf ];
   };
 
   programs.mako.enable = true;
@@ -137,7 +141,7 @@ in {
     configFile = {
       "doom".source = ./dotfiles/doom;
       "foot".source = ./dotfiles/foot;
-      "kak-lsp/kak-lsp.toml".source = ./dotfiles/kak/kak-lsp.toml;
+      "kak-lsp/kak-lsp.toml".source = ./dotfiles/kak-lsp.toml;
       "nvim/init.vim".source = ./dotfiles/init.vim;
       "nvim/autoload/plug.vim".source = fetchurl {
         url =

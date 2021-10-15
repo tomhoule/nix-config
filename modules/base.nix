@@ -16,7 +16,10 @@
     # </Added for building rust>
   ];
 
-  environment.variables = { MOZ_ENABLE_WAYLAND = "1"; };
+  environment.variables = {
+    MOZ_ENABLE_WAYLAND = "1";
+    EDITOR = "${pkgs.kakoune}/bin/kak";
+  };
 
   nix = {
     package = pkgs.nixUnstable;
@@ -46,10 +49,7 @@
   ];
 
   programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
+    neovim.enable = true;
 
     sway = {
       enable = true;

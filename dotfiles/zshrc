@@ -1,7 +1,7 @@
 prompt='%F{blue}%m%f%B.%b%F{green}%n%f%B.%b%F{yellow}%4~%f %Bλ%b '
 
-# Only set to nvim if it is not already set
-: ${EDITOR:=nvim}
+# Only set to kak if it is not already set
+: ${EDITOR:=kak}
 export EDITOR
 
 # Emacs keybinding mode
