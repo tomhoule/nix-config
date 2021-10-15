@@ -42,6 +42,10 @@ in {
 
     tomskak
 
+    # Wayland screenshots (sway)
+    slurp
+    grim
+
     # Nix
     nixfmt
     nixpkgs-fmt

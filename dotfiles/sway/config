@@ -93,6 +93,9 @@ input "type:keyboard" {
 
     # Lock
     bindsym $mod+Ctrl+l exec swaylock -c 111100 -i /home/tom/.wallpaper
+
+    # Screenshots
+    bindsym Print exec grim -t png -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H-%m-%S).png;
 #
 # Moving around:
 #
