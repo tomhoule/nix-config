@@ -25,10 +25,7 @@
   networking.useDHCP = false;
   networking.interfaces.wlp2s0.useDHCP = true;
 
-  services.xserver.libinput = {
-    enable = true;
-    touchpad = { naturalScrolling = true; };
-  };
+  programs.ssh.startAgent = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
