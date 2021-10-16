@@ -15,10 +15,8 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.tom = import ./home.nix {
-            inherit localHome pkgs;
-            lib = pkgs.lib;
-          };
+          home-manager.users.tom =
+            import ./home.nix { inherit localHome pkgs; };
         }
       ]);
     in {

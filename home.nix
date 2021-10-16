@@ -1,4 +1,4 @@
-{ pkgs, lib, localHome, ... }:
+{ pkgs, localHome }:
 
 with builtins;
 
