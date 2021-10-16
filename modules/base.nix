@@ -53,8 +53,14 @@
 
     sway = {
       enable = true;
-      extraPackages =
-        [ pkgs.swaylock pkgs.swayidle pkgs.dmenu pkgs.xorg.xev pkgs.waybar ];
+      extraPackages = with pkgs; [
+        hicolor-icon-theme # for wofi
+        swayidle
+        swaylock
+        waybar
+        wofi
+        xorg.xev
+      ];
       wrapperFeatures = {
         base = true;
         gtk = true;
