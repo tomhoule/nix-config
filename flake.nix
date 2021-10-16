@@ -7,7 +7,12 @@
   };
 
   outputs = { self, nixpkgs, home-manager }:
-    let system = "x86_64-linux";
+    let
+      system = "x86_64-linux";
+      homeManagerSettings = {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+      };
     in {
       nixosConfigurations = {
         test-vm = nixpkgs.lib.nixosSystem {
@@ -15,11 +20,8 @@
             ./modules/base.nix
             ./machines/test-vm/config.nix
             home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.tom = ./home.nix;
-            }
+            homeManagerSettings
+            { home-manager.users.tom = ./home.nix; }
           ];
           inherit system;
         };
@@ -30,11 +32,8 @@
             ./modules/docker.nix
             ./machines/prisma-desktop/config.nix
             home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.tom = ./home.nix;
-            }
+            homeManagerSettings
+            { home-manager.users.tom = ./home.nix; }
           ];
           inherit system;
         };
@@ -45,11 +44,8 @@
             ./modules/docker.nix
             ./machines/xps13/config.nix
             home-manager.nixosModules.home-manager
-            {
-             home-manager.useGlobalPkgs = true;
-             home-manager.useUserPackages = true;
-             home-manager.users.tom = ./home.nix;
-            }
+            homeManagerSettings
+            { home-manager.users.tom = ./home.nix; }
           ];
           inherit system;
         };
