@@ -18,6 +18,9 @@ define-command -override \
 
 map global user w ': dup-window<ret>' -docstring "Duplicate the window"
 
+## CLIPBOARD ##
+hook global WinCreate .* %{ kakboard-enable }
+
 ## FZF ##
 #
 # Docs: https://github.com/andreyorst/fzf.kak

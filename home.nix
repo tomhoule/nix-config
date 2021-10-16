@@ -12,7 +12,7 @@ let
     src = ./dotfiles/kak;
   };
   kak = pkgs.kakoune.override {
-    plugins = with pkgs.kakounePlugins; [ kak-lsp kak-fzf my-kakrc ];
+    plugins = with pkgs.kakounePlugins; [ kak-lsp kak-fzf my-kakrc kakboard ];
   };
 in {
   # Let Home Manager install and manage itself.
@@ -64,6 +64,7 @@ in {
     ranger
     rust-analyzer
     rustup # TODO: switch to a direnv-based workflow instead
+    wl-clipboard
     xdg-utils # for xdg-open
     zathura # PDF viewer
   ];
