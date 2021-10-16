@@ -52,11 +52,12 @@ in {
     bat
     chromium
     docker-compose
-    exa
+    exa # ls replacement
     firefox
     fzf
     hub # GitHub CLI
     imagemagick
+    imv # image viewer
     kak
     mpv
     neovim
@@ -64,7 +65,7 @@ in {
     rust-analyzer
     rustup # TODO: switch to a direnv-based workflow instead
     xdg-utils # for xdg-open
-    zathura
+    zathura # PDF viewer
   ];
 
   programs.direnv = {
@@ -150,13 +151,18 @@ in {
         sha256 = "1gpldpykvn9sgykb1ydlwz0zkiyx7y9qhf8zaknc88v1pan8n1jn";
       };
       "sway".source = ./dotfiles/sway;
-      "waybar".source = ./dotfiles/waybar;
+      "waybar".source = localHome.waybarDir or ./dotfiles/waybar;
     };
 
     mimeApps = {
       enable = true;
       defaultApplications = {
         "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+        "image/gif" = [ "imv.desktop" ];
+        "image/jpeg" = [ "imv.desktop" ];
+        "image/png" = [ "imv.desktop" ];
+        "image/webp" = [ "imv.desktop" ];
+        "video/webm" = [ "mpv.desktop" ];
       };
     };
   };
