@@ -11,7 +11,7 @@ let
     name = "tom-kakrc";
     src = ./dotfiles/kak;
   };
-  tomskak = pkgs.kakoune.override {
+  kak = pkgs.kakoune.override {
     plugins = with pkgs.kakounePlugins; [ kak-lsp kak-fzf my-kakrc ];
   };
 in {
@@ -37,11 +37,6 @@ in {
     # Julia
     julia_16-bin
 
-    # Neovim
-    neovim
-
-    tomskak
-
     # Wayland screenshots (sway)
     slurp
     grim
@@ -61,12 +56,14 @@ in {
     firefox
     fzf
     hub # GitHub CLI
+    imagemagick
+    kak
     mpv
+    neovim
     ranger
     rust-analyzer
     rustup # TODO: switch to a direnv-based workflow instead
     xdg-utils # for xdg-open
-    zoom-us
   ];
 
   programs.direnv = {

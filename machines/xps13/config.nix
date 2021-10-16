@@ -23,8 +23,7 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp0s20f0u1.useDHCP = false;
-  networking.interfaces.wlp2s0.useDHCP = false;
+  networking.interfaces.wlp2s0.useDHCP = true;
 
   services.xserver.libinput = {
     enable = true;
