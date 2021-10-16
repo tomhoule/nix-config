@@ -165,5 +165,13 @@ in {
         "video/webm" = [ "mpv.desktop" ];
       };
     };
+
+    userDirs = {
+      enable = true;
+      documents = "$HOME/Documents";
+      download = "$HOME/Downloads";
+      pictures = "$HOME/Pictures";
+      videos = "$HOME/Videos";
+    };
   };
 }
