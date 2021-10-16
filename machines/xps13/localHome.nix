@@ -1,0 +1,1 @@
+{ ... }: { waybarDir = ../../dotfiles/laptopWaybar; }
