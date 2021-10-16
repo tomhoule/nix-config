@@ -64,6 +64,7 @@ in {
     rust-analyzer
     rustup # TODO: switch to a direnv-based workflow instead
     xdg-utils # for xdg-open
+    zathura
   ];
 
   programs.direnv = {
@@ -150,6 +151,13 @@ in {
       };
       "sway".source = ./dotfiles/sway;
       "waybar".source = ./dotfiles/waybar;
+    };
+
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+      };
     };
   };
 }
