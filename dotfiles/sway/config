@@ -96,6 +96,10 @@ input "type:keyboard" {
 
     # Screenshots
     bindsym Print exec grim -t png -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H-%m-%S).png;
+
+    # Dismiss notifications
+    bindsym $mod+n exec --no-startup-id "makoctl dismiss";
+    bindsym $mod+Shift+n exec --no-startup-id "makoctl dismiss --all";
 #
 # Moving around:
 #
