@@ -80,6 +80,7 @@
     isNormalUser = true;
     extraGroups = [
       "docker"
+      "video" # For brillo/brightness control
       "wheel" # Enable ‘sudo’ for the user.
     ];
     shell = "${pkgs.zsh}/bin/zsh";

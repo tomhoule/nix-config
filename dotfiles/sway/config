@@ -95,6 +95,10 @@ input "type:touchpad" {
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume '@DEFAULT_SINK@' +10%
     bindsym XF86AudioMute exec pactl set-sink-mute '@DEFAULT_SINK' toggle # mute sound
 
+    # Brightness control
+    bindsym XF86MonBrightnessUp exec brillo -A 10
+    bindsym XF86MonBrightnessDown exec brillo -U 10
+
     # Lock
     bindsym $mod+Ctrl+l exec swaylock -c 111100 -i /home/tom/.wallpaper
 

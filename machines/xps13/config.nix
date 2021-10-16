@@ -25,7 +25,9 @@
   networking.useDHCP = false;
   # networking.interfaces.wlp2s0.useDHCP = true;
 
+  # TODO: extract this
   programs.ssh.startAgent = true;
+  hardware.brillo.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
