@@ -18,7 +18,7 @@
 
   environment.variables = {
     MOZ_ENABLE_WAYLAND = "1";
-    EDITOR = "${pkgs.kakoune}/bin/kak";
+    EDITOR = "kak";
   };
 
   nix = {
