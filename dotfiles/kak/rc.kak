@@ -59,9 +59,9 @@ define-command -override -docstring 'Open a file with ranger' \
 map global user r ': browse-file %sh{dirname $kak_buffile} <ret>' -docstring 'Browse files with ranger'
 
 ## NIX ##
-#
+
 hook global BufCreate ^.*\.nix$ %{
-    set-option buffer formatcmd 'nixfmt'
+    set-option buffer formatcmd 'nixpkgs-fmt'
 }
 
 hook global BufWritePre ^.*\.nix$ %{

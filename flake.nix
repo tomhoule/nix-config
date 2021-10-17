@@ -19,7 +19,8 @@
             import ./home.nix { inherit localHome pkgs; };
         }
       ]);
-    in {
+    in
+    {
       nixosConfigurations = {
         test-vm = nixpkgs.lib.nixosSystem {
           modules = [ ./modules/base.nix ./machines/test-vm/config.nix ]

@@ -14,7 +14,8 @@ let
   kak = pkgs.kakoune.override {
     plugins = with pkgs.kakounePlugins; [ kak-lsp kak-fzf my-kakrc kakboard ];
   };
-in {
+in
+{
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -42,7 +43,6 @@ in {
     grim
 
     # Nix
-    nixfmt
     nixpkgs-fmt
 
     # Node...
