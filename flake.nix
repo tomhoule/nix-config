@@ -1,5 +1,5 @@
 {
-  description = "noch nix";
+  description = "ich lieb dich nix du liebst mich nix, da da da";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
