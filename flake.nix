@@ -40,6 +40,7 @@
         xps13 = nixpkgs.lib.nixosSystem {
           modules = [
             ./modules/base.nix
+            ./modules/laptop.nix
             ./modules/docker.nix
             ./machines/xps13/config.nix
           ] ++ (homeConfig {
