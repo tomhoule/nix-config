@@ -5,6 +5,9 @@ map global normal <space> , -docstring 'leader'
 map global normal <backspace> <space> -docstring 'remove all sels except main' # this is space by default
 map global normal <a-backspace> <a-space> -docstring 'remove main sel'
 
+# Clippy is cute but he takes up space
+set-option global ui_options terminal_assistant=none 
+
 ## TERMINAL ##
 
 hook global WinCreate .* %{
@@ -19,6 +22,7 @@ define-command -override \
 map global user w ': dup-window<ret>' -docstring "Duplicate the window"
 
 ## CLIPBOARD ##
+
 hook global WinCreate .* %{ kakboard-enable }
 
 ## FZF ##
