@@ -10,7 +10,7 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit builtins system; };
-      homeConfig = ({ localHome }: [
+      homeConfig = ({ localHome ? {} }: [
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
