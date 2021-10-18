@@ -251,4 +251,10 @@ smart_gaps on
 gaps inner 10
 gaps outer 0
 
+#
+# Floating windows
+#
+# the firefox sharing indicator
+for_window [title="^Firefox...Sharing Indicator$"] floating enable
+
 include /etc/sway/config.d/*
