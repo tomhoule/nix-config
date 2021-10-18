@@ -65,7 +65,7 @@ hook global BufCreate ^.*\.nix$ %{
 }
 
 hook global BufWritePre ^.*\.nix$ %{
-    eval format
+    eval %sh{ if [ -z "$INHIBIT_AUTOFORMAT" ]; then echo format; else echo nop; fi }
 }
 
 ## LSP ##
