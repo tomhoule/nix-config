@@ -83,6 +83,14 @@ in
   programs.foot = {
     enable = true;
     server = { enable = true; };
+    settings = {
+      main = {
+        font = "IBM Plex Mono:size=12";
+      };
+      colors = {
+        alpha = "0.9";
+      };
+    };
   };
 
   programs.mako.enable = true;
@@ -143,7 +151,6 @@ in
     enable = true;
     configFile = {
       "doom".source = ./dotfiles/doom;
-      "foot".source = ./dotfiles/foot;
       "kak-lsp/kak-lsp.toml".source = ./dotfiles/kak-lsp.toml;
       "nvim/init.vim".source = ./dotfiles/init.vim;
       "nvim/autoload/plug.vim".source = fetchurl {
