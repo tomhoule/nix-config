@@ -10,7 +10,7 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit builtins system; };
-      homeConfig = ({ localHome ? {} }: [
+      homeConfig = ({ localHome ? { } }: [
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -22,12 +22,6 @@
     in
     {
       nixosConfigurations = {
-        test-vm = nixpkgs.lib.nixosSystem {
-          modules = [ ./modules/base.nix ./machines/test-vm/config.nix ]
-            ++ (homeConfig { });
-          inherit system;
-        };
-
         prisma-desktop = nixpkgs.lib.nixosSystem {
           modules = [
             ./modules/base.nix
