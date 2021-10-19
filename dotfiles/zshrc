@@ -36,7 +36,6 @@ alias mv='mv -i'
 alias open=xdg-open
 
 alias corgi=cargo
-alias corgo=cargo
 
 function tn() {
 	DIRNAME=$(basename `pwd` | tr -d '\n')
@@ -50,5 +49,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.cache/node_modules/bin:$PATH"
 export npm_config_prefix=~/.cache/node_modules
 
-# Emacs
+# Emacs (doom)
 export PATH="$HOME/.emacs.d/bin:$PATH"
