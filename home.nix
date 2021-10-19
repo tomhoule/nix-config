@@ -5,6 +5,7 @@ with builtins;
 let
   homeDirectory = "/home/tom";
   homeDomain = "tomhoule.com";
+  homeEmail = "tom@" + homeDomain;
 
   # Kakoune
   my-kakrc = pkgs.kakouneUtils.buildKakounePlugin {
@@ -98,7 +99,7 @@ in
   programs.git = {
     enable = true;
     userName = "Tom Houlé";
-    userEmail = "tom@" + homeDomain;
+    userEmail = homeEmail;
     aliases = {
       st = "status";
       ca = "commit --amend";
