@@ -167,6 +167,7 @@ in
           "image/png" = [ "imv.desktop" ];
           "image/webp" = [ "imv.desktop" ];
           "video/webm" = [ "mpv.desktop" ];
+          "video/mp4" = [ "mpv.desktop" ];
 
           "x-scheme-handler/http" = [ defaultBrowser ];
           "x-scheme-handler/https" = [ defaultBrowser ];
