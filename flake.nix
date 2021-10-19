@@ -13,7 +13,7 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit builtins system; };
-      homeConfig = ({ localHome ? { } }: [
+      homeModules = ({ localHome ? { } }: [
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -30,7 +30,7 @@
             ./modules/base.nix
             ./modules/docker.nix
             ./machines/prisma-desktop/config.nix
-          ] ++ (homeConfig { });
+          ] ++ homeModules { };
           inherit system;
         };
 
@@ -40,9 +40,9 @@
             ./modules/laptop.nix
             ./modules/docker.nix
             ./machines/xps13/config.nix
-          ] ++ (homeConfig {
+          ] ++ homeModules {
             localHome = import ./machines/xps13/localHome.nix { };
-          });
+          };
           inherit system;
         };
 
