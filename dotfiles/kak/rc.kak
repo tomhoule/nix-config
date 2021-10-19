@@ -79,8 +79,12 @@ hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %
     lsp-enable-window
 }
 
-## Rust ##
+## RUST ##
 hook global WinSetOption filetype=rust %{
     hook window BufWritePre .* lsp-formatting-sync
 }
- 
+
+## MARKDOWN ##
+hook global WinSetOption filetype=markdown %{
+    autowrap-enable
+}
