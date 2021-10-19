@@ -61,7 +61,7 @@ in
     neovim
     ranger
     rust-analyzer
-    rustup # TODO: switch to a direnv-based workflow instead
+    rustup
     wl-clipboard
     xdg-utils # for xdg-open
     zathura # PDF viewer

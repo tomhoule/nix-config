@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
+  # Screen brightness management.
+  hardware.brillo.enable = true;
+
   services.tlp = {
     enable = true;
     # https://linrunner.de/tlp/settings

@@ -29,10 +29,6 @@ hook global WinCreate .* %{ kakboard-enable }
 #
 # Docs: https://github.com/andreyorst/fzf.kak
 #
-# TODO:
-# 
-# - A binding to search including gitignored files (rg --hidden).
-# 
 map global user f ': fzf-mode<ret>' -docstring 'fzf'
 map global user <space> ': require-module fzf; require-module fzf-file; fzf-file<ret>' -docstring 'Find files'
 

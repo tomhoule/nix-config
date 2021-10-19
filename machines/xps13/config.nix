@@ -14,8 +14,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  nixpkgs.config.allowUnfree = true; # TODO: more fine-grained
-
   networking.hostName = "xps13"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
@@ -25,10 +23,6 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
   # networking.interfaces.wlp2s0.useDHCP = true;
-
-  # TODO: extract this
-  programs.ssh.startAgent = true;
-  hardware.brillo.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
