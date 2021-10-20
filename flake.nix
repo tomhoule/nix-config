@@ -2,17 +2,21 @@
   description = "ich lieb dich nix du liebst mich nix, da da da";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    rust-overlay = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:oxalica/rust-overlay";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, home-manager, rust-overlay }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit builtins system; };
+      pkgs = import nixpkgs { overlays = [ rust-overlay.overlay ]; inherit builtins system; };
       homeModules = ({ localHome ? { } }: [
         home-manager.nixosModules.home-manager
         {

@@ -19,6 +19,9 @@ in
 {
   home = {
     username = "tom";
+    sessionVariables = {
+      CARGO_HOME = "${homeDirectory}/.cache/cargo";
+    };
     inherit homeDirectory;
   };
 
@@ -60,8 +63,8 @@ in
     mpv
     neovim
     ranger
+    rust-bin.stable.latest.default
     rust-analyzer
-    rustup
     wl-clipboard
     xdg-utils # for xdg-open
     zathura # PDF viewer
