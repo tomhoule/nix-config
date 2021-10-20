@@ -2,12 +2,17 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+  ];
+
+  # This machine needs a proprietary network driver.
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "broadcom-sta"
   ];
 
   # Use the systemd-boot EFI boot loader.

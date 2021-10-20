@@ -30,7 +30,9 @@
             ./modules/base.nix
             ./modules/docker.nix
             ./machines/prisma-desktop/config.nix
-          ] ++ homeModules { };
+          ] ++ homeModules {
+            localHome = import ./machines/prisma-desktop/localHome.nix { };
+          };
           inherit system;
         };
 
