@@ -18,7 +18,7 @@
 
   environment.variables = {
     MOZ_ENABLE_WAYLAND = "1";
-    EDITOR = "kak";
+    EDITOR = "nvim";
   };
 
   nix = {
@@ -54,7 +54,7 @@
   ];
 
   programs = {
-    neovim.enable = true;
+
 
     sway = {
       enable = true;

@@ -59,9 +59,8 @@ in
     hub # GitHub CLI
     imagemagick
     imv # image viewer
-    kak
+    kak # oune
     mpv
-    neovim
     ranger
     rust-bin.stable.latest.default
     rust-analyzer
@@ -95,7 +94,37 @@ in
     };
   };
 
+  # Notification daemon
   programs.mako.enable = true;
+
+  programs.neovim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [
+      { plugin = dracula-vim; }
+      { plugin = fzf-vim; }
+      {
+        plugin = nvim-lspconfig;
+        config = "lua << EOF\n${readFile ./dotfiles/nvim-lsp-config.lua}\nEOF";
+      }
+      {
+        plugin = vim-commentary;
+      }
+      {
+        plugin = vim-dirvish;
+        config = ''
+          " Replace netrw with dirvish
+          let g:loaded_netrwPlugin = 1
+          command! -nargs=? -complete=dir Explore Dirvish <args>
+          command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
+          command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
+        '';
+      }
+      { plugin = vim-gitgutter; }
+      { plugin = vim-nix; }
+      { plugin = vim-surround; }
+    ];
+    extraConfig = readFile ./dotfiles/init.vim;
+  };
 
   programs.git = {
     enable = true;
@@ -133,7 +162,6 @@ in
       jnoortheen.nix-ide
       matklad.rust-analyzer
       tamasfe.even-better-toml
-      tiehuis.zig
     ];
     userSettings = {
       editor = {
@@ -180,12 +208,6 @@ in
     configFile = {
       "doom".source = ./dotfiles/doom;
       "kak-lsp/kak-lsp.toml".source = ./dotfiles/kak-lsp.toml;
-      "nvim/init.vim".source = ./dotfiles/init.vim;
-      "nvim/autoload/plug.vim".source = fetchurl {
-        url =
-          "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim";
-        sha256 = "1gpldpykvn9sgykb1ydlwz0zkiyx7y9qhf8zaknc88v1pan8n1jn";
-      };
       "sway".source = ./dotfiles/sway;
       "waybar".source = localHome.waybarDir or ./dotfiles/waybar;
     };
