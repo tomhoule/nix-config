@@ -120,7 +120,12 @@ in
         '';
       }
       { plugin = vim-gitgutter; }
-      { plugin = vim-nix; }
+      {
+        plugin = vim-nix;
+        config = ''
+          autocmd BufRead,BufNewFile *.nix nmap <buffer> <leader>mf :!nixpkgs-fmt %<ENTER><ENTER>:e!<ENTER>
+        '';
+      }
       { plugin = vim-surround; }
     ];
     extraConfig = readFile ./dotfiles/init.vim;
