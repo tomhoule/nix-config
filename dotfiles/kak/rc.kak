@@ -58,6 +58,7 @@ map global user r ': browse-file %sh{dirname $kak_buffile} <ret>' -docstring 'Br
 
 hook global BufCreate ^.*\.nix$ %{
     set-option buffer formatcmd 'nixpkgs-fmt'
+    set-option buffer indentwidth 2
 }
 
 hook global BufWritePre ^.*\.nix$ %{
