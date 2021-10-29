@@ -30,10 +30,6 @@ in
     # Julia
     julia_16-bin
 
-    # Wayland screenshots (sway)
-    slurp
-    grim
-
     # Nix
     nixpkgs-fmt
 
@@ -41,6 +37,15 @@ in
     cargo-edit
     rust-bin.stable.latest.default
     rust-analyzer
+
+    # <Added for building rust projects>
+    gnumake
+    clang
+    lld
+    openssl
+    coreutils
+    binutils
+    # </Added for building rust>
 
     # & co
     bat

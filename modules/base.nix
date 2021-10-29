@@ -5,15 +5,6 @@
   environment.systemPackages = with pkgs; [
     ripgrep
     pulseaudio # for utilities like pactl — not the daemon
-
-    # <Added for building rust projects>
-    gnumake
-    clang
-    lld
-    openssl
-    coreutils
-    binutils
-    # </Added for building rust>
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];
@@ -48,20 +39,23 @@
     dejavu_fonts
     fira-code
     font-awesome # required for waybar
+    ibm-plex
     noto-fonts
-    noto-fonts-extra
     noto-fonts-cjk
     noto-fonts-emoji
-    ibm-plex
+    noto-fonts-extra
   ];
 
   programs = {
-
-
     sway = {
       enable = true;
       extraPackages = with pkgs; [
         hicolor-icon-theme # for wofi
+
+        # Wayland screenshots (sway)
+        slurp
+        grim
+
         swayidle
         swaylock
         waybar
@@ -99,7 +93,8 @@
     portal = {
       enable = true;
       extraPortals =
-        [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
+        [ pkgs.xdg-desktop-portal-gtk ];
+      wlr.enable = true;
     };
   };
 }
