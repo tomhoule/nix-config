@@ -4,10 +4,10 @@
   enable = true;
 
   configFile = {
-    "doom".source = ../dotfiles/doom;
+    "doom".source = ./doom;
     "kak-lsp/kak-lsp.toml".source = ./kak/kak-lsp.toml;
-    "sway".source = ../dotfiles/sway;
-    "waybar".source = localHome.waybarDir or ../dotfiles/waybar;
+    "sway".source = ./sway;
+    "waybar".source = localHome.waybarDir or ./waybar;
   };
 
   mimeApps = {

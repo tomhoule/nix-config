@@ -1,1 +1,1 @@
-{ ... }: { waybarDir = ../../dotfiles/laptopWaybar; }
+{ ... }: { waybarDir = ../../home/laptopWaybar; }
