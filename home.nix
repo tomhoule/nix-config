@@ -110,12 +110,6 @@ in
       }
       {
         plugin = fzf-vim;
-        config = ''
-          nmap <silent> <leader><space> :GFiles<ENTER>
-          nmap <silent> <leader>rg :Rg<ENTER>
-          nmap <silent> <leader>gr :Rg<ENTER>
-          nmap <silent> <leader>b :Buffers<Enter>
-        '';
       }
       { plugin = fzf-lsp-nvim; }
       {
@@ -133,8 +127,6 @@ in
           command! -nargs=? -complete=dir Explore Dirvish <args>
           command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
           command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
-
-          nmap <silent> <leader>d :Dirvish %<ENTER>
         '';
       }
       { plugin = vim-gitgutter; }
