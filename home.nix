@@ -113,18 +113,8 @@ in
     };
   };
 
-  programs.tmux = {
-    enable = true;
-    extraConfig = readFile ./dotfiles/tmux.conf;
-    sensibleOnTop = false;
-    terminal = "screen-256color";
-    historyLimit = 12000;
-    keyMode = "vi";
-    baseIndex = 1;
-  };
-
+  programs.tmux = import ./home/tmux;
   programs.vscode = import ./home/codium { inherit pkgs; };
-
   programs.zsh = import ./home/zsh { inherit homeDirectory pkgs; };
 
   xdg = import ./home/xdg.nix { inherit localHome; };
