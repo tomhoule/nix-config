@@ -83,36 +83,11 @@ in
     };
   };
 
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
+  programs.fzf = { enable = true; enableZshIntegration = true; };
+  programs.git = import ./home/git.nix { inherit homeEmail; };
   programs.kakoune = import ./home/kak { inherit pkgs; };
-
-  # Notification daemon
-  programs.mako.enable = true;
-
+  programs.mako.enable = true; # notification daemon
   programs.neovim = import ./home/nvim { inherit pkgs; };
-
-  programs.git = {
-    enable = true;
-    userName = "Tom Houlé";
-    userEmail = homeEmail;
-    aliases = {
-      st = "status";
-      ca = "commit --amend";
-      fa = "fetch --all";
-      co = "checkout";
-      pso = "push --set-upstream origin HEAD";
-      pf = "push --force";
-    };
-    extraConfig = {
-      init = { defaultBranch = "main"; };
-      pull = { rebase = true; };
-    };
-  };
-
   programs.tmux = import ./home/tmux;
   programs.vscode = import ./home/codium { inherit pkgs; };
   programs.zsh = import ./home/zsh { inherit homeDirectory pkgs; };
