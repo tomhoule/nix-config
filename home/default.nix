@@ -58,17 +58,17 @@ in
     zathura # PDF viewer
   ];
 
-  programs.direnv = import ./home/direnv.nix;
+  programs.direnv = import ./direnv.nix;
   programs.emacs.enable = true;
-  programs.foot = import ./home/foot.nix { inherit localHome; };
+  programs.foot = import ./foot.nix { inherit localHome; };
   programs.fzf = { enable = true; enableZshIntegration = true; };
-  programs.git = import ./home/git.nix { inherit homeEmail; };
-  programs.kakoune = import ./home/kak { inherit pkgs; };
+  programs.git = import ./git.nix { inherit homeEmail; };
+  programs.kakoune = import ./kak { inherit pkgs; };
   programs.mako.enable = true; # notification daemon
-  programs.neovim = import ./home/nvim { inherit pkgs; };
-  programs.tmux = import ./home/tmux;
-  programs.vscode = import ./home/codium { inherit pkgs; };
-  programs.zsh = import ./home/zsh { inherit homeDirectory pkgs; };
+  programs.neovim = import ./nvim { inherit pkgs; };
+  programs.tmux = import ./tmux;
+  programs.vscode = import ./codium { inherit pkgs; };
+  programs.zsh = import ./zsh { inherit homeDirectory pkgs; };
 
-  xdg = import ./home/xdg.nix { inherit localHome; };
+  xdg = import ./xdg.nix { inherit localHome; };
 }

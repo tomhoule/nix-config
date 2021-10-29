@@ -24,7 +24,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.tom =
-            import ./home.nix { inherit localHome pkgs; };
+            import ./home { inherit localHome pkgs; };
         }
       ]);
     in
