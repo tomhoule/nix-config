@@ -49,6 +49,11 @@ in
     # Node...
     nodejs-14_x # LTS
 
+    # Rust
+    cargo-edit
+    rust-bin.stable.latest.default
+    rust-analyzer
+
     # & co
     bat
     chromium
@@ -62,8 +67,6 @@ in
     kak # oune
     mpv
     ranger
-    rust-bin.stable.latest.default
-    rust-analyzer
     wl-clipboard
     xdg-utils # for xdg-open
     zathura # PDF viewer
