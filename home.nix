@@ -46,9 +46,6 @@ in
     # Nix
     nixpkgs-fmt
 
-    # Node...
-    nodejs-14_x # LTS
-
     # Rust
     cargo-edit
     rust-bin.stable.latest.default
@@ -60,7 +57,6 @@ in
     docker-compose
     exa # ls replacement
     firefox
-    fzf
     hub # GitHub CLI
     imagemagick
     imv # image viewer
@@ -95,6 +91,11 @@ in
         alpha = "0.9";
       };
     };
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   # Notification daemon
@@ -204,12 +205,20 @@ in
 
   programs.zsh = {
     enable = true;
+    defaultKeymap = "emacs";
+    enableAutosuggestions = true;
+    enableCompletion = true;
     history = {
       size = 20000;
       save = 20000;
       path = "${homeDirectory}/.histfile";
       share = true;
     };
+    initExtraFirst = ''
+      autoload -z edit-command-line
+      zle -N edit-command-line
+      bindkey '^x^e' edit-command-line # like bash
+    '';
     shellAliases = {
       cat = "bat";
       c = "codium";
@@ -218,7 +227,7 @@ in
     };
     initExtra = (readFile ./dotfiles/zshrc) + ''
       source ${pkgs.zsh-z}/share/zsh-z/zsh-z.plugin.zsh
-      source ${pkgs.fzf}/share/fzf/key-bindings.zsh'';
+    '';
   };
 
   xdg = import ./home/xdg.nix { inherit localHome; };
