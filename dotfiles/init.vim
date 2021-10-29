@@ -12,6 +12,7 @@ vmap <C-l> <Esc>
 set ignorecase
 set smartcase " only goes with ignorecase
 set autoread
+set inccommand=split
 
 " Indentation
 set tabstop=4
