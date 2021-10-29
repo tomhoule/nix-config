@@ -6,6 +6,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "nixpkgs/nixos-unstable";
     rust-overlay = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,7 +14,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, rust-overlay }:
+  outputs = { self, nixpkgs, home-manager, rust-overlay, nixos-hardware }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { overlays = [ rust-overlay.overlay ]; inherit builtins system; };
@@ -46,6 +47,7 @@
             ./modules/laptop.nix
             ./modules/docker.nix
             ./machines/xps13/config.nix
+            nixos-hardware.nixosModules.dell-xps-13-9380
           ] ++ homeModules {
             localHome = import ./machines/xps13/localHome.nix { };
           };
