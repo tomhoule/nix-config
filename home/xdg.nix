@@ -5,7 +5,7 @@
 
   configFile = {
     "doom".source = ../dotfiles/doom;
-    "kak-lsp/kak-lsp.toml".source = ../dotfiles/kak/kak-lsp.toml;
+    "kak-lsp/kak-lsp.toml".source = ./kak/kak-lsp.toml;
     "sway".source = ../dotfiles/sway;
     "waybar".source = localHome.waybarDir or ../dotfiles/waybar;
   };

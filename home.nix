@@ -6,15 +6,6 @@ let
   homeDirectory = "/home/tom";
   homeDomain = "tomhoule.com";
   homeEmail = "tom@" + homeDomain;
-
-  # Kakoune
-  my-kakrc = pkgs.kakouneUtils.buildKakounePlugin {
-    name = "tom-kakrc";
-    src = ./dotfiles/kak;
-  };
-  kak = pkgs.kakoune.override {
-    plugins = with pkgs.kakounePlugins; [ kak-lsp kak-fzf my-kakrc kakboard ];
-  };
 in
 {
   home = {
@@ -60,7 +51,6 @@ in
     hub # GitHub CLI
     imagemagick
     imv # image viewer
-    kak # oune
     mpv
     ranger
     wl-clipboard
@@ -97,6 +87,8 @@ in
     enable = true;
     enableZshIntegration = true;
   };
+
+  programs.kakoune = import ./home/kak { inherit pkgs; };
 
   # Notification daemon
   programs.mako.enable = true;
