@@ -13,10 +13,30 @@ with builtins;
         let g:dracula_colorterm = 0
       '';
     }
-    {
-      plugin = fzf-vim;
-    }
+    { plugin = fzf-vim; }
     { plugin = fzf-lsp-nvim; }
+
+    # Completion
+    { plugin = cmp-buffer; }
+    { plugin = cmp-nvim-lsp; }
+    {
+      plugin = nvim-cmp;
+      config = ''
+        " Based on the config in https://github.com/hrsh7th/nvim-cmp
+        set completeopt=menu,menuone,noselect
+
+        lua <<EOF
+          local cmp = require'cmp'
+          cmp.setup({
+            sources = cmp.config.sources({
+              { name = 'nvim_lsp' },
+              { name = 'buffer' },
+            })
+          })
+        EOF
+      '';
+    }
+
     {
       plugin = nvim-lspconfig;
       config = "lua << EOF\n${readFile ./nvim-lsp-config.lua}\nEOF";
