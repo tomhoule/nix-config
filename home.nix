@@ -100,8 +100,23 @@ in
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      { plugin = dracula-vim; }
-      { plugin = fzf-vim; }
+      {
+        plugin = dracula-vim;
+        config = ''
+          set termguicolors
+          colorscheme dracula
+          let g:dracula_colorterm = 0
+        '';
+      }
+      {
+        plugin = fzf-vim;
+        config = ''
+          nmap <silent> <leader><space> :GFiles<ENTER>
+          nmap <silent> <leader>rg :Rg<ENTER>
+          nmap <silent> <leader>gr :Rg<ENTER>
+          nmap <silent> <leader>b :Buffers<Enter>
+        '';
+      }
       {
         plugin = nvim-lspconfig;
         config = "lua << EOF\n${readFile ./dotfiles/nvim-lsp-config.lua}\nEOF";
@@ -117,13 +132,15 @@ in
           command! -nargs=? -complete=dir Explore Dirvish <args>
           command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
           command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
+
+          nmap <silent> <leader>d :Dirvish %<ENTER>
         '';
       }
       { plugin = vim-gitgutter; }
       {
         plugin = vim-nix;
         config = ''
-          autocmd BufRead,BufNewFile *.nix nmap <buffer> <leader>mf :!nixpkgs-fmt %<ENTER><ENTER>:e!<ENTER>
+          autocmd BufRead,BufNewFile *.nix nmap <buffer> <leader>f :w<ENTER>:!nixpkgs-fmt %<ENTER><ENTER>:e!<ENTER>
         '';
       }
       { plugin = vim-surround; }

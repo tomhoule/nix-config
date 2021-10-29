@@ -1,19 +1,10 @@
-set termguicolors
-colorscheme dracula
-let g:dracula_colorterm = 0
-
 let mapleader = " " " Use space as a leader
 
 nmap <silent> <leader>w :write<ENTER>
 nmap <leader>h :nohlsearch<ENTER>
-nmap <silent> <leader><space> :GFiles<ENTER>
-nmap <silent> <leader>rg :Rg<ENTER>
-nmap <silent> <leader>gr :Rg<ENTER>
-nmap <silent> <leader>b :Buffers<Enter>
 nmap é :
 " Faster way to get to a shell command
 nmap ! :!
-nmap <silent> <leader>d :Dirvish %<ENTER>
 imap <C-l> <Esc>
 nmap <C-l> <Esc>
 vmap <C-l> <Esc>
