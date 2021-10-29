@@ -117,6 +117,7 @@ in
           nmap <silent> <leader>b :Buffers<Enter>
         '';
       }
+      { plugin = fzf-lsp-nvim; }
       {
         plugin = nvim-lspconfig;
         config = "lua << EOF\n${readFile ./dotfiles/nvim-lsp-config.lua}\nEOF";
