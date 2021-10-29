@@ -58,31 +58,9 @@ in
     zathura # PDF viewer
   ];
 
-  programs.direnv = {
-    enable = true;
-    enableZshIntegration = true;
-    nix-direnv = {
-      enable = true;
-      enableFlakes = true;
-    };
-  };
-
+  programs.direnv = import ./home/direnv.nix;
   programs.emacs.enable = true;
-
-  programs.foot = {
-    enable = true;
-    server = { enable = true; };
-    settings = {
-      main = {
-        font = "IBM Plex Mono:size=${localHome.termFontSize or "7"}";
-        letter-spacing = "-0.3";
-      };
-      colors = {
-        alpha = "0.9";
-      };
-    };
-  };
-
+  programs.foot = import ./home/foot.nix { inherit localHome; };
   programs.fzf = { enable = true; enableZshIntegration = true; };
   programs.git = import ./home/git.nix { inherit homeEmail; };
   programs.kakoune = import ./home/kak { inherit pkgs; };
