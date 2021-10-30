@@ -16,6 +16,7 @@ in
     ./nvim
     ./sway
     ./xdg.nix
+    ./zsh
   ];
 
   home = {
@@ -78,5 +79,4 @@ in
   programs.git = import ./git.nix { inherit homeEmail; };
   programs.tmux = import ./tmux;
   programs.vscode = import ./codium { inherit pkgs; };
-  programs.zsh = import ./zsh { inherit homeDirectory pkgs; };
 }
