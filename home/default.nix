@@ -9,6 +9,7 @@ let
 in
 {
   imports = [
+    ./kak
     ./foot.nix
     ./xdg.nix
   ];
@@ -72,7 +73,6 @@ in
   programs.emacs.enable = true;
   programs.fzf = { enable = true; enableZshIntegration = true; };
   programs.git = import ./git.nix { inherit homeEmail; };
-  programs.kakoune = import ./kak { inherit pkgs; };
   programs.mako.enable = true; # notification daemon
   programs.neovim = import ./nvim { inherit pkgs; };
   programs.tmux = import ./tmux;

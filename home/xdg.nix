@@ -6,7 +6,6 @@
 
     configFile = {
       "doom".source = ./doom;
-      "kak-lsp/kak-lsp.toml".source = ./kak/kak-lsp.toml;
       "sway".source = ./sway;
       "waybar".source = lib.mkDefault ./waybar;
     };
