@@ -5,12 +5,13 @@ with builtins;
 {
   enable = true;
   defaultKeymap = "emacs";
-  enableAutosuggestions = true;
+  dotDir = ".config/zsh";
   enableCompletion = true;
   history = {
+    expireDuplicatesFirst = true;
     size = 20000;
     save = 20000;
-    path = "${homeDirectory}/.histfile";
+    path = "${homeDirectory}/.cache/zshHistfile";
     share = true;
   };
   initExtraFirst = ''

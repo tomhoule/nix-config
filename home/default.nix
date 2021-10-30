@@ -9,6 +9,7 @@ let
 in
 {
   imports = [
+    ./emacs
     ./kak
     ./foot.nix
     ./xdg.nix
@@ -18,6 +19,7 @@ in
     username = "tom";
     sessionVariables = {
       CARGO_HOME = "${homeDirectory}/.cache/cargo";
+      npm_config_prefix = "${homeDirectory}/.cache/node_modules";
     };
     inherit homeDirectory;
   };
