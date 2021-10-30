@@ -5,7 +5,6 @@
     enable = true;
 
     configFile = {
-      "doom".source = ./doom;
       "sway".source = ./sway;
       "waybar".source = lib.mkDefault ./waybar;
     };
