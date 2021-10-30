@@ -12,6 +12,7 @@ in
     ./emacs
     ./kak
     ./foot.nix
+    ./sway
     ./xdg.nix
   ];
 
@@ -72,7 +73,6 @@ in
   ];
 
   programs.direnv = import ./direnv.nix;
-  programs.emacs.enable = true;
   programs.fzf = { enable = true; enableZshIntegration = true; };
   programs.git = import ./git.nix { inherit homeEmail; };
   programs.mako.enable = true; # notification daemon
