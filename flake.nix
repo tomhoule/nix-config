@@ -44,10 +44,6 @@
                           type = types.str;
                           default = "7";
                         };
-                        waybarDir = mkOption {
-                          type = types.path;
-                          default = ./home/waybar;
-                        };
                       };
                     };
                   };

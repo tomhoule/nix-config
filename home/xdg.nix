@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 {
   xdg = {
@@ -8,7 +8,7 @@
       "doom".source = ./doom;
       "kak-lsp/kak-lsp.toml".source = ./kak/kak-lsp.toml;
       "sway".source = ./sway;
-      "waybar".source = config.localHome.waybarDir;
+      "waybar".source = lib.mkDefault ./waybar;
     };
 
     mimeApps = {

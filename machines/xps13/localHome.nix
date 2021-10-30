@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  localHome.waybarDir = ../../home/laptopWaybar;
+  xdg.configFile."waybar".source = ../../home/laptopWaybar;
 }
