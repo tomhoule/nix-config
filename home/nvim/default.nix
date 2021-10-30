@@ -19,6 +19,7 @@ with builtins;
     # Completion
     { plugin = cmp-buffer; }
     { plugin = cmp-nvim-lsp; }
+    { plugin = cmp-vsnip; }
     {
       plugin = nvim-cmp;
       config = ''
@@ -27,8 +28,23 @@ with builtins;
 
         lua <<EOF
           local cmp = require'cmp'
+
           cmp.setup({
+            snippet = {
+              expand = function(args)
+                vim.fn["vsnip#anonymous"](args.body)
+              end,
+            },
+            mappings = {
+              ['<C-SPC>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+              ['<C-e>'] = cmp.mapping.close(),
+              ['<CR>'] = cmp.mapping.confirm({
+                behavior = cmp.ConfirmBehavior.Replace,
+                select = false,
+              }),
+            },
             sources = cmp.config.sources({
+              { name = 'vsnip' },
               { name = 'nvim_lsp' },
               { name = 'buffer' },
             })
@@ -62,6 +78,18 @@ with builtins;
       '';
     }
     { plugin = vim-surround; }
+    {
+      plugin = vim-vsnip;
+      config = ''
+        imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+        smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+        imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+        smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+        imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+        smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+      '';
+    }
   ];
   extraConfig = readFile ./init.vim;
 }
