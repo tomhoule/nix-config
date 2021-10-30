@@ -9,6 +9,7 @@ let
 in
 {
   imports = [
+    ./docker.nix
     ./emacs
     ./kak
     ./foot.nix
@@ -59,7 +60,6 @@ in
     # & co
     bat
     chromium
-    docker-compose
     exa # ls replacement
     firefox
     hub # GitHub CLI
@@ -75,7 +75,6 @@ in
   programs.direnv = import ./direnv.nix;
   programs.fzf = { enable = true; enableZshIntegration = true; };
   programs.git = import ./git.nix { inherit homeEmail; };
-  programs.mako.enable = true; # notification daemon
   programs.neovim = import ./nvim { inherit pkgs; };
   programs.tmux = import ./tmux;
   programs.vscode = import ./codium { inherit pkgs; };

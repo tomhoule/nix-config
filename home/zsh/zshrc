@@ -16,10 +16,6 @@ alias db="git branch -l | fzf | xargs git branch -d"
 alias cob="git branch -l | fzf | xargs git checkout"
 alias coba="git branch -la | fzf | xargs git checkout"
 
-alias dc="docker-compose"
-alias dcup="docker-compose up"
-alias dcr="docker-compose run --rm"
-
 alias cp='cp -i'
 alias grep='grep --colour'
 alias mv='mv -i'
