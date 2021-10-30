@@ -1,4 +1,4 @@
-{ pkgs, localHome }:
+{ pkgs, lib, config, ... }:
 
 with builtins;
 
@@ -8,6 +8,10 @@ let
   homeEmail = "tom@" + homeDomain;
 in
 {
+  imports = [
+    ./xdg.nix
+  ];
+
   home = {
     username = "tom";
     sessionVariables = {
@@ -65,7 +69,7 @@ in
 
   programs.direnv = import ./direnv.nix;
   programs.emacs.enable = true;
-  programs.foot = import ./foot.nix { inherit localHome; };
+  programs.foot = import ./foot.nix { localHome = config.localHome; };
   programs.fzf = { enable = true; enableZshIntegration = true; };
   programs.git = import ./git.nix { inherit homeEmail; };
   programs.kakoune = import ./kak { inherit pkgs; };
@@ -74,6 +78,4 @@ in
   programs.tmux = import ./tmux;
   programs.vscode = import ./codium { inherit pkgs; };
   programs.zsh = import ./zsh { inherit homeDirectory pkgs; };
-
-  xdg = import ./xdg.nix { inherit localHome; };
 }

@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  termFontSize = "10";
+  localHome.termFontSize = "10";
 }

@@ -1,1 +1,5 @@
-{ ... }: { waybarDir = ../../home/laptopWaybar; }
+{ ... }:
+
+{
+  localHome.waybarDir = ../../home/laptopWaybar;
+}
