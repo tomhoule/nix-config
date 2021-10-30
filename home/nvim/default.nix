@@ -81,6 +81,7 @@ with builtins;
     {
       plugin = vim-vsnip;
       config = ''
+        " let g:vsnip_snippet_dir = "{config.xdg.configHome}/vsnip-snippets"
         imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
         smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 
@@ -90,6 +91,7 @@ with builtins;
         smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
       '';
     }
+    { plugin = vim-vsnip-integ; }
   ];
   extraConfig = readFile ./init.vim;
 }
