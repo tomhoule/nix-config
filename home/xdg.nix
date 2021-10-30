@@ -4,11 +4,6 @@
   xdg = {
     enable = true;
 
-    configFile = {
-      "sway".source = ./sway;
-      "waybar".source = lib.mkDefault ./waybar;
-    };
-
     mimeApps = {
       enable = true;
       defaultApplications =

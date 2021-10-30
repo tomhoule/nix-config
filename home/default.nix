@@ -11,8 +11,9 @@ in
   imports = [
     ./docker.nix
     ./emacs
-    ./kak
     ./foot.nix
+    ./kak
+    ./nvim
     ./sway
     ./xdg.nix
   ];
@@ -75,7 +76,6 @@ in
   programs.direnv = import ./direnv.nix;
   programs.fzf = { enable = true; enableZshIntegration = true; };
   programs.git = import ./git.nix { inherit homeEmail; };
-  programs.neovim = import ./nvim { inherit pkgs; };
   programs.tmux = import ./tmux;
   programs.vscode = import ./codium { inherit pkgs; };
   programs.zsh = import ./zsh { inherit homeDirectory pkgs; };
