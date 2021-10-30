@@ -9,6 +9,7 @@ let
 in
 {
   imports = [
+    ./foot.nix
     ./xdg.nix
   ];
 
@@ -69,7 +70,6 @@ in
 
   programs.direnv = import ./direnv.nix;
   programs.emacs.enable = true;
-  programs.foot = import ./foot.nix { localHome = config.localHome; };
   programs.fzf = { enable = true; enableZshIntegration = true; };
   programs.git = import ./git.nix { inherit homeEmail; };
   programs.kakoune = import ./kak { inherit pkgs; };
