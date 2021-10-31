@@ -1,8 +1,12 @@
+{ ... }:
+
 {
-  enable = true;
-  enableZshIntegration = true;
-  nix-direnv = {
+  programs.direnv = {
     enable = true;
-    enableFlakes = true;
+    enableZshIntegration = true;
+    nix-direnv = {
+      enable = true;
+      enableFlakes = true;
+    };
   };
 }

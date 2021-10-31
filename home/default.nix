@@ -9,15 +9,24 @@ let
 in
 {
   imports = [
+    ./codium
+    ./direnv.nix
     ./docker.nix
     ./emacs
     ./foot.nix
+    ./git.nix
     ./kak
     ./nvim
     ./sway
+    ./tmux
     ./xdg.nix
     ./zsh
   ];
+
+  accounts.email.accounts.main = {
+    primary = true;
+    address = homeEmail;
+  };
 
   home = {
     username = "tom";
@@ -74,9 +83,5 @@ in
     zathura # PDF viewer
   ];
 
-  programs.direnv = import ./direnv.nix;
   programs.fzf = { enable = true; enableZshIntegration = true; };
-  programs.git = import ./git.nix { inherit homeEmail; };
-  programs.tmux = import ./tmux;
-  programs.vscode = import ./codium { inherit pkgs; };
 }
