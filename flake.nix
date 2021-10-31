@@ -20,42 +20,45 @@
       overlays = [ rust-overlay.overlay ];
       pkgs = import nixpkgs { inherit builtins system overlays; };
 
-      mkModules = (systemModules: homeModules:
+      mkModules = (systemModules:
         systemModules ++
         [
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.tom = { imports = [ ./hm/tom ] ++ homeModules; };
-          }
+          ({ config, ... }: {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              /*
+                We can't use _module.args here because using regular arguments
+                to determine which modules to resolve causes infinite loops.
+              */
+              extraSpecialArgs = { hostName = config.networking.hostName; };
+              users.tom = { imports = [ ./hm/tom ]; };
+            };
+          })
         ]
       );
     in
     {
       nixosConfigurations = {
         prisma-desktop = nixpkgs.lib.nixosSystem {
-          modules = mkModules
-            [
-              ./modules/base.nix
-              ./modules/docker.nix
-              ./machines/prisma-desktop/config.nix
-            ]
-            [ ./machines/prisma-desktop/localHome.nix ];
+          modules = mkModules [
+            ./modules/base.nix
+            ./modules/docker.nix
+            ./machines/prisma-desktop/config.nix
+          ];
 
           inherit system pkgs;
         };
 
         xps13 = nixpkgs.lib.nixosSystem {
-          modules = mkModules
-            [
-              ./modules/base.nix
-              ./modules/laptop.nix
-              ./modules/docker.nix
-              ./machines/xps13/config.nix
-              nixos-hardware.nixosModules.dell-xps-13-9380
-            ]
-            [ ./machines/xps13/localHome.nix ];
+          modules = mkModules [
+            ./modules/base.nix
+            ./modules/laptop.nix
+            ./modules/docker.nix
+            ./machines/xps13/config.nix
+            nixos-hardware.nixosModules.dell-xps-13-9380
+          ];
 
           inherit system pkgs;
         };

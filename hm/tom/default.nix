@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, hostName, ... }:
 
 with builtins;
 
@@ -8,7 +8,12 @@ let
   homeEmail = "tom@" + homeDomain;
 in
 {
-  imports = map (moduleName: ./. + "/modules/${moduleName}") (attrNames (readDir ./modules));
+  imports =
+    let
+      moduleImports = map (moduleName: ./. + "/modules/${moduleName}") (attrNames (readDir ./modules));
+      perMachineImport = ./. + "/per-machine/${hostName}.nix";
+    in
+    moduleImports ++ [ perMachineImport ];
 
   accounts.email.accounts.main = {
     primary = true;
