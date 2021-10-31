@@ -18,11 +18,12 @@
     let
       system = "x86_64-linux";
       overlays = [ rust-overlay.overlay ];
-      pkgs = import nixpkgs { inherit builtins system overlays; };
+      pkgs = import nixpkgs { inherit system overlays; };
 
       mkModules = (systemModules:
         systemModules ++
         [
+          ./modules/base.nix
           home-manager.nixosModules.home-manager
           ({ config, ... }: {
             home-manager = {
@@ -43,7 +44,6 @@
       nixosConfigurations = {
         prisma-desktop = nixpkgs.lib.nixosSystem {
           modules = mkModules [
-            ./modules/base.nix
             ./modules/docker.nix
             ./machines/prisma-desktop/config.nix
           ];
@@ -53,7 +53,6 @@
 
         xps13 = nixpkgs.lib.nixosSystem {
           modules = mkModules [
-            ./modules/base.nix
             ./modules/laptop.nix
             ./modules/docker.nix
             ./machines/xps13/config.nix
