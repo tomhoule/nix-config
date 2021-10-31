@@ -8,21 +8,7 @@ let
   homeEmail = "tom@" + homeDomain;
 in
 {
-  imports = [
-    ./codium
-    ./direnv.nix
-    ./docker.nix
-    ./emacs
-    ./foot.nix
-    ./git.nix
-    ./kak
-    ./nvim
-    ./rust.nix
-    ./sway
-    ./tmux
-    ./xdg.nix
-    ./zsh
-  ];
+  imports = map (moduleName: ./. + "/modules/${moduleName}") (attrNames (readDir ./modules));
 
   accounts.email.accounts.main = {
     primary = true;
@@ -32,7 +18,6 @@ in
   home = {
     username = "tom";
     sessionVariables = {
-      CARGO_HOME = "${homeDirectory}/.cache/cargo";
       npm_config_prefix = "${homeDirectory}/.cache/node_modules";
     };
     inherit homeDirectory;

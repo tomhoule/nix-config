@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  xdg.configFile."waybar".source = ../../home/sway/laptopWaybar;
+  xdg.configFile."waybar".source = ../../hm/tom/modules/sway/laptopWaybar;
 }

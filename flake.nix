@@ -27,31 +27,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.tom = with pkgs.lib; {
-              imports =
-                [{
-                  options.localHome = mkOption {
-                    description = ''
-                      Tom's custom options to extend the home-manager
-                      configuration in a more fine-grained way.
-                    '';
-
-                    default = {};
-
-                    type = types.submodule {
-                      options = {
-                        termFontSize = mkOption {
-                          type = types.str;
-                          default = "7";
-                        };
-                      };
-                    };
-                  };
-                }]
-                ++
-                homeModules
-              ;
-            };
+            home-manager.users.tom = { imports = [ ./hm/tom ] ++ homeModules; };
           }
         ]
       );
@@ -65,10 +41,7 @@
               ./modules/docker.nix
               ./machines/prisma-desktop/config.nix
             ]
-            [
-              ./machines/prisma-desktop/localHome.nix
-              ./home
-            ];
+            [ ./machines/prisma-desktop/localHome.nix ];
 
           inherit system pkgs;
         };
@@ -82,10 +55,7 @@
               ./machines/xps13/config.nix
               nixos-hardware.nixosModules.dell-xps-13-9380
             ]
-            [
-              ./machines/xps13/localHome.nix
-              ./home
-            ];
+            [ ./machines/xps13/localHome.nix ];
 
           inherit system pkgs;
         };
