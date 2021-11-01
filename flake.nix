@@ -18,7 +18,7 @@
     let
       system = "x86_64-linux";
       overlays = [ rust-overlay.overlay ];
-      pkgs = import nixpkgs { inherit system overlays; };
+      pkgs = import nixpkgs { inherit system overlays; config.allowUnfree = true; }; # TODO: understand and fix the problem.
 
       mkModules = (systemModules:
         systemModules ++
