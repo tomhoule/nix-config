@@ -20,32 +20,34 @@
       overlays = [ rust-overlay.overlay ];
 
       mkConfig = ({ systemModules, nixpkgsConfig ? { } }:
-        let pkgs = import nixpkgs { inherit system overlays; config = nixpkgsConfig; }; in
+        let
+          pkgs = import nixpkgs { inherit system overlays; config = nixpkgsConfig; };
+          nixpkgsModule = { nixpkgs = { inherit pkgs; config = nixpkgsConfig; }; };
+          homeModule = { config, ... }: {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              /*
+                We can't use _module.args here because using regular arguments
+                to determine which modules to resolve causes infinite loops.
+              */
+              extraSpecialArgs = { hostName = config.networking.hostName; };
+              users.tom = { imports = [ ./hm/tom ]; };
+            };
+          };
+        in
         nixpkgs.lib.nixosSystem {
-          modules =
-            systemModules ++
+          modules = systemModules ++
             [
-              { nixpkgs = { inherit pkgs; config = nixpkgsConfig; }; }
               ./modules/base.nix
+              nixpkgsModule
               home-manager.nixosModules.home-manager
-              ({ config, ... }: {
-                home-manager = {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  /*
-                    We can't use _module.args here because using regular arguments
-                    to determine which modules to resolve causes infinite loops.
-                  */
-                  extraSpecialArgs = { hostName = config.networking.hostName; };
-                  users.tom = { imports = [ ./hm/tom ]; };
-                };
-              })
+              homeModule
             ];
 
           inherit system pkgs;
         }
       );
-
     in
     {
       nixosConfigurations = {
