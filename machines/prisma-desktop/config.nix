@@ -10,11 +10,6 @@
     ./hardware-configuration.nix
   ];
 
-  # This machine needs a proprietary network driver.
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "broadcom-sta"
-  ];
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

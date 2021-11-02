@@ -18,48 +18,56 @@
     let
       system = "x86_64-linux";
       overlays = [ rust-overlay.overlay ];
-      pkgs = import nixpkgs { inherit system overlays; config.allowUnfree = true; }; # TODO: understand and fix the problem.
 
-      mkModules = (systemModules:
-        systemModules ++
-        [
-          ./modules/base.nix
-          home-manager.nixosModules.home-manager
-          ({ config, ... }: {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              /*
-                We can't use _module.args here because using regular arguments
-                to determine which modules to resolve causes infinite loops.
-              */
-              extraSpecialArgs = { hostName = config.networking.hostName; };
-              users.tom = { imports = [ ./hm/tom ]; };
-            };
-          })
-        ]
+      mkConfig = ({ systemModules, nixpkgsConfig ? { } }:
+        let pkgs = import nixpkgs { inherit system overlays; config = nixpkgsConfig; }; in
+        nixpkgs.lib.nixosSystem {
+          modules =
+            systemModules ++
+            [
+              { nixpkgs = { inherit pkgs; config = nixpkgsConfig; }; }
+              ./modules/base.nix
+              home-manager.nixosModules.home-manager
+              ({ config, ... }: {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  /*
+                    We can't use _module.args here because using regular arguments
+                    to determine which modules to resolve causes infinite loops.
+                  */
+                  extraSpecialArgs = { hostName = config.networking.hostName; };
+                  users.tom = { imports = [ ./hm/tom ]; };
+                };
+              })
+            ];
+
+          inherit system pkgs;
+        }
       );
+
     in
     {
       nixosConfigurations = {
-        prisma-desktop = nixpkgs.lib.nixosSystem {
-          modules = mkModules [
+        prisma-desktop = mkConfig {
+          systemModules = [
             ./modules/docker.nix
             ./machines/prisma-desktop/config.nix
           ];
 
-          inherit system pkgs;
+          # This machine needs a proprietary network driver.
+          nixpkgsConfig.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+            "broadcom-sta"
+          ];
         };
 
-        xps13 = nixpkgs.lib.nixosSystem {
-          modules = mkModules [
+        xps13 = mkConfig {
+          systemModules = [
             ./modules/laptop.nix
             ./modules/docker.nix
             ./machines/xps13/config.nix
             nixos-hardware.nixosModules.dell-xps-13-9380
           ];
-
-          inherit system pkgs;
         };
 
       };
