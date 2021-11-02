@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 with builtins;
 
@@ -82,7 +82,8 @@ with builtins;
       {
         plugin = vim-vsnip;
         config = ''
-          " let g:vsnip_snippet_dir = "{config.xdg.configHome}/vsnip-snippets"
+          let g:vsnip_snippet_dir = "${config.xdg.configHome}/vsnip-snippets"
+
           imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
           smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 
