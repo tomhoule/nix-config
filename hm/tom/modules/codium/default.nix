@@ -7,7 +7,7 @@
     extensions = with pkgs.vscode-extensions; [
       dracula-theme.theme-dracula
       jnoortheen.nix-ide
-      matklad.rust-analyzer
+      # matklad.rust-analyzer # does not build at this point in time (2021-11-03)
       tamasfe.even-better-toml
     ];
     userSettings = {
