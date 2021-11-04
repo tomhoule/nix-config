@@ -70,6 +70,8 @@
     };
   };
 
+  services.ntp.enable = true;
+
   # Sound and screen sharing
   services.pipewire = {
     enable = true;
