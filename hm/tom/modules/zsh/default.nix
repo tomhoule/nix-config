@@ -18,7 +18,6 @@ with builtins;
     initExtraFirst = ''
       autoload -z edit-command-line
       zle -N edit-command-line
-      bindkey '^x^e' edit-command-line # like bash
     '';
     shellAliases = {
       cat = "bat";
@@ -28,6 +27,7 @@ with builtins;
     };
     initExtra = (readFile ./zshrc) + ''
       source ${pkgs.zsh-z}/share/zsh-z/zsh-z.plugin.zsh
+      bindkey '^x^e' edit-command-line # like bash
     '';
   };
 }
