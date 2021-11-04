@@ -54,6 +54,8 @@ with builtins;
         '';
       }
 
+      { plugin = lean-nvim; }
+
       {
         plugin = nvim-lspconfig;
         config = "lua << EOF\n${readFile ./nvim-lsp-config.lua}\nEOF";
