@@ -1,10 +1,10 @@
 { ... }:
 
 {
-  localHome.swayInnerGapSize = 4;
-
-  xdg.configFile = {
-    "waybar".source = ../modules/sway/laptopWaybar;
+  localHome = {
+    swayInnerGapSize = 4;
+    termFontSize = 7;
+    waybarConfigDir = ../modules/sway/laptopWaybar;
   };
 }
 

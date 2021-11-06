@@ -13,14 +13,16 @@ with lib;
 
     type = types.submodule {
       options = {
-        termFontSize = mkOption {
-          type = types.str;
-          default = "7";
-        };
-
         swayInnerGapSize = mkOption {
           type = types.int;
-          default = 10;
+        };
+
+        termFontSize = mkOption {
+          type = types.int;
+        };
+
+        waybarConfigDir = mkOption {
+          type = types.path;
         };
       };
     };

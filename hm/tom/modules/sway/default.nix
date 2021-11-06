@@ -13,6 +13,6 @@
       gaps outer 0
     '';
 
-    "waybar".source = lib.mkDefault ./waybar;
+    "waybar".source = config.localHome.waybarConfigDir;
   };
 }
