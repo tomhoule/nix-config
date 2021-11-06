@@ -17,6 +17,11 @@ with lib;
           type = types.str;
           default = "7";
         };
+
+        swayInnerGapSize = mkOption {
+          type = types.int;
+          default = 10;
+        };
       };
     };
   };
