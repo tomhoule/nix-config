@@ -55,6 +55,8 @@ with builtins;
       }
 
       { plugin = lean-nvim; }
+      { plugin = plenary-nvim; } # required by lean-nvim
+
 
       {
         plugin = nvim-lspconfig;

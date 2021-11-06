@@ -54,6 +54,7 @@
         prisma-desktop = mkConfig {
           systemModules = [
             ./modules/docker.nix
+            ./modules/lean.nix
             ./machines/prisma-desktop/config.nix
           ];
 
@@ -67,6 +68,7 @@
           systemModules = [
             ./modules/laptop.nix
             ./modules/docker.nix
+            ./modules/lean.nix
             ./machines/xps13/config.nix
             nixos-hardware.nixosModules.dell-xps-13-9380
           ];
