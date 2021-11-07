@@ -14,12 +14,7 @@ hook global WinCreate .* %{
     set-option global termcmd 'foot sh -c'
 }
 
-define-command -override \
-        -docstring "Duplicate the current window in a new terminal sharing the same session" \
-        dup-window \
-	%{ nop %sh{ footclient -N kak -c $kak_session $kak_buffile } }
-
-map global user w ': dup-window<ret>' -docstring "Duplicate the window"
+map global user w ': new<ret>' -docstring "Duplicate the window"
 
 ## CLIPBOARD ##
 
