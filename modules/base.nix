@@ -70,7 +70,8 @@
     };
   };
 
-  services.ntp.enable = true;
+  # Use the default systemd NTP mechanism.
+  services.timesyncd.enable = true;
 
   # Sound and screen sharing
   services.pipewire = {
