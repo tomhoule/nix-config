@@ -83,6 +83,7 @@ with builtins;
         '';
       }
       { plugin = vim-surround; }
+      { plugin = vim-toml; }
       {
         plugin = vim-vsnip;
         config = ''
