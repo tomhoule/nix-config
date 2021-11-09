@@ -53,6 +53,7 @@ in
     hub # GitHub CLI
     imagemagick
     imv # image viewer
+    jq
     mpv
     ranger
     wl-clipboard
