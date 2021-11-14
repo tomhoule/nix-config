@@ -12,7 +12,7 @@ with builtins;
       expireDuplicatesFirst = true;
       size = 20000;
       save = 20000;
-      path = "${config.home.homeDirectory}/.cache/zshHistfile";
+      path = "${config.xdg.cacheHome}/zshHistfile";
       share = true;
     };
     initExtraFirst = ''

@@ -23,7 +23,7 @@ in
   home = {
     username = "tom";
     sessionVariables = {
-      npm_config_prefix = "${homeDirectory}/.cache/node_modules";
+      npm_config_prefix = "${config.xdg.cacheHome}/node_modules";
     };
     inherit homeDirectory;
   };
@@ -39,9 +39,6 @@ in
   home.stateVersion = "21.05";
 
   home.packages = with pkgs; [
-    # Julia
-    julia_16-bin
-
     # Nix
     nixpkgs-fmt
 

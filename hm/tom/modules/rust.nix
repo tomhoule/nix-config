@@ -1,11 +1,9 @@
 { pkgs, config, ... }:
 
 {
-  home.sessionVariables =
-    let homeDir = config.home.homeDirectory; in
-    {
-      CARGO_HOME = "${homeDir}/.cache/cargo";
-    };
+  home.sessionVariables = {
+    CARGO_HOME = "${config.xdg.cacheHome}/cargo";
+  };
 
   home.packages = with pkgs; [
     # Rust
