@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages = [
@@ -6,5 +6,7 @@
   ];
 
   home.sessionVariables.JULIA_DEPOT_PATH = "${config.xdg.cacheHome}/julia";
+
+  programs.neovim.plugins = [{ plugin = pkgs.vimPlugins.julia-vim; }];
 }
 
