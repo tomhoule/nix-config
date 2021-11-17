@@ -24,6 +24,7 @@ in
     username = "tom";
     sessionVariables = {
       npm_config_prefix = "${config.xdg.cacheHome}/node_modules";
+      npm_cache = "${config.xdg.cacheHome}/npm_cache";
     };
     inherit homeDirectory;
   };
