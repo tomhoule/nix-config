@@ -1,17 +1,13 @@
 { config, lib, pkgs, ... }:
 
 {
-  # System packages.
   environment.systemPackages = with pkgs; [
     ripgrep
-    pulseaudio # for utilities like pactl — not the daemon
-    usbutils
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];
 
   environment.variables = {
-    MOZ_ENABLE_WAYLAND = "1";
     EDITOR = "nvim";
   };
 
@@ -36,51 +32,8 @@
     keyMap = "fr-bepo";
   };
 
-  fonts.fonts = with pkgs; [
-    dejavu_fonts
-    fira-code
-    font-awesome # required for waybar
-    ibm-plex
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    noto-fonts-extra
-  ];
-
-  programs = {
-    sway = {
-      enable = true;
-      extraPackages = with pkgs; [
-        hicolor-icon-theme # for wofi
-
-        # Wayland screenshots (sway)
-        slurp
-        grim
-
-        swayidle
-        swaylock
-        waybar
-        wofi
-        xorg.xcursorthemes
-        xorg.xev
-      ];
-      wrapperFeatures = {
-        base = true;
-        gtk = true;
-      };
-    };
-  };
-
   # Use the default systemd NTP mechanism.
   services.timesyncd.enable = true;
-
-  # Sound and screen sharing
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   users.users.tom = {
     isNormalUser = true;
@@ -90,15 +43,5 @@
       "wheel" # Enable ‘sudo’ for the user.
     ];
     shell = "${pkgs.zsh}/bin/zsh";
-  };
-
-  xdg = {
-    mime.enable = true;
-    portal = {
-      enable = true;
-      extraPortals =
-        [ pkgs.xdg-desktop-portal-gtk ];
-      wlr.enable = true;
-    };
   };
 }

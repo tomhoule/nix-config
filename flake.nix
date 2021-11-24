@@ -53,6 +53,7 @@
       nixosConfigurations = {
         prisma-desktop = mkConfig {
           systemModules = [
+            ./modules/workstation.nix
             ./modules/docker.nix
             ./modules/lean.nix
             ./machines/prisma-desktop/config.nix
@@ -66,6 +67,7 @@
 
         xps13 = mkConfig {
           systemModules = [
+            ./modules/workstation.nix
             ./modules/laptop.nix
             ./modules/docker.nix
             ./modules/lean.nix
