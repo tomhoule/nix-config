@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     ripgrep
     pulseaudio # for utilities like pactl — not the daemon
+    usbutils
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];
