@@ -10,6 +10,7 @@ set ignorecase
 set smartcase " only goes with ignorecase
 set autoread
 set inccommand=split
+set mouse=nv
 
 " Indentation
 set tabstop=4
