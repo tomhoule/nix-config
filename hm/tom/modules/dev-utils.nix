@@ -6,6 +6,8 @@
     coreutils
     gnumake
     lld
+
+    hyperfine
   ];
 }
 
