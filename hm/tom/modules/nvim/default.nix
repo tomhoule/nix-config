@@ -40,10 +40,7 @@ with builtins;
         plugin = (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars));
         config = "luafile ${./treesitter.lua}";
       }
-      {
-        plugin = nvim-lspconfig;
-        config = "luafile ${./nvim-lsp-config.lua}";
-      }
+      { plugin = nvim-lspconfig; config = "luafile ${./nvim-lsp-config.lua}"; }
       {
         plugin = vim-dirvish;
         config = ''

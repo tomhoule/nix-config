@@ -10,13 +10,14 @@ cmp.setup({
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
-  mappings = {
-    ['<C-SPC>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+  preselect  = cmp.PreselectMode.Item,
+  confirmation = {
+      default_behavior = cmp.ConfirmBehavior.Replace,
+  },
+  mapping = {
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = false,
-    }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true, }),
   },
   sources = cmp.config.sources({
     { name = 'vsnip' },
