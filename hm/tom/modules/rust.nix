@@ -10,4 +10,8 @@
     rust-bin.stable.latest.default
     rust-analyzer
   ];
+
+  programs.zsh.shellAliases = {
+    corgi = "cargo";
+  };
 }
