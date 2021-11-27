@@ -51,6 +51,7 @@ in
     hub # GitHub CLI
     imagemagick
     imv # image viewer
+    julia-stable-bin # fancy calculator
     jq
     mpv
     ranger
