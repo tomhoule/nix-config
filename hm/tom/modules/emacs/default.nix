@@ -1,8 +1,19 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
-  programs.emacs.enable = true;
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs-nox;
+    extraPackages = (epkgs: with epkgs; [
+      agda2-mode
+      evil
+      evil-commentary
 
-  xdg.configFile."doom".source = ./doom;
-  home.sessionPath = ["$HOME/.emacs.d/bin"]; # for doom
+      # Nice themes to remember if I go graphical.
+      # modus-themes
+    ]);
+    extraConfig = ''
+      (evil-mode 1)
+    '';
+  };
 }
