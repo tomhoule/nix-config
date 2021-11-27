@@ -34,8 +34,6 @@ with builtins;
       lean-nvim
       plenary-nvim # required by lean-nvim
 
-      vim-toml
-
       {
         plugin = (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars));
         config = "luafile ${./treesitter.lua}";
@@ -54,7 +52,7 @@ with builtins;
       {
         plugin = vim-nix;
         config = ''
-          autocmd BufRead,BufNewFile *.nix nmap <buffer> <leader>f :w<ENTER>:!nixpkgs-fmt %<ENTER><ENTER>:e!<ENTER>
+          autocmd BufRead,BufNewFile *.nix nmap <buffer> <leader>f <cmd>w<ENTER><cmd>!nixpkgs-fmt %<ENTER><ENTER>:e!<ENTER>
         '';
       }
       {
