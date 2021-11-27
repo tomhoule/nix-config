@@ -16,7 +16,10 @@
 
   networking.hostName = "xps13"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd";
+  };
 
   # Hardware config
   # https://github.com/NixOS/nixos-hardware/tree/master/dell/xps/13-9380
