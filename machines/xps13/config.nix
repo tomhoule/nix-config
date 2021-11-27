@@ -19,7 +19,9 @@
   networking.networkmanager = {
     enable = true;
     wifi.backend = "iwd";
+    dns = "systemd-resolved";
   };
+  services.resolved.enable = true;
 
   # Hardware config
   # https://github.com/NixOS/nixos-hardware/tree/master/dell/xps/13-9380
