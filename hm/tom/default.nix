@@ -6,6 +6,17 @@ let
   homeDirectory = "/home/tom";
   homeDomain = "tomhoule.com";
   homeEmail = "tom@" + homeDomain;
+
+  inherit (pkgs) backblaze-b2;
+  backup-to-b2 = pkgs.writeShellScriptBin "backup-to-b2" ''
+    set -x
+
+    ${backblaze-b2}/bin/backblaze-b2 sync \
+      --excludeDirRegex '^tom/.cache$' \
+      --excludeAllSymlinks \
+      /home \
+      b2://${hostName}-home-backups
+  '';
 in
 {
   imports =
@@ -44,6 +55,8 @@ in
     nixpkgs-fmt
 
     # & co
+    backblaze-b2
+    backup-to-b2
     bat
     chromium
     dig # caaan youuuu dig iiiiit?
