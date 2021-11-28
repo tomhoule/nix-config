@@ -13,6 +13,19 @@
       # modus-themes
     ]);
     extraConfig = ''
+      ; Make some room
+
+      (setq inhibit-startup-message t)
+      (tool-bar-mode -1)
+      (tooltip-mode -1)
+      (menu-bar-mode -1)
+
+      ; These are for graphical emacs only
+      ; (set-fringe-mode 10)
+      ; (scroll-bar-mode -1)
+
+      (setq visible-bell t)
+
       (evil-mode 1)
     '';
   };
