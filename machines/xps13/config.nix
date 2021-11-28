@@ -14,6 +14,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  networking.firewall = {
+    enable = true;
+    checkReversePath = "loose"; # strict mode blocks wireguard
+  };
+
+  environment.systemPackages = with pkgs; [
+    wireguard
+  ];
+
   networking.hostName = "xps13"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager = {

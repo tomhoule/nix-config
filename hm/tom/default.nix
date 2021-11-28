@@ -46,6 +46,7 @@ in
     # & co
     bat
     chromium
+    dig # caaan youuuu dig iiiiit?
     exa # ls replacement
     firefox
     hub # GitHub CLI
