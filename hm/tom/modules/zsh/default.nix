@@ -2,7 +2,9 @@
 
 with builtins;
 
-{
+let zdotdir = "${config.xdg.configHome}/zsh"; in {
+  home.sessionVariables.ZDOTDIR = zdotdir;
+
   programs.zsh = {
     enable = true;
     defaultKeymap = "emacs";
@@ -43,6 +45,7 @@ with builtins;
       coba = "git branch -la | fzf | xargs git checkout";
     };
     initExtra = ''
+      export ZSHZ_DATA=${config.xdg.cacheHome}/z-database
       source ${pkgs.zsh-z}/share/zsh-z/zsh-z.plugin.zsh
 
       bindkey '^x^e' edit-command-line # like bash
