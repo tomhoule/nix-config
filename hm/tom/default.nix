@@ -14,6 +14,9 @@ let
     ${backblaze-b2}/bin/backblaze-b2 sync \
       --excludeDirRegex '^tom/.cache$' \
       --excludeDirRegex '^tom/.mozilla/.*/storage$' \
+      --excludeRegex '^tom/.mozilla/.*/favicon.sqlite$' \
+      --excludeRegex '^tom/.mozilla/.*/webappsstore.sqlite$' \
+      --excludeRegex '^tom/.mozilla/.*/places.sqlite$' \
       --excludeAllSymlinks \
       /home \
       b2://${hostName}-home-backups
