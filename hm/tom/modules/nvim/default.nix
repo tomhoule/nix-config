@@ -17,7 +17,12 @@ with builtins;
         config = ''
           set termguicolors
           colorscheme dracula
+          hi! Normal ctermbg=none ctermfg=none guifg=none guibg=none
           let g:dracula_colorterm = 0
+          let g:dracula_underline = 1
+          let g:dracula_bold = 1
+          let g:dracula_italic = 1
+          let g:dracula_full_special_attrs_support = 1
         '';
       }
 
