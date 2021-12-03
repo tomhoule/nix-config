@@ -74,7 +74,6 @@ in
     mpv
     ranger
     unzip
-    wl-clipboard
     xdg-utils # for xdg-open
     zathura # PDF viewer
   ];

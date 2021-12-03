@@ -1,7 +1,12 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   programs.mako.enable = true; # notification daemon
+
+  home.packages = with pkgs; [
+    wf-recorder # screen recording that can be combined with slurp
+    wl-clipboard
+  ];
 
   xdg.configFile = {
     "sway/config".source = ./config;
