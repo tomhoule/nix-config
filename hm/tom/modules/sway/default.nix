@@ -1,9 +1,15 @@
 { lib, config, pkgs, ... }:
 
+let
+  capture-region = pkgs.writeShellScriptBin "capture-region" ''
+    wf-recorder -g "$(slurp)" $@
+  '';
+in
 {
   programs.mako.enable = true; # notification daemon
 
   home.packages = with pkgs; [
+    capture-region
     wf-recorder # screen recording that can be combined with slurp
     wl-clipboard
   ];
