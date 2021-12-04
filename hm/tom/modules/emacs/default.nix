@@ -23,7 +23,8 @@
       ; (set-fringe-mode 10)
       ; (scroll-bar-mode -1)
 
-      (setq visible-bell t)
+      ; Visible bell — but why?
+      ; (setq visible-bell t)
 
       ; Disable backup files
       (setq make-backup-files nil)
