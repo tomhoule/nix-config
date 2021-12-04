@@ -5,7 +5,6 @@
     enable = true;
     package = pkgs.emacs-nox;
     extraPackages = (epkgs: with epkgs; [
-      agda2-mode
       evil
       evil-commentary
 
@@ -25,6 +24,9 @@
       ; (scroll-bar-mode -1)
 
       (setq visible-bell t)
+
+      ; Disable backup files
+      (setq make-backup-files nil)
 
       (evil-mode 1)
     '';
