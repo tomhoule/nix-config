@@ -1,7 +1,7 @@
 nmap <silent> <leader>w :write<ENTER>
 nmap é :
 " Faster way to get to a shell command
-nmap ! <cmd>!
+nmap ! :!
 imap <C-l> <Esc>
 nmap <C-l> <Esc>
 vmap <C-l> <Esc>
