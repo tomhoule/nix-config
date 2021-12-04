@@ -35,10 +35,6 @@ with builtins;
         config = "luafile ${./cmp.lua}";
       }
 
-      # Lean
-      lean-nvim
-      plenary-nvim # required by lean-nvim
-
       {
         plugin = (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars));
         config = "luafile ${./treesitter.lua}";

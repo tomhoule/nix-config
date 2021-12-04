@@ -15,6 +15,7 @@
     package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes
+      max-jobs = auto  # Allow building multiple derivations in parallel
     '';
 
     gc = {
