@@ -1,14 +1,14 @@
 { config, lib, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    ripgrep
-  ];
-
-  environment.pathsToLink = [ "/share/zsh" ];
-
-  environment.variables = {
-    EDITOR = "nvim";
+  environment = {
+    pathsToLink = [ "/share/zsh" ];
+    systemPackages = with pkgs; [
+      ripgrep
+    ];
+    variables = {
+      EDITOR = "nvim";
+    };
   };
 
   nix = {
