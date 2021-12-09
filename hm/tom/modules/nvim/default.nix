@@ -1,7 +1,6 @@
 { pkgs, config, ... }:
 
-with builtins;
-
+let inherit (builtins) readFile; in
 {
   programs.neovim = {
     enable = true;
@@ -11,6 +10,8 @@ with builtins;
       vim-commentary
       vim-gitgutter
       vim-surround
+
+      # Theme
 
       {
         plugin = dracula-vim;
@@ -26,14 +27,14 @@ with builtins;
         '';
       }
 
+      # Jump
+      { plugin = hop-nvim; config = "luafile ${./hop.lua}"; }
+
       # Completion
       cmp-buffer
       cmp-nvim-lsp
       cmp-vsnip
-      {
-        plugin = nvim-cmp;
-        config = "luafile ${./cmp.lua}";
-      }
+      { plugin = nvim-cmp; config = "luafile ${./cmp.lua}"; }
 
       {
         plugin = (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars));
@@ -50,12 +51,18 @@ with builtins;
           command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
         '';
       }
+
+      # Nix
+
       {
         plugin = vim-nix;
         config = ''
           autocmd BufRead,BufNewFile *.nix nmap <buffer> <leader>f <cmd>w<ENTER><cmd>!nixpkgs-fmt %<ENTER><ENTER>:e!<ENTER>
         '';
       }
+
+      # Snippets
+
       {
         plugin = vim-vsnip;
         config = ''
