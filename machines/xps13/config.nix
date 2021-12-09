@@ -11,28 +11,31 @@
   ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot = {
-    enable = true;
-    configurationLimit = 120;
-  };
-
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.firewall = {
-    enable = true;
-    checkReversePath = "loose"; # strict mode blocks wireguard
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 120;
+    };
+    efi.canTouchEfiVariables = true;
   };
 
   environment.systemPackages = with pkgs; [
     wireguard
   ];
 
-  networking.hostName = "xps13"; # Define your hostname.
-  networking.networkmanager = {
-    enable = true;
-    wifi.backend = "iwd";
-    dns = "systemd-resolved";
+  networking = {
+    hostName = "xps13";
+    firewall = {
+      enable = true;
+      checkReversePath = "loose"; # strict mode blocks wireguard
+    };
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+      dns = "systemd-resolved";
+    };
   };
+
   services.resolved.enable = true;
 
   # Hardware config
