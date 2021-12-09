@@ -1,4 +1,3 @@
-nmap <silent> <leader>w :write<ENTER>
 nmap é :
 " Faster way to get to a shell command
 nmap ! :!
@@ -21,6 +20,7 @@ set autoindent
 " <leader> key mappings
 let mapleader = " " " Use space as a leader
 
+nmap <silent> <leader>w :write<ENTER>
 nmap <leader>h <cmd>nohlsearch<ENTER>
 nmap <silent> <leader>d <cmd>Dirvish %<ENTER>
 nmap <silent> <leader><space> <cmd>GFiles<ENTER>
