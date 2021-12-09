@@ -13,7 +13,8 @@ let
 
     ${backblaze-b2}/bin/backblaze-b2 sync \
       --excludeDirRegex '^tom/.cache$' \
-      --excludeDirRegex '^tom/.mozilla/.*/storage$' \
+      --excludeDirRegex '^tom/.config/chromium$' \
+      --excludeDirRegex '^tom/.mozilla$' \
       --excludeRegex '^tom/.mozilla/.*/favicon.sqlite$' \
       --excludeRegex '^tom/.mozilla/.*/webappsstore.sqlite$' \
       --excludeRegex '^tom/.mozilla/.*/places.sqlite$' \
