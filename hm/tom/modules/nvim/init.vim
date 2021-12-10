@@ -27,6 +27,14 @@ nmap <silent> <leader><space> <cmd>GFiles<ENTER>
 nmap <silent> <leader>rg <cmd>Rg<ENTER>
 nmap <silent> <leader>gr <cmd>Rg<ENTER>
 nmap <silent> <leader>b <cmd>Buffers<Enter>
+nmap <silent> <leader>f <cmd>Neoformat<Enter>
 
 " TOML comments
 autocmd BufNewFile,BufRead *.toml setlocal commentstring=#%s
+
+" Autoformatting
+
+augroup fmt
+  autocmd!
+  autocmd BufWritePre *.nix,*.rs undojoin | Neoformat
+augroup END

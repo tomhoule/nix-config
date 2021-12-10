@@ -15,9 +15,8 @@ let
       --excludeDirRegex '^tom/.cache$' \
       --excludeDirRegex '^tom/.config/chromium$' \
       --excludeDirRegex '^tom/.mozilla$' \
-      --excludeRegex '^tom/.mozilla/.*/favicon.sqlite$' \
-      --excludeRegex '^tom/.mozilla/.*/webappsstore.sqlite$' \
-      --excludeRegex '^tom/.mozilla/.*/places.sqlite$' \
+      --excludeDirRegex '^tom/.dropbox$' \
+      --excludeRegex '^tom/.local/share/nvim/shada/main.shada$' \
       --excludeAllSymlinks \
       /home \
       b2://${hostName}-home-backups
