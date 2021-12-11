@@ -8,7 +8,8 @@
     lld
 
     hyperfine
+
+    iotop
+    htop
   ];
 }
-
-
