@@ -36,5 +36,5 @@ autocmd BufNewFile,BufRead *.toml setlocal commentstring=#%s
 
 augroup fmt
   autocmd!
-  autocmd BufWritePre *.nix,*.rs undojoin | Neoformat
+  autocmd BufWritePre *.nix undojoin | Neoformat
 augroup END
