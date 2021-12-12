@@ -11,5 +11,9 @@
 
     iotop
     htop
+
+    # Graphics & video
+    ffmpeg-full
+    imagemagick
   ];
 }
