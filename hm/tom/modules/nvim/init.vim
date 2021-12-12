@@ -31,10 +31,3 @@ nmap <silent> <leader>f <cmd>Neoformat<Enter>
 
 " TOML comments
 autocmd BufNewFile,BufRead *.toml setlocal commentstring=#%s
-
-" Autoformatting
-
-augroup fmt
-  autocmd!
-  autocmd BufWritePre *.nix undojoin | Neoformat
-augroup END

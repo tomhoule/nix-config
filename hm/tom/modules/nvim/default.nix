@@ -7,7 +7,6 @@ let inherit (builtins) readFile; in
     plugins = with pkgs.vimPlugins; [
       fzf-lsp-nvim
       fzf-vim
-      neoformat
       vim-commentary
       vim-gitgutter
       vim-surround
@@ -55,7 +54,11 @@ let inherit (builtins) readFile; in
 
       # Nix
 
-      vim-nix
+      {
+        plugin = vim-nix;
+        config = "autocmd BufRead,BufNewFile *.nix nmap <buffer> <leader>f <cmd>w<ENTER><cmd>!nixpkgs-fmt %<ENTER><ENTER>:e!<ENTER>";
+      }
+
 
       # Snippets
 
