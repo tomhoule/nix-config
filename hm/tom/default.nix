@@ -16,6 +16,9 @@ let
       --excludeDirRegex '^tom/.config/chromium$' \
       --excludeDirRegex '^tom/.mozilla$' \
       --excludeDirRegex '^tom/.dropbox$' \
+      --excludeDirRegex '^tom/src/.*/target/debug$' \
+      --excludeDirRegex '^tom/src/.*/target/release$' \
+      --excludeDirRegex '^tom/src/.*/node_modules$' \
       --excludeRegex '^tom/.local/share/nvim/shada/main.shada$' \
       --excludeAllSymlinks \
       /home \
