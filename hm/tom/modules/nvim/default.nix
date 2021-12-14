@@ -7,6 +7,7 @@ let inherit (builtins) readFile; in
     plugins = with pkgs.vimPlugins; [
       fzf-lsp-nvim
       fzf-vim
+      delimitMate
       vim-commentary
       vim-gitgutter
       vim-surround
