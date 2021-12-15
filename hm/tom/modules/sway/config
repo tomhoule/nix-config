@@ -106,7 +106,7 @@ seat seat0 xcursor_theme whiteglass
     bindsym XF86MonBrightnessDown exec brillo -U 10
 
     # Lock
-    bindsym $mod+Ctrl+l exec swaylock -c 111100 -i /home/tom/.wallpaper
+    bindsym $mod+Ctrl+l exec swaylock -c 010100 -i ~/.config/sway/wallpaper
 
     # Screenshots
     bindsym Print exec grim -t png -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H-%m-%S).png;
