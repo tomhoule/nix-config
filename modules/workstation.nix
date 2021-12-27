@@ -3,6 +3,7 @@
 {
   environment = {
     systemPackages = with pkgs; [
+      cachix # the cachix client
       pulseaudio # for utilities like pactl — not the daemon
       usbutils
     ];
@@ -22,6 +23,8 @@
     noto-fonts-emoji
     noto-fonts-extra
   ];
+
+  nix.trustedUsers = [ "root" "tom" ];
 
   programs = {
     sway = {
