@@ -70,6 +70,7 @@
             ./modules/laptop.nix
             ./modules/docker.nix
             ./modules/ime.nix
+            ./modules/tailscale.nix
             ./machines/xps13/config.nix
             nixos-hardware.nixosModules.dell-xps-13-9380
           ];
