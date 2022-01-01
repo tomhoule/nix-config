@@ -68,7 +68,6 @@ in
     bat
     chromium
     dig # caaan youuuu dig iiiiit?
-    exa # ls replacement
     firefox
     hub # GitHub CLI
     imv # image viewer

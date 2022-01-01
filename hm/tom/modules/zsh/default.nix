@@ -30,7 +30,6 @@ let zdotdir = "${config.xdg.configHome}/zsh"; in {
       # coreutils
       cp = "cp -i";
       grep = "grep --colour";
-      ls = "exa";
       mv = "mv -i";
 
       # git
