@@ -16,6 +16,7 @@ let
       --excludeDirRegex '^tom/.config/chromium$' \
       --excludeDirRegex '^tom/.mozilla$' \
       --excludeDirRegex '^tom/.dropbox$' \
+      --excludeDirRegex '^tom/src/gh$' \
       --excludeDirRegex '^tom/src/.*/target/debug$' \
       --excludeDirRegex '^tom/src/.*/target/release$' \
       --excludeDirRegex '^tom/src/.*/node_modules$' \
