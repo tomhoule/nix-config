@@ -7,6 +7,8 @@
     gnumake
     lld
 
+    strace
+
     hyperfine
 
     iotop
