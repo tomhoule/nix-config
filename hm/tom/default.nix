@@ -19,7 +19,9 @@ let
       --excludeDirRegex '^tom/src/gh$' \
       --excludeDirRegex '^tom/src/.*/target/debug$' \
       --excludeDirRegex '^tom/src/.*/target/release$' \
+      --excludeDirRegex '^tom/src/.*/zig-cache$' \
       --excludeDirRegex '^tom/src/.*/node_modules$' \
+      --excludeDirRegex '^tom/src/.*/.direnv$' \
       --excludeDirRegex '^tom/src/nixpkgs$' \
       --excludeRegex '^tom/.local/share/nvim/shada/main.shada$' \
       --excludeAllSymlinks \
