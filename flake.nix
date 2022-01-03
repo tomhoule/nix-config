@@ -56,6 +56,8 @@
             ./modules/workstation.nix
             ./modules/docker.nix
             ./machines/prisma-desktop/config.nix
+            ./modules/tailscale.nix
+            ./modules/ssh-server.nix
           ];
 
           # This machine needs a proprietary network driver.

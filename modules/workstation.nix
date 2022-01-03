@@ -36,6 +36,9 @@
         slurp
         grim
 
+        # Remote desktop
+        waypipe
+
         swayidle
         swaylock
         waybar
