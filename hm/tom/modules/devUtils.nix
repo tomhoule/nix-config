@@ -12,7 +12,7 @@
     hyperfine
 
     iotop
-    htop
+    btop
 
     # Graphics & video
     ffmpeg-full
