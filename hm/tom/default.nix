@@ -72,7 +72,7 @@ in
     chromium
     dig # caaan youuuu dig iiiiit?
     firefox
-    hub # GitHub CLI
+    gh # GitHub CLI
     imv # image viewer
     julia-stable-bin # fancy calculator
     jq
