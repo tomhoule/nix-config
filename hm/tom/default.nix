@@ -79,6 +79,7 @@ in
     mpv
     ranger
     unzip
+    yt-dlp
     xdg-utils # for xdg-open
     zathura # PDF viewer
   ];
