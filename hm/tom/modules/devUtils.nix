@@ -14,6 +14,8 @@
     iotop
     btop
 
+    tokei
+
     # Graphics & video
     ffmpeg-full
     imagemagick
