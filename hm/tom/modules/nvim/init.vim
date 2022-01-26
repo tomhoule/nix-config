@@ -27,7 +27,6 @@ nmap <silent> <leader><space> <cmd>GFiles<ENTER>
 nmap <silent> <leader>rg <cmd>Rg<ENTER>
 nmap <silent> <leader>gr <cmd>Rg<ENTER>
 nmap <silent> <leader>b <cmd>Buffers<Enter>
-nmap <silent> <leader>f <cmd>Neoformat<Enter>
 
 " TOML comments
 autocmd BufNewFile,BufRead *.toml setlocal commentstring=#%s
