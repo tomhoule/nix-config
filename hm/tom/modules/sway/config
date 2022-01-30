@@ -41,9 +41,9 @@ output * bg ~/.config/sway/wallpaper fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 exec swayidle -w \
-     timeout 300 'swaylock -f -c 000000' \
+     timeout 300 'swaylock' \
      timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-     before-sleep 'swaylock -f -c 000000'
+     before-sleep 'swaylock'
 
 ### Input configuration
 #
@@ -106,7 +106,7 @@ seat seat0 xcursor_theme whiteglass
     bindsym XF86MonBrightnessDown exec brillo -U 10
 
     # Lock
-    bindsym $mod+Ctrl+l exec swaylock -c 010100 -i ~/.config/sway/wallpaper
+    bindsym $mod+Ctrl+l exec swaylock
 
     # Screenshots
     bindsym Print exec grim -t png -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H-%m-%S).png;

@@ -25,5 +25,6 @@ in
     '';
 
     "waybar".source = config.localHome.waybarConfigDir;
+    "swaylock/config".source = ./swaylock-config;
   };
 }
