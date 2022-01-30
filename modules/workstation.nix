@@ -24,7 +24,7 @@
     noto-fonts-extra
   ];
 
-  nix.trustedUsers = [ "root" "tom" ];
+  nix.settings.trusted-users = [ "root" "tom" ];
 
   programs = {
     sway = {
