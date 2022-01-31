@@ -28,7 +28,8 @@ let inherit (builtins) readFile; in
       }
 
       # Jump
-      { plugin = hop-nvim; config = "luafile ${./hop.lua}"; }
+      { plugin = vim-repeat; }
+      { plugin = lightspeed-nvim; }
 
       # Completion
       cmp-buffer
