@@ -55,6 +55,7 @@
           systemModules = [
             ./modules/workstation.nix
             ./modules/docker.nix
+            ./modules/ime.nix
             ./machines/prisma-desktop/config.nix
             ./modules/tailscale.nix
             ./modules/ssh-server.nix
