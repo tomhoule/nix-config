@@ -7,7 +7,7 @@
 
   home.packages = with pkgs; [
     cargo-edit
-    rust-bin.stable.latest.default
+    rustPlatform.rust.cargo
     rust-analyzer
   ];
 

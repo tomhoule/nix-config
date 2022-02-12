@@ -8,16 +8,12 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    rust-overlay = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:oxalica/rust-overlay";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, rust-overlay, nixos-hardware }:
+  outputs = { self, nixpkgs, home-manager, nixos-hardware }:
     let
       system = "x86_64-linux";
-      overlays = [ rust-overlay.overlay ];
+      overlays = [ ];
 
       mkConfig = ({ systemModules, nixpkgsConfig ? { } }:
         let
