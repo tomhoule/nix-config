@@ -14,16 +14,28 @@ let inherit (builtins) readFile; in
       # Theme
 
       {
-        plugin = dracula-vim;
+        plugin = kanagawa-nvim;
         config = ''
-          set termguicolors
-          colorscheme dracula
-          hi! Normal ctermbg=none ctermfg=none guifg=none guibg=none
-          let g:dracula_colorterm = 0
-          let g:dracula_underline = 1
-          let g:dracula_bold = 1
-          let g:dracula_italic = 1
-          let g:dracula_full_special_attrs_support = 1
+          lua << EOF
+          require('kanagawa').setup({
+              undercurl = true,           -- enable undercurls
+              commentStyle = "italic",
+              functionStyle = "NONE",
+              keywordStyle = "italic",
+              statementStyle = "bold",
+              typeStyle = "NONE",
+              variablebuiltinStyle = "italic",
+              specialReturn = true,       -- special highlight for the return keyword
+              specialException = true,    -- special highlight for exception handling keywords 
+              transparent = true,         -- transparent background
+              dimInactive = false,        -- dim inactive window `:h hl-NormalNC`
+              colors = {},
+              overrides = {},
+          })
+
+          -- setup must be called before loading
+          vim.cmd("colorscheme kanagawa")
+          EOF
         '';
       }
 
