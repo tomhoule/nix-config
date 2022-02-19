@@ -5,7 +5,6 @@ let inherit (builtins) readFile; in
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      fzf-vim
       delimitMate
       vim-commentary
       vim-gitgutter
@@ -42,6 +41,17 @@ let inherit (builtins) readFile; in
       # Jump
       { plugin = vim-repeat; }
       { plugin = lightspeed-nvim; }
+
+      # Telescope
+      {
+        plugin = telescope-nvim;
+        config = ''
+          nmap <space><space> <cmd>Telescope find_files<cr>
+          nmap <space>rg <cmd>Telescope live_grep<cr>
+          nmap <space>gr <cmd>Telescope live_grep<cr>
+          nmap <space>b <cmd>Telescope buffers<cr>
+        '';
+      }
 
       # Completion
       cmp-buffer

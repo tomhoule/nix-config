@@ -23,10 +23,6 @@ let mapleader = " " " Use space as a leader
 nmap <silent> <leader>w :write<ENTER>
 nmap <leader>h <cmd>nohlsearch<ENTER>
 nmap <silent> <leader>d <cmd>Dirvish %<ENTER>
-nmap <silent> <leader><space> <cmd>GFiles<ENTER>
-nmap <silent> <leader>rg <cmd>Rg<ENTER>
-nmap <silent> <leader>gr <cmd>Rg<ENTER>
-nmap <silent> <leader>b <cmd>Buffers<Enter>
 
 " TOML comments
 autocmd BufNewFile,BufRead *.toml setlocal commentstring=#%s
