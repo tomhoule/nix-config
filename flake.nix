@@ -66,8 +66,6 @@
           systemModules = [
             ./modules/workstation.nix
             ./modules/laptop.nix
-            ./modules/docker.nix
-            ./modules/syncthing.nix
             ./modules/tailscale.nix
             ./machines/xps13/config.nix
             nixos-hardware.nixosModules.dell-xps-13-9380
