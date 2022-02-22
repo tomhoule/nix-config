@@ -7,8 +7,7 @@
 
   home.packages = with pkgs; [
     cargo-edit
-    rustPlatform.rust.cargo
-    rust-analyzer
+    rustup
   ];
 
   programs.zsh.shellAliases = {
