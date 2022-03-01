@@ -116,6 +116,6 @@ in
       }
       vim-vsnip-integ
     ];
-    extraConfig = readFile ./init.vim;
+    extraConfig = (readFile ./init.vim) + "\nluafile ${./init.lua}";
   };
 }

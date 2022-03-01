@@ -11,12 +11,6 @@ set autoread
 set inccommand=split
 set mouse=nv
 
-" Indentation
-set tabstop=4
-set shiftwidth=0
-set expandtab
-set autoindent
-
 " <leader> key mappings
 let mapleader = " " " Use space as a leader
 
