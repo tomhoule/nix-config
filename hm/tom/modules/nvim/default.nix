@@ -1,7 +1,22 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
-let inherit (builtins) readFile; in
+let
+  inherit (builtins) readFile;
+  nvim-spell-en-utf8-dictionary = builtins.fetchurl {
+    url = "http://ftp.vim.org/vim/runtime/spell/en.utf-8.spl";
+    sha256 = "sha256:0w1h9lw2c52is553r8yh5qzyc9dbbraa57w9q0r9v8xn974vvjpy";
+  };
+  nvim-spell-fr-utf8-dictionary = builtins.fetchurl {
+    url = "http://ftp.vim.org/vim/runtime/spell/fr.utf-8.spl";
+    sha256 = "sha256:0q9vws3fyi33yladjx5n0f6w0gbk76mz2n6fb8bpr24dp419gyxb";
+  };
+in
 {
+  home.file = {
+    "${config.xdg.configHome}/nvim/spell/fr.utf-8.spl".source = nvim-spell-fr-utf8-dictionary;
+    "${config.xdg.configHome}/nvim/spell/en.utf-8.spl".source = nvim-spell-en-utf8-dictionary;
+  };
+
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
