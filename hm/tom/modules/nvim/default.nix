@@ -20,7 +20,7 @@ in
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      delimitMate
+      auto-pairs
       vim-commentary
       vim-gitgutter
       vim-surround
