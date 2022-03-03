@@ -53,6 +53,7 @@
             ./modules/docker.nix
             ./machines/prisma-desktop/config.nix
             ./modules/tailscale.nix
+            ./modules/syncthing.nix
             ./modules/ssh-server.nix
           ];
 
@@ -67,6 +68,7 @@
             ./modules/workstation.nix
             ./modules/laptop.nix
             ./modules/tailscale.nix
+            ./modules/syncthing.nix
             ./machines/xps13/config.nix
             nixos-hardware.nixosModules.dell-xps-13-9380
           ];

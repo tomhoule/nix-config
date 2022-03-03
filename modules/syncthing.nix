@@ -16,6 +16,7 @@ in
     group = groupName;
     overrideDevices = false;
     overrideFolders = false;
+    openDefaultPorts = true;
     inherit guiAddress;
   };
 }
