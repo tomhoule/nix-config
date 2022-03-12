@@ -74,7 +74,6 @@ in
     firefox
     gh # GitHub CLI
     imv # image viewer
-    julia-stable-bin # fancy calculator
     jq
     mpv
     ranger

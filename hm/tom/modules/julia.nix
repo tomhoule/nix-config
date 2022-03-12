@@ -2,7 +2,7 @@
 
 {
   home.packages = [
-    # julia_16-bin
+    julia-stable-bin # fancy calculator
   ];
 
   home.sessionVariables.JULIA_DEPOT_PATH = "${config.xdg.cacheHome}/julia";
