@@ -20,7 +20,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    wireguard
+    wireguard-tools
   ];
 
   networking = {
