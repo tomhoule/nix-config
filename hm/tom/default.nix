@@ -79,6 +79,7 @@ in
     ranger
     unzip
     yt-dlp
+    whois
     xdg-utils # for xdg-open
     zathura # PDF viewer
   ];
