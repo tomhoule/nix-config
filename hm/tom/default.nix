@@ -82,6 +82,10 @@ in
     whois
     xdg-utils # for xdg-open
     zathura # PDF viewer
+
+    # File Manager
+    xfce.thunar
+    xfce.thunar-archive-plugin
   ];
 
   programs.fzf = { enable = true; enableZshIntegration = true; };
