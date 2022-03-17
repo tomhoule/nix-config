@@ -17,9 +17,10 @@ code](https://github.com/NixOS/nixpkgs).
 As a basis, follow the [NixOS
 manual](https://nixos.org/manual/nixos/stable/#sec-installation).
 
-For *partitioning*, read the [NixOS on ZFS wiki
-page](https://nixos.wiki/wiki/ZFS) and follow the instructions there. I tend to
-use a separate, fully encrypted volume for `/home`.
+For *partitioning*,
+
+- on ZFS, read the [NixOS on ZFS wiki page](https://nixos.wiki/wiki/ZFS) and follow the instructions there. I tend to use a separate, fully encrypted volume for `/home`.
+- or follow the instructions in (this gist)[https://gist.github.com/martijnvermaat/76f2e24d0239470dd71050358b4d5134] for a LVM-on-LUKS
 
 Then, generate the configuration (`configuration.nix` and
 `hardware-configuration.nix`) normally. Clone this repository, incorporate the
