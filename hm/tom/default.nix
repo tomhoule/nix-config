@@ -71,21 +71,19 @@ in
     bat
     chromium
     dig # caaan youuuu dig iiiiit?
+    fd
     firefox
     gh # GitHub CLI
     imv # image viewer
     jq
     mpv
-    ranger
+    rmlint
+    ranger # file manager
     unzip
     yt-dlp
     whois
     xdg-utils # for xdg-open
     zathura # PDF viewer
-
-    # File Manager
-    xfce.thunar
-    xfce.thunar-archive-plugin
   ];
 
   programs.fzf = { enable = true; enableZshIntegration = true; };
