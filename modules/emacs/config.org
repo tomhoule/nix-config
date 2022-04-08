@@ -1,0 +1,182 @@
+* Tom's Emacs configuration
+
+** Package management
+
+这是
+
+The packages are actually pulled by nix, but we use [[https://github.com/nix-community/emacs-overlay/][the
+emacs-overlay's emacsWithPackagesFromUsePackage]] function to source the
+files to pull the packages to download from this configuration's
+~use-package~ declarations.
+
+** Looks
+*** De-cluttering
+
+#+begin_src emacs-lisp :tangle yes
+  (setq inhibit-startup-message t)
+  (setq visible-bell t)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (tooltip-mode -1)
+  (menu-bar-mode -1)
+  (set-fringe-mode 10)
+
+  ;; Prompts
+  ; (setq use-short-answers t)
+  #+end_src
+
+*** Color themes
+
+I like ~modus-themes~ a lot. And ~leuven~, but it's very bright.
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package apropospriate-theme)
+  (use-package doom-themes)
+  (use-package dracula-theme)
+  (use-package leuven-theme)
+  (use-package modus-themes)
+  (load-theme 'apropospriate-light t)
+#+end_src
+
+*** Fonts
+
+#+begin_src emacs-lisp :tangle yes
+  (set-face-attribute 'default nil :font "IBM Plex Mono" :height 180)
+#+end_src
+
+** Evil
+
+Sometimes you need a text editor.
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package evil
+    :init
+    ;; evil-collection compatibility: https://github.com/emacs-evil/evil-collection/issues/60 for more details.
+    (setq evil-want-keybinding nil)
+    :config
+    (evil-mode 1)
+    (setq evil-undo-system 'undo-redo)
+    (evil-set-leader 'normal (kbd "SPC"))
+    (evil-define-key 'normal 'global (kbd "<leader>b") 'ivy-switch-buffer)
+    (evil-define-key 'normal 'global (kbd "<leader>d") 'dired)
+    (evil-define-key 'normal 'global (kbd "<leader>SPC") 'find-file))
+
+  (use-package evil-commentary
+    :after evil
+    :config (evil-commentary-mode 1))
+
+  (use-package evil-surround
+    :after evil
+    :config
+    (global-evil-surround-mode 1))
+
+  (use-package
+    evil-collection
+    :after evil
+    :config
+    (evil-collection-init))
+#+end_src
+
+** Discoverability
+*** [[ https://github.com/justbur/emacs-which-key ][which-key]] is one of the good things to steal from doom emacs.
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package
+    which-key
+    :config
+    (which-key-mode)
+    (setq which-key-idle-delay 0.3))
+#+end_src
+
+*** [[https://github.com/abo-abo/swiper][ivy]] is pickers for picky people
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package ivy :config (ivy-mode 1))
+  (use-package counsel :config (counsel-mode 1))
+  (use-package ivy-rich :config (ivy-rich-mode 1))
+#+end_src
+
+** Org Mode
+
+Mainly, we want to use a variable width font for text, a fixed width
+font for code and tables.
+
+#+begin_src emacs-lisp :tangle yes
+  (add-hook
+   'org-mode-hook
+   (lambda ()
+     (org-indent-mode)
+     ;; (auto-fill-mode 0)   ; disable hard wraps
+     ;; (visual-line-mode 1) ; enable soft wraps
+     (variable-pitch-mode 1)))
+
+
+  (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-table nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-table-header nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+#+end_src
+
+** Magit
+
+#+begin_src emacs-lisp tangle yes
+  (use-package magit)
+#+end_src
+
+** Language support
+*** Diagnostics
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package flycheck :config (global-flycheck-mode))
+#+end_src
+
+*** LSP
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package lsp-mode
+    :config
+    (add-hook 'rustic-mode-hook #'lsp-deferred))
+  (use-package lsp-ivy)
+#+end_src
+
+*** Autocompletion
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package
+    company
+    :config
+    (setq company-minimum-prefix-length 1
+          company-idle-delay 0.0) ;; default is 0.2
+    )
+#+end_src
+
+*** Chinese
+
+We need an input method that works better than the built-in pinyin one.
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package pyim)
+  (use-package pyim-basedict :config (pyim-basedict-enable))
+#+end_src
+
+*** Nix
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package nix-mode
+    :mode "\\.nix\\'")
+#+end_src
+
+*** Rust
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package rustic
+    :config
+    (setq rustic-format-trigger 'on-save))
+#+end_src
+
+** Packages to look into
+*** [[https://github.com/Wilfred/helpful][Helpful]]
