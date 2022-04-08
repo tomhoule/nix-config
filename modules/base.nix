@@ -27,6 +27,7 @@
   # TZ & locales.
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.inputMethod.enabled = "uim";
 
   console = {
     #   font = "Lat2-Terminus16";

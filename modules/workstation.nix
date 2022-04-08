@@ -17,6 +17,7 @@
     dejavu_fonts
     fira-code
     font-awesome # required for waybar
+    hack-font
     ibm-plex
     noto-fonts
     noto-fonts-cjk

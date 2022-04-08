@@ -7,8 +7,7 @@ let fontSize = builtins.toString config.localHome.termFontSize; in
     server = { enable = true; };
     settings = {
       main = {
-        font = "IBM Plex Mono:size=${fontSize},Fira Code:size=${fontSize}";
-        letter-spacing = "-0.3";
+        font = "Hack:size=${fontSize},Fira Code:size=${fontSize}";
       };
       colors = {
         alpha = "0.9";
