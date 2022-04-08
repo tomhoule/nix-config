@@ -30,6 +30,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>lws', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<space>le', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  buf_set_keymap('n', '<space>td', '<cmd>TroubleToggle workspace_diagnostics<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>lql', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
@@ -39,14 +40,22 @@ end
 
 local default_flags = { debounce_text_changes = 150 }
 
+-- Debugging
+--
+-- Uncomment these lines:
+-- vim.lsp.set_log_level("debug")
+-- vim.env.RA_LOG = "rust_analyzer=info"
+--
+-- Open the logs:
+-- :lua vim.cmd('e'..vim.lsp.get_log_path())
 nvim_lsp.rust_analyzer.setup {
     on_attach = on_attach,
+    flags = default_flags,
     init_options = {
         cargo = {
             runBuildScripts = true,
         },
     },
-    flags = default_flags,
 }
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
