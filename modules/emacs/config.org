@@ -2,12 +2,7 @@
 
 ** Package management
 
-这是
-
-The packages are actually pulled by nix, but we use [[https://github.com/nix-community/emacs-overlay/][the
-emacs-overlay's emacsWithPackagesFromUsePackage]] function to source the
-files to pull the packages to download from this configuration's
-~use-package~ declarations.
+The packages are actually pulled by nix, but we use [[https://github.com/nix-community/emacs-overlay/][the emacs-overlay's emacsWithPackagesFromUsePackage]] function to source the files to pull the packages to download from this configuration's ~use-package~ declarations.
 
 ** Looks
 *** De-cluttering
@@ -21,8 +16,14 @@ files to pull the packages to download from this configuration's
   (menu-bar-mode -1)
   (set-fringe-mode 10)
 
+  ;; Backup files
+  (make-directory "~/.emacs.d/backup/" t)
+  (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/backup/" t)))
+  (setq backup-directory-alist '(("." . "~/.emacs.d/backup/")))
+  (setq create-lockfiles nil)
+
   ;; Prompts
-  ; (setq use-short-answers t)
+  ;; (setq use-short-answers t)
   #+end_src
 
 *** Color themes
@@ -35,7 +36,9 @@ I like ~modus-themes~ a lot. And ~leuven~, but it's very bright.
   (use-package dracula-theme)
   (use-package leuven-theme)
   (use-package modus-themes)
-  (load-theme 'apropospriate-light t)
+  ;; (load-theme 'dracula t)
+  (load-theme 'modus-vivendi t)
+  ;; (load-theme 'apropospriate-light t)
 #+end_src
 
 *** Fonts
@@ -55,11 +58,15 @@ Sometimes you need a text editor.
     (setq evil-want-keybinding nil)
     :config
     (evil-mode 1)
+
+    ;; Disabling x-clipboard integration means the " and + registers are separate.
+    (setq x-select-enable-clipboard nil) 
+
     (setq evil-undo-system 'undo-redo)
     (evil-set-leader 'normal (kbd "SPC"))
     (evil-define-key 'normal 'global (kbd "<leader>b") 'ivy-switch-buffer)
     (evil-define-key 'normal 'global (kbd "<leader>d") 'dired)
-    (evil-define-key 'normal 'global (kbd "<leader>SPC") 'find-file))
+    (evil-define-key 'normal 'global (kbd "<leader>gr") 'counsel-git-grep))
 
   (use-package evil-commentary
     :after evil
@@ -102,29 +109,38 @@ Mainly, we want to use a variable width font for text, a fixed width
 font for code and tables.
 
 #+begin_src emacs-lisp :tangle yes
+  (use-package org) ; use recent org-mode
+
+  ;; Smarter variable-pitch-mode
+  (use-package mixed-pitch
+    :hook
+    (text-mode . mixed-pitch-mode))
+
   (add-hook
    'org-mode-hook
    (lambda ()
      (org-indent-mode)
-     ;; (auto-fill-mode 0)   ; disable hard wraps
-     ;; (visual-line-mode 1) ; enable soft wraps
-     (variable-pitch-mode 1)))
-
-
-  (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-code nil :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-table nil :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-table-header nil :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-  (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+     (evil-define-key 'normal org-mode-map (kbd "C-l") #'org-cycle) 
+     (auto-fill-mode 0)   ; disable hard wraps
+     (visual-line-mode 1) ; enable soft wraps
+     (mixed-pitch-mode 1)))
 #+end_src
 
 ** Magit
 
-#+begin_src emacs-lisp tangle yes
+#+begin_src emacs-lisp :tangle yes
   (use-package magit)
+#+end_src
+
+** Projectile
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package projectile
+    :config
+    (evil-define-key 'normal 'global (kbd "<leader>SPC") 'projectile--find-file)
+    (evil-define-key 'normal 'global (kbd "<leader>p") 'projectile-switch-project))
+
+  (use-package direnv :config (direnv-mode))
 #+end_src
 
 ** Language support

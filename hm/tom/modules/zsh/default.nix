@@ -24,7 +24,7 @@ let zdotdir = "${config.xdg.configHome}/zsh"; in {
     shellAliases = {
       cat = "bat";
       c = "codium";
-      em = "emacs";
+      em = "emacsclient --create-frame";
       open = "xdg-open";
 
       # coreutils
