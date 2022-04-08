@@ -57,6 +57,7 @@
             ./modules/tailscale.nix
             ./modules/syncthing.nix
             ./modules/ssh-server.nix
+            ./modules/wireshark.nix
           ];
 
           # This machine needs a proprietary network driver.
