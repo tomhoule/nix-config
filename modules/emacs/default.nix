@@ -10,7 +10,7 @@ let
 in
 {
   services.emacs = {
-    enable = true;
+    install = true;
     package = pkgs.emacsWithPackagesFromUsePackage config;
   };
   home-manager.users.tom.home.file = {
