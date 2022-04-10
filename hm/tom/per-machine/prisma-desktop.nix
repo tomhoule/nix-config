@@ -3,7 +3,7 @@
 {
   localHome = {
     swayInnerGapSize = 10;
-    termFontSize = 10;
+    termFontSize = 9;
     waybarConfigDir = ../modules/sway/waybar;
   };
 
