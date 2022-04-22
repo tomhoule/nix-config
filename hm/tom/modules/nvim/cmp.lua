@@ -19,6 +19,11 @@ cmp.setup({
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({ select = true, }),
   },
+  -- mapping = cmp.mapping.preset.insert({
+  --   ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+  --   ['<C-e>'] = cmp.mapping.close(),
+  --   ['<CR>'] = cmp.mapping.confirm({ select = true, }),
+  -- }),
   sources = cmp.config.sources({
     { name = 'vsnip' },
     { name = 'nvim_lsp' },
