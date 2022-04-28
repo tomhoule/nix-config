@@ -4,7 +4,7 @@ let
   configFile = ./config.org;
   config = {
     config = configFile;
-    package = pkgs.emacsPgtkGcc;
+    package = pkgs.emacsPgtkNativeComp;
     alwaysEnsure = true;
   };
 in
