@@ -10,7 +10,7 @@ let fontSize = builtins.toString config.localHome.termFontSize; in
         font = "Hack:size=${fontSize},Fira Code:size=${fontSize}";
       };
       colors = {
-        alpha = "0.9";
+        alpha = "0.8";
       };
     };
   };
