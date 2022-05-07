@@ -22,7 +22,7 @@ let zdotdir = "${config.xdg.configHome}/zsh"; in {
       zle -N edit-command-line
     '';
     shellAliases = {
-      cat = "bat";
+      cat = "bat --theme gruvbox-light";
       c = "codium";
       em = "emacsclient --create-frame";
       open = "xdg-open";
