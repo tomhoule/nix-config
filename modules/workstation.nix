@@ -13,17 +13,25 @@
     };
   };
 
-  fonts.fonts = with pkgs; [
-    dejavu_fonts
-    fira-code
-    font-awesome # required for waybar
-    hack-font
-    ibm-plex
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    noto-fonts-extra
-  ];
+  fonts = {
+    fontconfig.defaultFonts = {
+      monospace = [ "Hack" ];
+      sansSerif = [ "Noto Sans" ];
+      serif = [ "Noto Serif" ];
+    };
+
+    fonts = with pkgs; [
+      dejavu_fonts
+      fira-code
+      font-awesome # required for waybar
+      hack-font
+      ibm-plex
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      noto-fonts-extra
+    ];
+  };
 
   nix.settings.trusted-users = [ "root" "tom" ];
 
