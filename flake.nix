@@ -2,7 +2,12 @@
   description = "ich lieb dich nix du liebst mich nix, da da da";
 
   inputs = {
-    emacs.url = "github:nix-community/emacs-overlay";
+    emacs = {
+      url = "github:nix-community/emacs-overlay";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
