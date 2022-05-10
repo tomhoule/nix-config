@@ -64,6 +64,7 @@ in
   home.packages = with pkgs; [
     # Nix
     nixpkgs-fmt
+    nix-tree
 
     # & co
     backblaze-b2
