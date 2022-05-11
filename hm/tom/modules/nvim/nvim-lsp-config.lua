@@ -52,6 +52,7 @@ nvim_lsp.rust_analyzer.setup {
     on_attach = on_attach,
     flags = default_flags,
     init_options = {
+        procMacro = { enable = true },
         cargo = {
             runBuildScripts = true,
         },
