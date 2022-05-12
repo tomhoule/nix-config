@@ -101,6 +101,7 @@ in
 
       # Telescope
       { plugin = telescope-fzf-native-nvim; }
+      { plugin = telescope-ui-select-nvim; }
       {
         plugin = telescope-nvim;
         config = ''
@@ -127,6 +128,7 @@ in
           -- To get fzf loaded and working with telescope, you need to call
           -- load_extension, somewhere after setup function:
           require('telescope').load_extension('fzf')
+          require("telescope").load_extension('ui-select')
           EOF
           nmap <space><space> <cmd>Telescope find_files<cr>
           nmap <space>rg <cmd>Telescope live_grep<cr>
