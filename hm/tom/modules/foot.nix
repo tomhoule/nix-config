@@ -1,6 +1,10 @@
 { config, ... }:
 
-let fontSize = builtins.toString config.localHome.termFontSize; in
+let
+  localHome = config.localHome;
+  fontSize = builtins.toString localHome.termFontSize;
+  termBgAlpha = builtins.toString localHome.termBgAlpha;
+in
 {
   programs.foot = {
     enable = true;
@@ -12,7 +16,7 @@ let fontSize = builtins.toString config.localHome.termFontSize; in
       colors = {
         # papercolor-light theme
         # https://codeberg.org/dnkl/foot/src/branch/master/themes/paper-color-light
-        alpha = "0.95";
+        alpha = termBgAlpha;
         background = "eeeeee";
         foreground = "444444";
         regular0 = "eeeeee"; # black

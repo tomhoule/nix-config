@@ -17,6 +17,10 @@ with lib;
           type = types.int;
         };
 
+        termBgAlpha = mkOption {
+          type = types.float;
+        };
+
         termFontSize = mkOption {
           type = types.int;
         };
