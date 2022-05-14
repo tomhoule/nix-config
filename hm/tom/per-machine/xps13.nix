@@ -1,7 +1,13 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ newsboat ];
+  home.packages = with pkgs; [
+    # Temporarily
+    s3cmd
+    awscli
+
+    newsboat
+  ];
 
   localHome = {
     swayInnerGapSize = 4;
