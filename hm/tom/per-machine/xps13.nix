@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     # Temporarily
     s3cmd
-    awscli
+    awscli2
 
     newsboat
   ];
