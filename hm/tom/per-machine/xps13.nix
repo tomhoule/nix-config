@@ -2,10 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    # Temporarily
-    s3cmd
-    awscli2
-
     newsboat
   ];
 
