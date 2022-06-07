@@ -20,7 +20,6 @@ in
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      auto-pairs
       vim-commentary
       vim-gitgutter
       vim-surround
@@ -41,30 +40,6 @@ in
           colorscheme PaperColor
         '';
       }
-      # plugin = kanagawa-nvim;
-      # config = ''
-      #   lua << EOF
-      #   require('kanagawa').setup({
-      #       undercurl = true,           -- enable undercurls
-      #       commentStyle = "italic",
-      #       functionStyle = "NONE",
-      #       keywordStyle = "italic",
-      #       statementStyle = "bold",
-      #       typeStyle = "NONE",
-      #       variablebuiltinStyle = "italic",
-      #       specialReturn = true,       -- special highlight for the return keyword
-      #       specialException = true,    -- special highlight for exception handling keywords 
-      #       transparent = true,         -- transparent background
-      #       dimInactive = false,        -- dim inactive window `:h hl-NormalNC`
-      #       colors = {},
-      #       overrides = {},
-      #   })
-
-      #   -- setup must be called before loading
-      #   vim.cmd("colorscheme kanagawa")
-      #   EOF
-      # '';
-      # }
 
       # Jump
       { plugin = vim-repeat; }
