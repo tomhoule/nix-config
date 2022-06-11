@@ -57,7 +57,7 @@
           systemModules = [
             ./modules/emacs
             ./modules/workstation.nix
-            ./modules/docker.nix
+            ./modules/podman.nix
             ./machines/prisma-desktop/config.nix
             ./modules/tailscale.nix
             ./modules/syncthing.nix
