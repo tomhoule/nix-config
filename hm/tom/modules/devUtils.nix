@@ -14,6 +14,8 @@
     iotop
     btop
 
+    sshfs
+
     tokei
 
     # Graphics & video
