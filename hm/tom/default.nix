@@ -80,6 +80,7 @@ in
     mpv
     rmlint
     ranger # file manager
+    units # GNU units for unit conversions
     unzip
     yt-dlp
     whois
