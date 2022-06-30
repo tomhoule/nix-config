@@ -7,7 +7,6 @@
   };
 
   home.packages = with pkgs; [
-    cargo-edit
     rust-analyzer
     rustup
   ];
