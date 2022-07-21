@@ -2,12 +2,6 @@
   description = "ich lieb dich nix du liebst mich nix, da da da";
 
   inputs = {
-    emacs = {
-      url = "github:nix-community/emacs-overlay";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,14 +10,13 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, emacs, nixpkgs, home-manager, nixos-hardware }:
+  outputs = { self, nixpkgs, home-manager, nixos-hardware }:
     let
       system = "x86_64-linux";
-      overlays = [ emacs.overlay ];
 
       mkConfig = ({ systemModules, nixpkgsConfig ? { } }:
         let
-          pkgs = import nixpkgs { inherit system overlays; config = nixpkgsConfig; };
+          pkgs = import nixpkgs { inherit system; config = nixpkgsConfig; };
           nixpkgsModule = { nixpkgs = { inherit pkgs; config = nixpkgsConfig; }; };
           homeModule = { config, ... }: {
             home-manager = {
@@ -55,7 +48,6 @@
       nixosConfigurations = {
         prisma-desktop = mkConfig {
           systemModules = [
-            ./modules/emacs
             ./modules/workstation.nix
             ./modules/podman.nix
             ./machines/prisma-desktop/config.nix
