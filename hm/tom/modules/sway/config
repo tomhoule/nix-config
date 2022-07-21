@@ -249,7 +249,7 @@ bar {
 # Floating windows
 #
 # the firefox sharing indicator
-for_window [title="^Firefox...Sharing Indicator$"] floating enable
+for_window [title="^Firefox.*Sharing Indicator$"] floating enable
 
 include /etc/sway/config.d/*
 include ./config.d/*
