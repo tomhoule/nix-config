@@ -55,6 +55,7 @@
             ./modules/syncthing.nix
             ./modules/ssh-server.nix
             ./modules/wireshark.nix
+            ./modules/dbeaver.nix
           ];
 
           # This machine needs a proprietary network driver.
