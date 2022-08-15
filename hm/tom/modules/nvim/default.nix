@@ -116,13 +116,13 @@ in
       cmp-buffer
       cmp-nvim-lsp
       cmp-vsnip
-      { plugin = nvim-cmp; config = "luafile ${./cmp.lua}"; }
+      { plugin = nvim-cmp; config = "luafile ${./cmp.lua}\n"; }
 
       {
         plugin = (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars));
-        config = "luafile ${./treesitter.lua}";
+        config = "luafile ${./treesitter.lua}\n";
       }
-      { plugin = nvim-lspconfig; config = "luafile ${./nvim-lsp-config.lua}"; }
+      { plugin = nvim-lspconfig; config = "luafile ${./nvim-lsp-config.lua}\n"; }
       {
         plugin = vim-dirvish;
         config = ''
