@@ -67,9 +67,9 @@ in
           })
 
           local opts = { noremap=true, silent=true }
-          vim.api.nvim_set_keymap('n', '<space>tq', '<cmd>TroubleToggle quickfix<CR>', opts)
-          vim.api.nvim_set_keymap('n', '<space>tl', '<cmd>TroubleToggle loclist<CR>', opts)
-          vim.api.nvim_set_keymap('n', '<space>tref', '<cmd>TroubleToggle lsp_references<CR>', opts)
+          vim.api.nvim_set_keymap('n', '<leader>tq', '<cmd>TroubleToggle quickfix<CR>', opts)
+          vim.api.nvim_set_keymap('n', '<leader>tl', '<cmd>TroubleToggle loclist<CR>', opts)
+          vim.api.nvim_set_keymap('n', '<leader>tref', '<cmd>TroubleToggle lsp_references<CR>', opts)
           EOF
         '';
       }
@@ -160,6 +160,6 @@ in
       }
       vim-vsnip-integ
     ];
-    extraConfig = (readFile ./init.vim) + "\nluafile ${./init.lua}";
+    extraConfig = "luafile ${./init.lua}";
   };
 }
