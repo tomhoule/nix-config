@@ -25,4 +25,3 @@ cmp.setup({
     { name = 'buffer' },
   })
 })
-

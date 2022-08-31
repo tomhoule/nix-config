@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 
 let
-  inherit (builtins) readFile;
+  inherit (builtins) readFile foldl';
   nvim-spell-en-utf8-dictionary = builtins.fetchurl {
     url = "http://ftp.vim.org/vim/runtime/spell/en.utf-8.spl";
     sha256 = "sha256:0w1h9lw2c52is553r8yh5qzyc9dbbraa57w9q0r9v8xn974vvjpy";
@@ -51,25 +51,6 @@ in
         plugin = trouble-nvim;
         config = ''
           lua << EOF
-          require("trouble").setup({
-            icons = false,
-            fold_open = "v", -- icon used for open folds
-            fold_closed = ">", -- icon used for closed folds
-            indent_lines = false, -- add an indent guide below the fold icons
-            signs = {
-              -- icons / text used for a diagnostic
-              error = "error",
-              warning = "warn",
-              hint = "hint",
-              information = "info"
-            },
-            use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
-          })
-
-          local opts = { noremap=true, silent=true }
-          vim.api.nvim_set_keymap('n', '<leader>tq', '<cmd>TroubleToggle quickfix<CR>', opts)
-          vim.api.nvim_set_keymap('n', '<leader>tl', '<cmd>TroubleToggle loclist<CR>', opts)
-          vim.api.nvim_set_keymap('n', '<leader>tref', '<cmd>TroubleToggle lsp_references<CR>', opts)
           EOF
         '';
       }
@@ -122,7 +103,7 @@ in
         plugin = (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars));
         config = "luafile ${./treesitter.lua}\n";
       }
-      { plugin = nvim-lspconfig; config = "luafile ${./nvim-lsp-config.lua}\n"; }
+      nvim-lspconfig
       {
         plugin = vim-dirvish;
         config = ''
@@ -135,11 +116,7 @@ in
       }
 
       # Nix
-
-      {
-        plugin = vim-nix;
-        config = "autocmd BufRead,BufNewFile *.nix nmap <buffer> <leader>f <cmd>w<ENTER><cmd>!nixpkgs-fmt %<ENTER><ENTER>:e!<ENTER>";
-      }
+      vim-nix
 
 
       # Snippets
@@ -160,6 +137,6 @@ in
       }
       vim-vsnip-integ
     ];
-    extraConfig = "luafile ${./init.lua}";
+    extraConfig = foldl' (a: b: a + "luafile ${b}\n") "" [ ./init.lua ./trouble.lua ./nvim-lsp-config.lua ];
   };
 }

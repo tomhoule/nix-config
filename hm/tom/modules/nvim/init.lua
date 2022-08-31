@@ -29,3 +29,6 @@ vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
     pattern = '*.toml',
     command = 'setlocal commentstring=#%s',
 })
+
+-- nix autoformatting
+vim.cmd('autocmd BufRead,BufNewFile *.nix nmap <buffer> <leader>f <cmd>w<ENTER><cmd>!nixpkgs-fmt %<ENTER><ENTER>:e!<ENTER>')
