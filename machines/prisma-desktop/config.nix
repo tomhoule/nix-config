@@ -18,6 +18,7 @@
     };
     efi.canTouchEfiVariables = true;
   };
+  boot.enableContainers = false;
 
 
   networking.hostName = "prisma-desktop";
