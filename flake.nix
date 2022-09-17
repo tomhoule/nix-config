@@ -17,7 +17,7 @@
       mkConfig = ({ systemModules, nixpkgsConfig ? { } }:
         let
           pkgs = import nixpkgs { inherit system; config = nixpkgsConfig; };
-          nixpkgsModule = { nixpkgs = { inherit pkgs; config = nixpkgsConfig; }; };
+          nixpkgsModule = { nixpkgs = { config = nixpkgsConfig; }; };
           homeModule = { config, ... }: {
             home-manager = {
               useGlobalPkgs = true;
@@ -40,7 +40,10 @@
               homeModule
             ];
 
-          inherit system pkgs;
+          # https://twitter.com/a_hoverbear/status/1569711910442127361
+          specialArgs = { nixPkgsFlake = nixpkgs; };
+
+          inherit system;
         }
       );
     in

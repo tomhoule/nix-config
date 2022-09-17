@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixPkgsFlake, ... }:
 
 {
   environment = {
@@ -22,6 +22,8 @@
       automatic = true;
       dates = "weekly";
     };
+
+    registry.nixpkgs.flake = nixPkgsFlake;
   };
 
   # TZ & locales.
