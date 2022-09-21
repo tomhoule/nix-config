@@ -23,6 +23,7 @@ in
       gaps inner ${builtins.toString config.localHome.swayInnerGapSize}
       gaps outer 0
     '';
+    "sway/config.d/02-per-machine".text = config.localHome.swayExtraConfig;
 
     "waybar".source = config.localHome.waybarConfigDir;
     "swaylock/config".source = ./swaylock-config;

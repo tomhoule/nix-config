@@ -89,6 +89,7 @@ in
   home.pointerCursor = {
     package = pkgs.phinger-cursors;
     name = "phinger-cursors-light";
+    size = 64;
   };
 
   programs.fzf = { enable = true; enableZshIntegration = true; };

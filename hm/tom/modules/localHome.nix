@@ -13,6 +13,10 @@ with lib;
 
     type = types.submodule {
       options = {
+        swayExtraConfig = mkOption {
+          type = types.lines;
+        };
+
         swayInnerGapSize = mkOption {
           type = types.int;
         };
@@ -22,7 +26,7 @@ with lib;
         };
 
         termFontSize = mkOption {
-          type = types.int;
+          type = types.float;
         };
 
         waybarConfigDir = mkOption {
