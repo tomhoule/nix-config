@@ -49,6 +49,16 @@
     in
     {
       nixosConfigurations = {
+        prisma-fw = mkConfig {
+          systemModules = [
+            ./modules/workstation.nix
+            ./modules/laptop.nix
+            ./modules/tailscale.nix
+            ./machines/prisma-fw
+            nixos-hardware.nixosModules.framework
+          ];
+        };
+
         prisma-desktop = mkConfig {
           systemModules = [
             ./modules/workstation.nix
