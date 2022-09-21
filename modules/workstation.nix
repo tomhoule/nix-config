@@ -52,7 +52,6 @@
         swaylock
         waybar
         wofi
-        xorg.xcursorthemes
         xorg.xev
       ];
       wrapperFeatures = {

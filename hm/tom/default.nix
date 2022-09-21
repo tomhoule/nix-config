@@ -87,9 +87,11 @@ in
   ];
 
   home.pointerCursor = {
-    package = pkgs.phinger-cursors;
-    name = "phinger-cursors-light";
+    package = pkgs.openzone-cursors;
+    name = "OpenZone_White";
     size = 64;
+    x11.enable = true;
+    gtk.enable = true;
   };
 
   programs.fzf = { enable = true; enableZshIntegration = true; };
