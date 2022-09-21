@@ -6,13 +6,20 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 64;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  environment.systemPackages = with pkgs; [
+    wireguard-tools
+  ];
+
 
   # Hardware config
   # https://github.com/NixOS/nixos-hardware/tree/master/framework/12th-gen.html
@@ -50,4 +57,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
 }
-
