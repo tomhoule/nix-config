@@ -86,5 +86,10 @@ in
     zathura # PDF viewer
   ];
 
+  home.pointerCursor = {
+    package = pkgs.phinger-cursors;
+    name = "phinger-cursors-light";
+  };
+
   programs.fzf = { enable = true; enableZshIntegration = true; };
 }
