@@ -72,9 +72,7 @@ in
     bat
     chromium
     dig # caaan youuuu dig iiiiit?
-    fd
     firefox
-    gh # GitHub CLI
     imv # image viewer
     jq
     mpv
