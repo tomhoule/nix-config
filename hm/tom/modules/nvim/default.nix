@@ -23,6 +23,7 @@ in
       vim-commentary
       vim-gitgutter
       vim-surround
+      nvim-tree-lua
 
       # Theme
 
@@ -104,20 +105,9 @@ in
         config = "luafile ${./treesitter.lua}\n";
       }
       nvim-lspconfig
-      {
-        plugin = vim-dirvish;
-        config = ''
-          " Replace netrw with dirvish
-          let g:loaded_netrwPlugin = 1
-          command! -nargs=? -complete=dir Explore Dirvish <args>
-          command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
-          command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
-        '';
-      }
 
       # Nix
       vim-nix
-
 
       # Snippets
 
@@ -137,6 +127,6 @@ in
       }
       vim-vsnip-integ
     ];
-    extraConfig = foldl' (a: b: a + "luafile ${b}\n") "" [ ./init.lua ./trouble.lua ./nvim-lsp-config.lua ];
+    extraConfig = foldl' (a: b: a + "luafile ${b}\n") "" [ ./init.lua ./trouble.lua ./nvim-lsp-config.lua ./nvim-tree.lua ];
   };
 }

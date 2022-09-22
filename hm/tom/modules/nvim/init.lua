@@ -1,3 +1,7 @@
+-- Disable netrw
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Indentation
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 0
@@ -17,7 +21,6 @@ vim.g.maplocalleader = 'ç' -- hon hon hon
 
 vim.keymap.set('n', '<leader>w', '<cmd>write<CR>')
 vim.keymap.set('n', '<leader>h', '<cmd>nohlsearch<CR>')
-vim.keymap.set('n', '<leader>d', '<cmd>Dirvish %<CR>')
 
 -- Shortcuts
 vim.keymap.set({'n', 'v'}, 'é', ':')
