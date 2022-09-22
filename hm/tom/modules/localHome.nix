@@ -15,6 +15,7 @@ with lib;
       options = {
         swayExtraConfig = mkOption {
           type = types.lines;
+          default = "";
         };
 
         swayInnerGapSize = mkOption {
