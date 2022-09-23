@@ -16,6 +16,9 @@
   boot.loader.systemd-boot.configurationLimit = 64;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # YOLO
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   environment.systemPackages = with pkgs; [
     wireguard-tools
   ];
