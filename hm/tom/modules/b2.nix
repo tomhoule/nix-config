@@ -7,18 +7,21 @@ let
 
     ${backblaze-b2}/bin/backblaze-b2 sync \
       --excludeDirRegex '^tom/.cache$' \
-      --excludeDirRegex '^tom/.config/chromium$' \
+      --excludeDirRegex '^tom/.config/' \
       --excludeDirRegex '^tom/.mozilla$' \
       --excludeDirRegex '^tom/.dropbox$' \
+      --excludeDirRegex '^tom/.local/share$' \
+      --excludeDirRegex '^tom/.steam$' \
+      --excludeDirRegex '^tom/.vscode-oss$' \
       --excludeDirRegex '^tom/src/gh$' \
       --excludeDirRegex '^tom/src/.*/target/debug$' \
       --excludeDirRegex '^tom/src/.*/target/release$' \
+      --excludeDirRegex '^tom/src/.*/target/doc$' \
       --excludeDirRegex '^tom/src/.*/zig-cache$' \
       --excludeDirRegex '^tom/src/.*/node_modules$' \
       --excludeDirRegex '^tom/src/.*/.direnv$' \
-      --excludeDirRegex '^tom/src/nixpkgs$' \
-      --excludeRegex '^tom/.local/share/nvim/shada/main.shada$' \
       --excludeAllSymlinks \
+      --keepDays 30 \
       /home \
       b2://${hostName}-home-backups
   '';
