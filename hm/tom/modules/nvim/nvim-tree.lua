@@ -1,3 +1,4 @@
+
 require("nvim-tree").setup({
   renderer = {
     group_empty = true,
@@ -13,4 +14,5 @@ require("nvim-tree").setup({
 })
 
 local nt_api = require("nvim-tree.api")
-vim.keymap.set('n', '<leader>d', nt_api.tree.toggle)
+
+vim.keymap.set('n', '<leader>d', function() nt_api.tree.toggle(true) end)
