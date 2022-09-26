@@ -21,9 +21,10 @@ in
     enable = true;
     plugins = with pkgs.vimPlugins; [
       vim-commentary
+      vim-dirvish
+      vim-eunuch
       vim-gitgutter
       vim-surround
-      nvim-tree-lua
 
       # Theme
 
@@ -43,22 +44,16 @@ in
       }
 
       # Jump
-      { plugin = vim-repeat; }
-      { plugin = lightspeed-nvim; }
+      vim-repeat
+      lightspeed-nvim
 
       # Trouble — for better lists
       # https://github.com/folke/trouble.nvim
-      {
-        plugin = trouble-nvim;
-        config = ''
-          lua << EOF
-          EOF
-        '';
-      }
+      trouble-nvim
 
       # Telescope
-      { plugin = telescope-fzf-native-nvim; }
-      { plugin = telescope-ui-select-nvim; }
+      telescope-fzf-native-nvim
+      telescope-ui-select-nvim
       {
         plugin = telescope-nvim;
         config = ''
@@ -100,11 +95,9 @@ in
       cmp-vsnip
       { plugin = nvim-cmp; config = "luafile ${./cmp.lua}\n"; }
 
-      {
-        plugin = (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars));
-        config = "luafile ${./treesitter.lua}\n";
-      }
       nvim-lspconfig
+
+      (nvim-treesitter.withPlugins (p: [ p.tree-sitter-sql p.tree-sitter-rust p.tree-sitter-lua ]))
 
       # Nix
       vim-nix
@@ -127,6 +120,6 @@ in
       }
       vim-vsnip-integ
     ];
-    extraConfig = foldl' (a: b: a + "luafile ${b}\n") "" [ ./init.lua ./trouble.lua ./nvim-lsp-config.lua ./nvim-tree.lua ];
+    extraConfig = foldl' (a: b: a + "luafile ${b}\n") "" [ ./init.lua ./trouble.lua ./nvim-lsp-config.lua ./treesitter.lua ];
   };
 }

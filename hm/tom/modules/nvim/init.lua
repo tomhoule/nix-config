@@ -21,6 +21,7 @@ vim.g.maplocalleader = 'ç' -- hon hon hon
 
 vim.keymap.set('n', '<leader>w', '<cmd>write<CR>')
 vim.keymap.set('n', '<leader>h', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<leader>d', '<cmd>:Dirvish<CR>')
 
 -- Shortcuts
 vim.keymap.set({'n', 'v'}, 'é', ':')
