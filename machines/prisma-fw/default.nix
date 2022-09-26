@@ -34,14 +34,8 @@
       enable = true;
       checkReversePath = "loose"; # strict mode blocks wireguard
     };
-    networkmanager = {
-      enable = true;
-      wifi.backend = "iwd";
-      dns = "systemd-resolved";
-    };
+    networkmanager.enable = true;
   };
-
-  services.resolved.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
