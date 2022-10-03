@@ -93,11 +93,16 @@ in
       cmp-buffer
       cmp-nvim-lsp
       cmp-vsnip
-      { plugin = nvim-cmp; config = "luafile ${./cmp.lua}\n"; }
+      nvim-cmp
 
       nvim-lspconfig
 
-      (nvim-treesitter.withPlugins (p: [ p.tree-sitter-sql p.tree-sitter-rust p.tree-sitter-lua ]))
+      (nvim-treesitter.withPlugins (p: [
+        p.tree-sitter-lua
+        p.tree-sitter-prisma
+        p.tree-sitter-rust
+        p.tree-sitter-sql
+      ]))
 
       # Nix
       vim-nix
@@ -120,6 +125,6 @@ in
       }
       vim-vsnip-integ
     ];
-    extraConfig = foldl' (a: b: a + "luafile ${b}\n") "" [ ./init.lua ./trouble.lua ./nvim-lsp-config.lua ./treesitter.lua ];
+    extraConfig = foldl' (a: b: a + "luafile ${b}\n") "" [ ./init.lua ./trouble.lua ./nvim-lsp-config.lua ./treesitter.lua ./cmp.lua ];
   };
 }
