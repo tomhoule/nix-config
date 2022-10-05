@@ -13,5 +13,5 @@
     plugins = [ pkgs.obs-studio-plugins.wlrobs ];
   };
 
-  home.packages = with pkgs; [ postgresql mysql ]; # for the clients
+  home.packages = with pkgs; [ postgresql mariadb ]; # for the clients
 }
