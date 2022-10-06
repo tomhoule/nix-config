@@ -8,7 +8,6 @@
 
   home.packages = with pkgs; [
     rust-analyzer
-    rustup
   ];
 
   programs.zsh.shellAliases = {
