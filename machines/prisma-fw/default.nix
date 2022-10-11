@@ -27,6 +27,7 @@
   # Hardware config
   # https://github.com/NixOS/nixos-hardware/tree/master/framework/12th-gen.html
   services.fwupd.enable = true;
+  services.udisks2.enable = true;
 
   networking = {
     hostName = "prisma-fw";
