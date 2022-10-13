@@ -10,13 +10,12 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware }:
+  outputs = { nixpkgs, home-manager, nixos-hardware, ... }:
     let
       system = "x86_64-linux";
 
       mkConfig = ({ systemModules, nixpkgsConfig ? { } }:
         let
-          pkgs = import nixpkgs { inherit system; config = nixpkgsConfig; };
           nixpkgsModule = { nixpkgs = { config = nixpkgsConfig; }; };
           homeModule = { config, ... }: {
             home-manager = {
