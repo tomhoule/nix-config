@@ -43,10 +43,6 @@ in
         '';
       }
 
-      # Jump
-      vim-repeat
-      lightspeed-nvim
-
       # Trouble — for better lists
       # https://github.com/folke/trouble.nvim
       trouble-nvim
