@@ -35,7 +35,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>td', '<cmd>TroubleToggle workspace_diagnostics<CR>', opts)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, opts)
+  vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, opts)
 end
 
 -- Debugging
