@@ -60,6 +60,10 @@ require('lspconfig').zls.setup {
     on_attach = on_attach,
 }
 
+require('lspconfig').tsserver.setup {
+    on_attach = on_attach,
+}
+
 require('lean').setup{
     abbreviations = { builtin = true },
     lsp = { on_attach = on_attach },
