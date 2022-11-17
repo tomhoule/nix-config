@@ -52,6 +52,7 @@
           systemModules = [
             ./modules/workstation.nix
             ./modules/laptop.nix
+            ./modules/syncthing.nix
             ./modules/tailscale.nix
             ./machines/prisma-fw
             nixos-hardware.nixosModules.framework
