@@ -41,6 +41,9 @@
       extraPackages = with pkgs; [
         hicolor-icon-theme # for wofi
 
+        # Random utilities
+        pciutils
+
         # Wayland screenshots (sway)
         slurp
         grim
