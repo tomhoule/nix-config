@@ -14,12 +14,11 @@
     let
       system = "x86_64-linux";
 
-      mkConfig = ({ modules }:
+      mkConfig = { modules }:
         nixpkgs.lib.nixosSystem {
           specialArgs = { inherit flakeInputs; };
           inherit system modules;
-        }
-      );
+        };
     in
     {
       nixosConfigurations = {
