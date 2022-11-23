@@ -20,6 +20,8 @@
   };
   boot.enableContainers = false;
 
+  # This machine needs a proprietary network driver.
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "broadcom-sta" ];
 
   networking.hostName = "prisma-desktop";
 

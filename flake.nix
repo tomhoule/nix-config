@@ -14,9 +14,8 @@
     let
       system = "x86_64-linux";
 
-      mkConfig = ({ systemModules, nixpkgsConfig ? { } }:
+      mkConfig = ({ systemModules }:
         let
-          nixpkgsModule = { nixpkgs = { config = nixpkgsConfig; }; };
           homeModule = { config, ... }: {
             home-manager = {
               useGlobalPkgs = true;
@@ -34,7 +33,6 @@
           modules = systemModules ++
             [
               ./modules/base.nix
-              nixpkgsModule
               home-manager.nixosModules.home-manager
               homeModule
             ];
@@ -69,11 +67,6 @@
             ./modules/ssh-server.nix
             ./modules/wireshark.nix
             ./modules/dbeaver.nix
-          ];
-
-          # This machine needs a proprietary network driver.
-          nixpkgsConfig.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
-            "broadcom-sta"
           ];
         };
 
