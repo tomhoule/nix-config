@@ -1,6 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, flakeInputs, ... }:
 
 {
+  imports = [ flakeInputs.home-manager.nixosModules.home-manager ];
+
   environment = {
     systemPackages = with pkgs; [
       cachix # the cachix client
@@ -30,6 +32,21 @@
       noto-fonts-cjk
       noto-fonts-emoji
       noto-fonts-extra
+    ];
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+
+    /*
+      We can't use _module.args here because using regular arguments
+      to determine which modules to resolve causes infinite loops.
+    */
+    extraSpecialArgs = { hostName = config.networking.hostName; };
+
+    users.tom.imports = [
+      ../hm/tom
     ];
   };
 

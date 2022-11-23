@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nixPkgsFlake, ... }:
+{ config, lib, pkgs, flakeInputs, ... }:
 
 {
   environment = {
@@ -23,7 +23,8 @@
       dates = "weekly";
     };
 
-    registry.nixpkgs.flake = nixPkgsFlake;
+    # https://twitter.com/a_hoverbear/status/1569711910442127361
+    registry.nixpkgs.flake = flakeInputs.nixpkgs;
   };
 
   # TZ & locales.

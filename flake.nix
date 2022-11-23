@@ -10,44 +10,22 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
   };
 
-  outputs = { nixpkgs, home-manager, nixos-hardware, ... }:
+  outputs = flakeInputs@{ nixpkgs, home-manager, nixos-hardware, ... }:
     let
       system = "x86_64-linux";
 
-      mkConfig = ({ systemModules }:
-        let
-          homeModule = { config, ... }: {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              /*
-                We can't use _module.args here because using regular arguments
-                to determine which modules to resolve causes infinite loops.
-              */
-              extraSpecialArgs = { hostName = config.networking.hostName; };
-              users.tom = { imports = [ ./hm/tom ]; };
-            };
-          };
-        in
+      mkConfig = ({ modules }:
         nixpkgs.lib.nixosSystem {
-          modules = systemModules ++
-            [
-              ./modules/base.nix
-              home-manager.nixosModules.home-manager
-              homeModule
-            ];
-
-          # https://twitter.com/a_hoverbear/status/1569711910442127361
-          specialArgs = { nixPkgsFlake = nixpkgs; };
-
-          inherit system;
+          specialArgs = { inherit flakeInputs; };
+          inherit system modules;
         }
       );
     in
     {
       nixosConfigurations = {
         prisma-fw = mkConfig {
-          systemModules = [
+          modules = [
+            ./modules/base.nix
             ./modules/workstation.nix
             ./modules/laptop.nix
             ./modules/syncthing.nix
@@ -58,7 +36,8 @@
         };
 
         prisma-desktop = mkConfig {
-          systemModules = [
+          modules = [
+            ./modules/base.nix
             ./modules/workstation.nix
             ./modules/podman.nix
             ./machines/prisma-desktop/config.nix
@@ -71,7 +50,8 @@
         };
 
         xps13 = mkConfig {
-          systemModules = [
+          modules = [
+            ./modules/base.nix
             ./modules/workstation.nix
             ./modules/laptop.nix
             ./modules/tailscale.nix
@@ -80,7 +60,6 @@
             nixos-hardware.nixosModules.dell-xps-13-9380
           ];
         };
-
       };
     };
 }
