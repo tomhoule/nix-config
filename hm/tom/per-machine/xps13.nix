@@ -8,7 +8,7 @@
   localHome = {
     swayInnerGapSize = 4;
     termBgAlpha = 0.90;
-    termFontSize = 7;
+    termFontSize = 7.0;
     waybarConfigDir = ../modules/sway/laptopWaybar;
   };
 }
