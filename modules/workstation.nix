@@ -6,7 +6,11 @@
   environment = {
     systemPackages = with pkgs; [
       cachix # the cachix client
+      helvum # audio/video piping
+
+      pavucontrol # GUI
       pulseaudio # for utilities like pactl — not the daemon
+
       usbutils
     ];
 
