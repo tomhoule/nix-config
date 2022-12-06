@@ -13,9 +13,17 @@
 
   nix = {
     package = pkgs.nixUnstable;
+    # https://jackson.dev/post/nix-reasonable-defaults/
     extraOptions = ''
+      connect-timeout = 5
+      log-lines = 30
+      min-free = 128000000
+      max-free = 1000000000
       experimental-features = nix-command flakes
       max-jobs = auto  # Allow building multiple derivations in parallel
+
+      auto-optimise-store = true
+      keep-outputs = true
     '';
 
     gc = {
