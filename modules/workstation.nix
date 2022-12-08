@@ -76,7 +76,7 @@
         swaylock
         waybar
         wofi
-        xorg.xev
+        wev # xev but for wayland
       ];
       wrapperFeatures = {
         base = true;
