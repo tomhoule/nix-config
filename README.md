@@ -18,11 +18,12 @@ manual](https://nixos.org/manual/nixos/stable/#sec-installation).
 Regarding partitioning, the NixOS manual way to set up LUKS with ext4 plays
 well with `nixos-generate-config`, it is very smooth and easy.
 
-Then, generate the configuration (`configuration.nix` and
-`hardware-configuration.nix`) . Clone this repository, incorporate the
-generated files in `machines/<hostName>`, add a top-level configuration to
-`flake.nix`, and finally, use `nixos-install --flake` to install NixOS on the new
-machine, as described in the official docs and the `nixos-install` manpage.
+Generate the configuration (`configuration.nix` and
+`hardware-configuration.nix`) with `nixos-generate-config`. Clone this
+repository, incorporate the generated files in `machines/<hostName>`, add a
+top-level configuration to `flake.nix`, and finally, use `nixos-install
+--flake` to install NixOS on the new machine, as described in the official docs
+and the `nixos-install` manpage.
 
 ## Repository organization
 
