@@ -5,7 +5,6 @@
     binutils
     coreutils
     gnumake
-    lld
 
     strace
 
