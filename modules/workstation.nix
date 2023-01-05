@@ -13,10 +13,6 @@
 
       usbutils
     ];
-
-    variables = {
-      MOZ_ENABLE_WAYLAND = "1";
-    };
   };
 
   fonts = {
