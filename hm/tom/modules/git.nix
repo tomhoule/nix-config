@@ -9,6 +9,7 @@
       st = "status";
       ca = "commit --amend";
       fa = "fetch --all";
+      fo = "fetch origin";
       co = "checkout";
       pso = "push --set-upstream origin HEAD";
       pf = "push --force";
