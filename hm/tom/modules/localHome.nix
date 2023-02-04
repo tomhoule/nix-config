@@ -13,6 +13,13 @@ with lib;
 
     type = types.submodule {
       options = {
+        b2-bucket = mkOption {
+          type = types.str;
+          description = ''
+            The name of the b2 bucket to use for backups.
+          '';
+        };
+
         swayExtraConfig = mkOption {
           type = types.lines;
           default = "";

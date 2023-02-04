@@ -2,6 +2,7 @@
 
 {
   localHome = {
+    b2-bucket = "xps13-home-backups";
     swayInnerGapSize = 4;
     swayExtraConfig = ''
       output * scale 1

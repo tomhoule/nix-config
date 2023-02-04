@@ -23,7 +23,7 @@ let
       --excludeAllSymlinks \
       --keepDays 30 \
       /home \
-      b2://${hostName}-home-backups
+      b2://${config.localHome.b2-bucket}
   '';
 in
 {
