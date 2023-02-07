@@ -27,7 +27,6 @@
             ./modules/base.nix
             ./modules/workstation.nix
             ./modules/laptop.nix
-            ./modules/syncthing.nix
             ./modules/tailscale.nix
             ./machines/prisma-fw
             nixos-hardware.nixosModules.framework
@@ -41,7 +40,6 @@
             ./modules/podman.nix
             ./machines/prisma-desktop/config.nix
             ./modules/tailscale.nix
-            ./modules/syncthing.nix
             ./modules/ssh-server.nix
             ./modules/wireshark.nix
             ./modules/dbeaver.nix
@@ -54,7 +52,6 @@
             ./modules/workstation.nix
             ./modules/laptop.nix
             ./modules/tailscale.nix
-            ./modules/syncthing.nix
             ./machines/xps13/config.nix
             nixos-hardware.nixosModules.dell-xps-13-9380
           ];
