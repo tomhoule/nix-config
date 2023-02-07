@@ -11,6 +11,7 @@ let
       --excludeDirRegex '^tom/.mozilla$' \
       --excludeDirRegex '^tom/.dropbox$' \
       --excludeDirRegex '^tom/.local/share$' \
+      --excludeDirRegex '^tom/.local/state/nvim$' \
       --excludeDirRegex '^tom/.steam$' \
       --excludeDirRegex '^tom/.vscode-oss$' \
       --excludeDirRegex '^tom/src/gh$' \
