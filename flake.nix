@@ -29,7 +29,7 @@
             ./modules/laptop.nix
             ./modules/tailscale.nix
             ./machines/prisma-fw
-            nixos-hardware.nixosModules.framework
+            nixos-hardware.nixosModules.framework-12th-gen-intel
           ];
         };
 
