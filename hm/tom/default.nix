@@ -37,7 +37,10 @@ in
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "21.11";
+  #
+  # Link for the release notes:
+  # https://nix-community.github.io/home-manager/release-notes.html
+  home.stateVersion = "22.11";
 
   home.packages = with pkgs; [
     # Nix
