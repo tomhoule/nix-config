@@ -10,4 +10,5 @@
   };
 
   home.packages = with pkgs; [ postgresql mariadb ]; # for the clients
+  programs.obs-studio.enable = true;
 }
