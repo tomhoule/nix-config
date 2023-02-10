@@ -21,6 +21,7 @@
       max-free = 1000000000
       experimental-features = nix-command flakes
       max-jobs = auto  # Allow building multiple derivations in parallel
+      cores = 0 # use all cores
 
       auto-optimise-store = true
       keep-outputs = true
