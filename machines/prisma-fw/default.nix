@@ -16,14 +16,6 @@
   boot.loader.systemd-boot.configurationLimit = 64;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # YOLO
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  environment.systemPackages = with pkgs; [
-    wireguard-tools
-  ];
-
-
   # Hardware config
   # https://github.com/NixOS/nixos-hardware/tree/master/framework/12th-gen.html
   services.fwupd.enable = true;
@@ -35,7 +27,6 @@
       enable = true;
       checkReversePath = "loose"; # strict mode blocks wireguard
     };
-    networkmanager.enable = true;
   };
 
   # This value determines the NixOS release from which the default

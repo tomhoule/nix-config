@@ -9,6 +9,8 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  networking.networkmanager.enable = true;
+
   services.tlp = {
     enable = true;
     # https://linrunner.de/tlp/settings
@@ -32,4 +34,3 @@
 
   powerManagement.enable = true; # How does this mesh with tlp?
 }
-
