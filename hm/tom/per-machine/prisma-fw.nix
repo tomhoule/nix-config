@@ -11,5 +11,7 @@
     termFontSize = 7.5;
     waybarConfigDir = ../modules/sway/laptopWaybar;
   };
+
+  home.packages = with pkgs; [ newsboat ];
 }
 
