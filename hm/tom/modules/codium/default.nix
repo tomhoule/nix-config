@@ -16,7 +16,7 @@
       files.trimFinalNewlines = false;
       files.trimTrailingWhitespace = false;
       telemetry.enableCrashReporter = false;
-      telemetry.enableTelemetry = true;
+      telemetry.enableTelemetry = false;
       telemetry.telemetryLevel = "off";
       window.menuBarVisibility = "hidden";
       window.zoomLevel = 2;
