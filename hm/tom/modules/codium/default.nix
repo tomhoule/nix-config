@@ -13,8 +13,8 @@
       editor.fontLigatures = false;
       editor.fontSize = 12;
       editor.minimap.enabled = false;
-      files.trimFinalNewlines = false;
-      files.trimTrailingWhitespace = false;
+      files.trimFinalNewlines = true;
+      files.trimTrailingWhitespace = true;
       telemetry.enableCrashReporter = false;
       telemetry.enableTelemetry = false;
       telemetry.telemetryLevel = "off";
