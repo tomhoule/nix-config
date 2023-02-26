@@ -18,6 +18,7 @@
       telemetry.enableCrashReporter = false;
       telemetry.enableTelemetry = false;
       telemetry.telemetryLevel = "off";
+      update.mode = "none";
       window.menuBarVisibility = "hidden";
       window.zoomLevel = 2;
       workbench.colorTheme = "Quiet Light";
