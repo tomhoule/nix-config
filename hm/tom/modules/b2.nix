@@ -20,6 +20,7 @@ let
       --excludeDirRegex '^tom/src/.*/target/doc$' \
       --excludeDirRegex '^tom/src/.*/zig-cache$' \
       --excludeDirRegex '^tom/src/.*/node_modules$' \
+      --excludeDirRegex '^tom/src/.*/lake-packages$' \
       --excludeDirRegex '^tom/src/.*/.direnv$' \
       --excludeAllSymlinks \
       --keepDays 30 \
