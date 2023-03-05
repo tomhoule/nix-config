@@ -6,7 +6,7 @@ let
   '';
 in
 {
-  programs.mako.enable = true; # notification daemon
+  services.mako.enable = true; # notification daemon
 
   home.packages = with pkgs; [
     capture-region
