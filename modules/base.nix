@@ -29,7 +29,7 @@
 
     gc = {
       automatic = true;
-      dates = "weekly";
+      dates = "monthly";
     };
 
     # https://twitter.com/a_hoverbear/status/1569711910442127361
