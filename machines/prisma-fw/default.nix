@@ -13,7 +13,7 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 64;
+  boot.loader.systemd-boot.configurationLimit = 32;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Hardware config
