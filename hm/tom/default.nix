@@ -59,7 +59,6 @@ in
     rmlint
     ranger # file manager
     signal-desktop
-    units # GNU units for unit conversions
     unzip
     yt-dlp
     whois
