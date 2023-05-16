@@ -12,6 +12,6 @@
     waybarConfigDir = ../modules/sway/laptopWaybar;
   };
 
-  home.packages = with pkgs; [ newsboat ];
+  home.packages = with pkgs; [ newsboat signal-desktop ];
 }
 
