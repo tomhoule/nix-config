@@ -18,7 +18,6 @@
     tokei
 
     # Graphics & video
-    ffmpeg-full
     imagemagick
   ];
 }
