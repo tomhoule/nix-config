@@ -11,6 +11,8 @@
 
   networking.networkmanager.enable = true;
 
+  services.thermald.enable = true;
+
   services.tlp = {
     enable = true;
     # https://linrunner.de/tlp/settings
