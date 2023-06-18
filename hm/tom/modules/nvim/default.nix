@@ -10,11 +10,16 @@ let
     url = "http://ftp.vim.org/vim/runtime/spell/fr.utf-8.spl";
     sha256 = "sha256:0q9vws3fyi33yladjx5n0f6w0gbk76mz2n6fb8bpr24dp419gyxb";
   };
+  nvim-spell-de-utf8-dictionary = builtins.fetchurl {
+    url = "http://ftp.vim.org/vim/runtime/spell/de.utf-8.spl";
+    sha256 = "sha256:1ld3hgv1kpdrl4fjc1wwxgk4v74k8lmbkpi1x7dnr19rldz11ivk";
+  };
 in
 {
   home.file = {
     "${config.xdg.configHome}/nvim/spell/fr.utf-8.spl".source = nvim-spell-fr-utf8-dictionary;
     "${config.xdg.configHome}/nvim/spell/en.utf-8.spl".source = nvim-spell-en-utf8-dictionary;
+    "${config.xdg.configHome}/nvim/spell/de.utf-8.spl".source = nvim-spell-de-utf8-dictionary;
   };
 
   programs.neovim = {
