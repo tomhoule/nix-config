@@ -17,15 +17,6 @@
     enable = true;
     # https://linrunner.de/tlp/settings
     settings = {
-      # https://linrunner.de/tlp/settings/battery.html
-      START_CHARGE_THRESH_BAT0 = 55;
-      STOP_CHARGE_THRESH_BAT0 = 60;
-      START_CHARGE_THRESH_BAT1 = 55;
-      STOP_CHARGE_THRESH_BAT1 = 60;
-      RESTORE_THRESHOLDS_ON_BAT = 1;
-
-      CPU_SCALING_GOVERNOR_ON_AC = "powersave";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
       PCIE_ASPM_ON_BAT = "powersupersave";
 
       # https://linrunner.de/tlp/settings/radio.html
