@@ -24,8 +24,8 @@
       STOP_CHARGE_THRESH_BAT1 = 60;
       RESTORE_THRESHOLDS_ON_BAT = 1;
 
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
+      CPU_SCALING_GOVERNOR_ON_AC = "powersave";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
       PCIE_ASPM_ON_BAT = "powersupersave";
 
       # https://linrunner.de/tlp/settings/radio.html
