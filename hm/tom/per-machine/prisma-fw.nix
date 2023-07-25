@@ -8,7 +8,6 @@
       output * scale 1
     '';
     termBgAlpha = 0.90;
-    termFontSize = 14.0;
     waybarConfigDir = ../modules/sway/laptopWaybar;
   };
 

@@ -5,7 +5,6 @@
     b2-bucket = "prisma-desktop";
     swayInnerGapSize = 10;
     termBgAlpha = 0.95;
-    termFontSize = 9.0;
     waybarConfigDir = ../modules/sway/waybar;
   };
 

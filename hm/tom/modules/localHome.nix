@@ -35,6 +35,7 @@ with lib;
 
         termFontSize = mkOption {
           type = types.float;
+          default = 14.0;
         };
 
         waybarConfigDir = mkOption {
