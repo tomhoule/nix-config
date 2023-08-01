@@ -11,6 +11,9 @@
   (evil-global-set-key 'normal (kbd "<SPC>d")
 		       (lambda () (interactive)
 			 (dired (file-name-directory buffer-file-name))))
+  (evil-global-set-key 'normal (kbd "<SPC>pf") 'project-find-file)
+  (evil-global-set-key 'normal (kbd "<SPC>bs") 'bookmark-set)
+  (evil-global-set-key 'normal (kbd "<SPC>bj") 'bookmark-jump)
   (evil-mode 1))
 
 (use-package evil-surround
@@ -69,7 +72,9 @@
   :mode "\\.nix\\'")
 
 (use-package rust-mode
-  :mode "\\.rs\\'")
+  :mode "\\.rs\\'"
+  :config
+  (add-hook 'rust-mode-hook 'eglot-ensure))
 
 ; Tree-sitter
 (use-package tree-sitter
@@ -77,4 +82,16 @@
   (require 'tree-sitter-langs)
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+;; Completion
+(use-package vertico
+  :init
+  (vertico-mode))
+
+;; Completion at point
+(use-package corfu
+  :init
+  (global-corfu-mode 1)
+  (setq tab-always-indent 'complete)
+  (corfu-echo-mode 1))
 

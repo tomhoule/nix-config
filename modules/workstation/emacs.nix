@@ -9,14 +9,17 @@ in
   services.emacs = {
     enable = true;
     package = emacsWithPackages (epkgs: [
+      epkgs.corfu
       epkgs.doom-themes
-      epkgs.nix-mode
       epkgs.evil
       epkgs.evil-collection
       epkgs.evil-surround
+      epkgs.flycheck
+      epkgs.nix-mode
+      epkgs.rust-mode
       epkgs.tree-sitter
       epkgs.tree-sitter-langs
-      epkgs.rust-mode
+      epkgs.vertico
       epkgs.which-key
     ]);
   };
