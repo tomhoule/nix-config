@@ -31,6 +31,11 @@
   networking.useDHCP = false;
   networking.interfaces.enp5s0.useDHCP = true;
 
+  # Printer
+  programs.system-config-printer.enable = true;
+  services.ipp-usb.enable = true;
+  services.printing.enable = true;
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
