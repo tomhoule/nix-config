@@ -1,4 +1,8 @@
-;;; -*- lexical-binding: t; -*-
+;;; init.el --- tom's init.el -*- lexical-binding: t; -*-
+
+;;; Commentary:
+
+;;; Code:
 
 ; ** Evil **
 
@@ -7,6 +11,7 @@
   (setq evil-want-keybinding nil)
   (setq evil-undo-system 'undo-redo)
   (setq evil-redo-system 'undo-redo)
+  (setq evil-want-C-u-scroll t)
   :config
   (evil-global-set-key 'normal (kbd "<SPC>d")
 		       (lambda () (interactive)
@@ -95,3 +100,5 @@
   (setq tab-always-indent 'complete)
   (corfu-echo-mode 1))
 
+(provide 'init)
+;;; init.el ends here
