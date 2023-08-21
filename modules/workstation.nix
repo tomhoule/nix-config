@@ -22,7 +22,7 @@
       serif = [ "Noto Serif" ];
     };
 
-    fonts = with pkgs; [
+    packages = with pkgs; [
       dejavu_fonts
       fira-code
       font-awesome # required for waybar
