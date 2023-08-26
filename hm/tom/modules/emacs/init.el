@@ -6,20 +6,47 @@
 
 ; ** Evil **
 
-(use-package evil
-  :init
-  (setq evil-want-keybinding nil)
-  (setq evil-undo-system 'undo-redo)
-  (setq evil-redo-system 'undo-redo)
-  (setq evil-want-C-u-scroll t)
-  :config
-  (evil-global-set-key 'normal (kbd "<SPC>d")
-		       (lambda () (interactive)
-			 (dired (file-name-directory buffer-file-name))))
-  (evil-global-set-key 'normal (kbd "<SPC>pf") 'project-find-file)
-  (evil-global-set-key 'normal (kbd "<SPC>bs") 'bookmark-set)
-  (evil-global-set-key 'normal (kbd "<SPC>bj") 'bookmark-jump)
-  (evil-mode 1))
+(defun dired-open-in-current-dir () "Open dired in the directory of the current file"
+       (interactive)
+       (dired (file-name-directory buffer-file-name)))
+
+(let ((leader-prefix (define-prefix-command 'my-evil-leader-map))
+      (leader-mode-prefix (define-prefix-command 'my-evil-leader-mode-map))
+      (leader-project-prefix (define-prefix-command 'my-evil-leader-project-map))
+      (leader-bookmark-prefix (define-prefix-command 'my-evil-leader-bookmark-map))
+      )
+  (use-package evil
+    :init
+    (setq evil-want-keybinding nil)
+    (setq evil-undo-system 'undo-redo)
+    (setq evil-redo-system 'undo-redo)
+    (setq evil-want-C-u-scroll t)
+
+    :config
+    (keymap-set evil-normal-state-map "<SPC>" leader-prefix)
+    (keymap-set leader-prefix "<SPC>" '("Find file" . project-find-file))
+    (keymap-set leader-prefix "b" `("Bookmarks" . ,leader-bookmark-prefix))
+    (keymap-set leader-prefix "d" 'dired-open-in-current-dir)
+    (keymap-set leader-prefix "m" `("Mode" . ,leader-mode-prefix))
+    (keymap-set leader-prefix "p" `("Project" . ,leader-project-prefix))
+    (keymap-set leader-prefix "u" '("Universal argument" . universal-argument))
+
+    (keymap-set leader-mode-prefix "i" 'indent-region)
+
+    (keymap-set leader-bookmark-prefix "j" 'bookmark-jump)
+    (keymap-set leader-bookmark-prefix "s" 'bookmark-set)
+
+    (keymap-set leader-project-prefix "f" 'project-find-file)
+
+    (evil-global-set-key 'visual (kbd "gc") 'comment-dwim)
+    (evil-global-set-key 'normal (kbd "gcc") 'comment-line)
+
+    ; Make sure <SPC> as a leader key works in other modes.
+    (dolist (hook-name '(dired-mode-hook help-mode-hook))
+	    (add-hook hook-name
+		      (lambda () (keymap-set evil-normal-state-local-map "<SPC>" leader-prefix))))
+
+    (evil-mode 1)))
 
 (use-package evil-surround
   :config
