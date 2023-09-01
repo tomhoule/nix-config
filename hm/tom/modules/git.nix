@@ -18,6 +18,7 @@
       init = { defaultBranch = "main"; };
       pull = { rebase = true; };
       merge.conflictstyle = "diff3";
+      commit.verbose = true;
     };
   };
 }
