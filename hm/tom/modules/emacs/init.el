@@ -118,16 +118,15 @@
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
+;; flycheck
+(use-package flycheck
+  :init
+  (global-flycheck-mode 1))
+
 ;; Completion
 (use-package vertico
   :init
   (vertico-mode))
-
-;; flycheck
-(use-package flycheck
-  :init
-  (flycheck-global-mode))
-
 
 ;; Completion at point
 (use-package corfu
