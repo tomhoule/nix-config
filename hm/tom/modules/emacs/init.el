@@ -90,8 +90,8 @@
 				  customize-apropos-faces customize-save-variable
 				  customize-apropos-groups customize-apropos-options
 				  customize-changed-options customize-save-customized))
-    (put sym 'disabled "Doom doesn't support `customize', configure Emacs from $DOOMDIR/config.el instead"))
-  (put 'customize-themes 'disabled "Set `doom-theme' or use `load-theme' in $DOOMDIR/config.el instead"))
+    (put sym 'disabled "Customize is disabled from init.el."))
+  (put 'customize-themes 'disabled "Use load-theme instead."))
 
 ; Display available shortcuts in popup. See
 ; https://github.com/justbur/emacs-which-key
