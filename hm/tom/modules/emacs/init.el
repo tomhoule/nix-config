@@ -9,47 +9,56 @@
 
 ; ** Evil **
 
-(defun dired-open-in-current-dir () "Open dired in the directory of the current file"
+(defun dired-open-in-current-dir () "Open Dired in the directory of the current file."
        (interactive)
        (dired (file-name-directory buffer-file-name)))
 
 (setq my-leader-prefix (define-prefix-command 'my-evil-leader-map))
-(setq my-localleader-prefix (define-prefix-command 'my-evil-leader-mode-map))
+(setq my-localleader-prefix (define-prefix-command 'my-evil-localleader-map))
 (setq my-leader-project-prefix (define-prefix-command 'my-evil-leader-project-map))
 (setq my-leader-bookmark-prefix (define-prefix-command 'my-evil-leader-bookmark-map))
 
 (use-package evil
   :init
+
   (setq evil-want-keybinding nil)
   (setq evil-undo-system 'undo-redo)
   (setq evil-redo-system 'undo-redo)
   (setq evil-want-C-u-scroll t)
 
   :config
+
   (keymap-set evil-normal-state-map "<SPC>" my-leader-prefix)
+  (keymap-set evil-visual-state-map "<SPC>" my-leader-prefix)
+
   (keymap-set my-leader-prefix "<SPC>" '("Find file" . project-find-file))
   (keymap-set my-leader-prefix "b" `("Bookmarks" . ,my-leader-bookmark-prefix))
   (keymap-set my-leader-prefix "d" 'dired-open-in-current-dir)
-  (keymap-set my-leader-prefix "m" `("Mode" . ,my-leader-mode-prefix))
+  (keymap-set my-leader-prefix "m" `("Mode" . ,my-localleader-prefix))
   (keymap-set my-leader-prefix "p" `("Project" . ,my-leader-project-prefix))
   (keymap-set my-leader-prefix "u" '("Universal argument" . universal-argument))
   (keymap-set my-leader-prefix "t" '("Terminal" . term))
   (keymap-set my-leader-prefix "g" '("Git" . magit-status))
 
-  (keymap-set my-leader-mode-prefix "i" 'indent-region)
-
   (keymap-set my-leader-bookmark-prefix "j" 'bookmark-jump)
   (keymap-set my-leader-bookmark-prefix "s" 'bookmark-set)
 
+  (keymap-set my-leader-project-prefix "f" 'project-find-file)
   (keymap-set my-leader-project-prefix "f" 'project-find-file)
 
   (evil-global-set-key 'visual (kbd "gc") 'comment-dwim)
   (evil-global-set-key 'normal (kbd "gcc") 'comment-line)
 
-					; Make sure <SPC> as a leader key works in other modes.
+  ;; Make sure <SPC> as a leader key works in other modes.
   (dolist (hook-name '(dired-mode-hook help-mode-hook))
     (add-hook hook-name
-	      (lambda () (keymap-set evil-normal-state-local-map "<SPC>" leader-prefix))))
+	      (lambda () (keymap-set evil-normal-state-local-map "<SPC>" my-leader-prefix))))
+
+  (add-hook 'emacs-lisp-mode-hook
+	    (lambda ()
+	      (keymap-set my-localleader-prefix "r" 'eval-region)
+	      (keymap-set my-localleader-prefix "f" 'flycheck-list-errors)
+	      ))
 
   (evil-mode 1))
 
