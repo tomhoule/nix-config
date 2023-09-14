@@ -10,7 +10,7 @@ in
     enable = true;
     package = emacsWithPackages (epkgs: [
       epkgs.corfu
-      epkgs.doom-themes
+      epkgs.envrc
       epkgs.evil
       epkgs.evil-collection
       epkgs.evil-surround

@@ -59,11 +59,6 @@
 
 ; ** Appearance **
 
-; Color themes
-(use-package doom-themes
-  :config
-  (load-theme 'doom-earl-grey t))
-
 (use-package emacs
   :config
 
@@ -71,6 +66,9 @@
   (menu-bar-mode -1)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
+
+  ; Color theme
+  (load-theme 'modus-operandi t)
 
   ; Line numbers
   (add-hook 'prog-mode-hook #'display-line-numbers-mode)
@@ -126,6 +124,11 @@
   (global-corfu-mode 1)
   (setq tab-always-indent 'complete)
   (corfu-echo-mode 1))
+
+;; direnv integration
+(use-package envrc
+  :init
+  (envrc-global-mode))
 
 (provide 'init)
 ;;; init.el ends here
