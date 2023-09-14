@@ -4,6 +4,9 @@
 
 ;;; Code:
 
+;; "GC magic hack" for latency
+(gcmh-mode 1)
+
 ; ** Evil **
 
 (defun dired-open-in-current-dir () "Open dired in the directory of the current file"
@@ -30,6 +33,7 @@
     (keymap-set leader-prefix "m" `("Mode" . ,leader-mode-prefix))
     (keymap-set leader-prefix "p" `("Project" . ,leader-project-prefix))
     (keymap-set leader-prefix "u" '("Universal argument" . universal-argument))
+    (keymap-set leader-prefix "t" '("Terminal" . term))
 
     (keymap-set leader-mode-prefix "i" 'indent-region)
 
@@ -118,6 +122,12 @@
   :init
   (vertico-mode))
 
+;; flycheck
+(use-package flycheck
+  :init
+  (flycheck-global-mode))
+
+
 ;; Completion at point
 (use-package corfu
   :init
@@ -129,6 +139,8 @@
 (use-package envrc
   :init
   (envrc-global-mode))
+
+(use-package magit)
 
 (provide 'init)
 ;;; init.el ends here

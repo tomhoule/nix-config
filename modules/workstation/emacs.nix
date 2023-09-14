@@ -15,6 +15,8 @@ in
       epkgs.evil-collection
       epkgs.evil-surround
       epkgs.flycheck
+      epkgs.gcmh
+      epkgs.magit
       epkgs.nix-mode
       epkgs.rust-mode
       epkgs.tree-sitter
