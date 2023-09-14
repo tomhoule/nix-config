@@ -13,44 +13,45 @@
        (interactive)
        (dired (file-name-directory buffer-file-name)))
 
-(let ((leader-prefix (define-prefix-command 'my-evil-leader-map))
-      (leader-mode-prefix (define-prefix-command 'my-evil-leader-mode-map))
-      (leader-project-prefix (define-prefix-command 'my-evil-leader-project-map))
-      (leader-bookmark-prefix (define-prefix-command 'my-evil-leader-bookmark-map))
-      )
-  (use-package evil
-    :init
-    (setq evil-want-keybinding nil)
-    (setq evil-undo-system 'undo-redo)
-    (setq evil-redo-system 'undo-redo)
-    (setq evil-want-C-u-scroll t)
+(setq my-leader-prefix (define-prefix-command 'my-evil-leader-map))
+(setq my-localleader-prefix (define-prefix-command 'my-evil-leader-mode-map))
+(setq my-leader-project-prefix (define-prefix-command 'my-evil-leader-project-map))
+(setq my-leader-bookmark-prefix (define-prefix-command 'my-evil-leader-bookmark-map))
 
-    :config
-    (keymap-set evil-normal-state-map "<SPC>" leader-prefix)
-    (keymap-set leader-prefix "<SPC>" '("Find file" . project-find-file))
-    (keymap-set leader-prefix "b" `("Bookmarks" . ,leader-bookmark-prefix))
-    (keymap-set leader-prefix "d" 'dired-open-in-current-dir)
-    (keymap-set leader-prefix "m" `("Mode" . ,leader-mode-prefix))
-    (keymap-set leader-prefix "p" `("Project" . ,leader-project-prefix))
-    (keymap-set leader-prefix "u" '("Universal argument" . universal-argument))
-    (keymap-set leader-prefix "t" '("Terminal" . term))
+(use-package evil
+  :init
+  (setq evil-want-keybinding nil)
+  (setq evil-undo-system 'undo-redo)
+  (setq evil-redo-system 'undo-redo)
+  (setq evil-want-C-u-scroll t)
 
-    (keymap-set leader-mode-prefix "i" 'indent-region)
+  :config
+  (keymap-set evil-normal-state-map "<SPC>" my-leader-prefix)
+  (keymap-set my-leader-prefix "<SPC>" '("Find file" . project-find-file))
+  (keymap-set my-leader-prefix "b" `("Bookmarks" . ,my-leader-bookmark-prefix))
+  (keymap-set my-leader-prefix "d" 'dired-open-in-current-dir)
+  (keymap-set my-leader-prefix "m" `("Mode" . ,my-leader-mode-prefix))
+  (keymap-set my-leader-prefix "p" `("Project" . ,my-leader-project-prefix))
+  (keymap-set my-leader-prefix "u" '("Universal argument" . universal-argument))
+  (keymap-set my-leader-prefix "t" '("Terminal" . term))
+  (keymap-set my-leader-prefix "g" '("Git" . magit-status))
 
-    (keymap-set leader-bookmark-prefix "j" 'bookmark-jump)
-    (keymap-set leader-bookmark-prefix "s" 'bookmark-set)
+  (keymap-set my-leader-mode-prefix "i" 'indent-region)
 
-    (keymap-set leader-project-prefix "f" 'project-find-file)
+  (keymap-set my-leader-bookmark-prefix "j" 'bookmark-jump)
+  (keymap-set my-leader-bookmark-prefix "s" 'bookmark-set)
 
-    (evil-global-set-key 'visual (kbd "gc") 'comment-dwim)
-    (evil-global-set-key 'normal (kbd "gcc") 'comment-line)
+  (keymap-set my-leader-project-prefix "f" 'project-find-file)
 
-    ; Make sure <SPC> as a leader key works in other modes.
-    (dolist (hook-name '(dired-mode-hook help-mode-hook))
-	    (add-hook hook-name
-		      (lambda () (keymap-set evil-normal-state-local-map "<SPC>" leader-prefix))))
+  (evil-global-set-key 'visual (kbd "gc") 'comment-dwim)
+  (evil-global-set-key 'normal (kbd "gcc") 'comment-line)
 
-    (evil-mode 1)))
+					; Make sure <SPC> as a leader key works in other modes.
+  (dolist (hook-name '(dired-mode-hook help-mode-hook))
+    (add-hook hook-name
+	      (lambda () (keymap-set evil-normal-state-local-map "<SPC>" leader-prefix))))
+
+  (evil-mode 1))
 
 (use-package evil-surround
   :config
