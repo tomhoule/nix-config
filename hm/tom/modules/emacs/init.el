@@ -39,6 +39,7 @@
   (keymap-set my-leader-prefix "u" '("Universal argument" . universal-argument))
   (keymap-set my-leader-prefix "t" '("Terminal" . term))
   (keymap-set my-leader-prefix "g" '("Git" . magit-status))
+  (keymap-set my-leader-prefix "f" '("Format buffer" . eglot-format-buffer))
 
   (keymap-set my-leader-bookmark-prefix "j" 'bookmark-jump)
   (keymap-set my-leader-bookmark-prefix "s" 'bookmark-set)
