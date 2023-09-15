@@ -140,9 +140,12 @@
 
 ;; Completion at point
 (use-package corfu
-  :init
-  (global-corfu-mode 1)
+  :config
   (setq tab-always-indent 'complete)
+  :init
+  (setq corfu-auto t
+	corfu-auto-prefix 0)
+  (global-corfu-mode 1)
   (corfu-echo-mode 1))
 
 ;; direnv integration
