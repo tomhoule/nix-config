@@ -92,6 +92,9 @@
   (add-to-list 'default-frame-alist
 	       '(font . "Hack-14"))
 
+  ; Disable backup files
+  (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
+
   ; Disable customize. From doom-emacs. See https://github.com/doomemacs/doomemacs/blob/35865ef5e89442e3809b8095199977053dd4210f/core/core-ui.el#L626C1-L640C1
   (dolist (sym '(customize-option customize-browse customize-group customize-face
 				  customize-rogue customize-saved customize-apropos
