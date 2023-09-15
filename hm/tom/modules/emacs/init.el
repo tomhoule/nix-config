@@ -82,6 +82,10 @@
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
 
+  ; Inhibit the start theme. I like it, but the scratch buffer is more
+  ; useful as a welcome screen.
+  (setq inhibit-splash-screen t)
+
   ; Color theme
   (load-theme 'modus-operandi t)
 
