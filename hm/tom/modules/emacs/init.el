@@ -5,7 +5,7 @@
 ;;; Code:
 
 ;; "GC magic hack" for latency
-(gcmh-mode 1)
+(use-package gcmh :config (gcmh-mode 1))
 
 ; ** Evil **
 
@@ -13,18 +13,18 @@
        (interactive)
        (dired (file-name-directory buffer-file-name)))
 
-(setq my-leader-prefix (define-prefix-command 'my-evil-leader-map))
-(setq my-localleader-prefix (define-prefix-command 'my-evil-localleader-map))
-(setq my-leader-project-prefix (define-prefix-command 'my-evil-leader-project-map))
-(setq my-leader-bookmark-prefix (define-prefix-command 'my-evil-leader-bookmark-map))
+(defvar my-leader-prefix (define-prefix-command 'my-evil-leader-map) "Leader keymap.")
+(defvar my-localleader-prefix (define-prefix-command 'my-evil-localleader-map) "Local Leader keymap.")
+(defvar my-leader-project-prefix (define-prefix-command 'my-evil-leader-project-map) "Project prefix keymap.")
+(defvar my-leader-bookmark-prefix (define-prefix-command 'my-evil-leader-bookmark-map) "Bookmark prefix keymap.")
 
 (use-package evil
   :init
 
-  (setq evil-want-keybinding nil)
-  (setq evil-undo-system 'undo-redo)
-  (setq evil-redo-system 'undo-redo)
-  (setq evil-want-C-u-scroll t)
+  (setq evil-want-keybinding nil
+	evil-undo-system 'undo-redo
+	evil-redo-system 'undo-redo
+	evil-want-C-u-scroll t)
 
   :config
 
@@ -46,6 +46,7 @@
 
   (keymap-set my-leader-project-prefix "f" 'project-find-file)
   (keymap-set my-leader-project-prefix "f" 'project-find-file)
+  (keymap-set my-leader-project-prefix "r" 'project-find-regexp)
 
   (evil-global-set-key 'visual (kbd "gc") 'comment-dwim)
   (evil-global-set-key 'normal (kbd "gcc") 'comment-line)
