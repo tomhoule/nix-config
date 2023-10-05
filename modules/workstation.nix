@@ -1,7 +1,11 @@
 { config, lib, pkgs, flakeInputs, ... }:
 
 {
-  imports = [ flakeInputs.home-manager.nixosModules.home-manager ./workstation/emacs.nix ];
+  imports = [
+    flakeInputs.home-manager.nixosModules.home-manager
+    ./workstation/display-manager.nix
+    ./workstation/emacs.nix
+  ];
 
   environment = {
     systemPackages = with pkgs; [
