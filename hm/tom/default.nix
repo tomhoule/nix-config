@@ -69,6 +69,8 @@ in
     # Perf
     linuxPackages.perf
     hotspot
+
+    ffmpeg
   ];
 
   home.pointerCursor = {
