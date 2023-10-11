@@ -15,6 +15,7 @@
       editor.minimap.enabled = false;
       files.trimFinalNewlines = true;
       files.trimTrailingWhitespace = true;
+      files.insertFinalNewline = true;
       telemetry.enableCrashReporter = false;
       telemetry.enableTelemetry = false;
       telemetry.telemetryLevel = "off";
