@@ -2,7 +2,7 @@
 
 let
   capture-region = pkgs.writeShellScriptBin "capture-region" ''
-    wf-recorder -g "$(slurp)" $@
+    wf-recorder --codec=libvpx --audio-codec=libvorbis -f recording.webm -g "$(slurp)" $@
   '';
 in
 {
