@@ -13,6 +13,7 @@
       editor.fontLigatures = false;
       editor.fontSize = 12;
       editor.minimap.enabled = false;
+      editor.renderWhitespace = "trailing";
       files.trimFinalNewlines = true;
       files.trimTrailingWhitespace = true;
       files.insertFinalNewline = true;
@@ -23,6 +24,10 @@
       window.menuBarVisibility = "hidden";
       window.zoomLevel = 2;
       workbench.colorTheme = "Quiet Light";
+      workbench.tree.renderIndentGuides = "always";
+      terminal.integrated.env.linux = {
+        EDITOR = "codium --wait";
+      };
     };
   };
 }

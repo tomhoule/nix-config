@@ -2,7 +2,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "base16_default";
+      theme = "base16_transparent";
     };
   };
 }
