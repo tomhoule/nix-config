@@ -58,7 +58,6 @@ in
     jq
     mpv
     rmlint
-    ranger # file manager
     signal-desktop
     unzip
     yt-dlp
