@@ -28,6 +28,9 @@
       terminal.integrated.env.linux = {
         EDITOR = "codium --wait";
       };
+      "[rust]" = {
+        editor.formatOnSave = true;
+      };
     };
   };
 }
