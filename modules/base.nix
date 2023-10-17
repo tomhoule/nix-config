@@ -7,7 +7,7 @@
       ripgrep
     ];
     variables = {
-      EDITOR = "nvim";
+      EDITOR = "hx";
     };
   };
 
