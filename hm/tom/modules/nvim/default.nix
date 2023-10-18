@@ -70,6 +70,7 @@ in
         p.tree-sitter-prisma
         p.tree-sitter-rust
         p.tree-sitter-sql
+        p.tree-sitter-graphql
       ]))
 
       # Nix
