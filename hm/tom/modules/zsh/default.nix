@@ -23,8 +23,6 @@ let zdotdir = "${config.xdg.configHome}/zsh"; in {
     '';
     shellAliases = {
       cat = "bat --theme gruvbox-light";
-      c = "codium";
-      em = "emacsclient --create-frame";
       open = "xdg-open";
 
       # coreutils
@@ -36,8 +34,6 @@ let zdotdir = "${config.xdg.configHome}/zsh"; in {
       add = "git add";
       co = "git checkout";
       commit = "git commit -v";
-      rebase = "git rebase";
-      reset = "git reset";
       st = "git status";
       db = "git branch -l | fzf | xargs git branch -d";
       cob = "git branch -l | fzf | xargs git checkout";

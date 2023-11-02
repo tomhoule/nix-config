@@ -4,7 +4,6 @@
   imports = [
     flakeInputs.home-manager.nixosModules.home-manager
     ./workstation/display-manager.nix
-    ./workstation/emacs.nix
   ];
 
   environment = {
