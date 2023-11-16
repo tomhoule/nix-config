@@ -12,7 +12,7 @@
   ];
 
   home-manager.users.tom = {
-    home.packages = [ pkgs.docker-compose ];
+    home.packages = [ pkgs.docker-compose pkgs.podman-compose ];
 
     programs.zsh.shellAliases = {
       dc = "docker-compose";
