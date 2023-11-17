@@ -30,6 +30,7 @@ in
       vim-eunuch
       vim-gitgutter
       vim-surround
+      copilot-vim
 
       # Theme
 
