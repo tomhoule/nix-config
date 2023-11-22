@@ -1,18 +1,17 @@
 { config, lib, pkgs, ... }:
 
 {
-  virtualisation.podman = {
+  virtualisation.docker = {
     enable = true;
-    dockerCompat = true;
-    dockerSocket.enable = true;
+    enableOnBoot = false;
   };
 
   users.users.tom.extraGroups = [
-    "podman"
+    "docker"
   ];
 
   home-manager.users.tom = {
-    home.packages = [ pkgs.docker-compose pkgs.podman-compose ];
+    home.packages = [ pkgs.docker-compose ];
 
     programs.zsh.shellAliases = {
       dc = "docker-compose";
@@ -20,4 +19,3 @@
     };
   };
 }
-

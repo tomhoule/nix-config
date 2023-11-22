@@ -37,7 +37,7 @@
           modules = [
             ./modules/base.nix
             ./modules/workstation.nix
-            ./modules/podman.nix
+            ./modules/docker.nix
             ./machines/prisma-desktop/config.nix
             ./modules/tailscale.nix
             ./modules/ssh-server.nix
