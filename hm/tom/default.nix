@@ -65,9 +65,6 @@ in
     xdg-utils # for xdg-open
     zathura # PDF viewer
 
-    # File manager
-    xfce.thunar
-
     # Perf
     linuxPackages.perf
     hotspot
