@@ -14,6 +14,17 @@ let
     url = "http://ftp.vim.org/vim/runtime/spell/de.utf-8.spl";
     sha256 = "sha256:1ld3hgv1kpdrl4fjc1wwxgk4v74k8lmbkpi1x7dnr19rldz11ivk";
   };
+
+  djot-repo = pkgs.fetchFromGitHub {
+    owner = "jgm";
+    repo = "djot";
+    rev = "0.2.0";
+    sha256 = "sha256-5NKISXk7Q6s8Zsb+rWz7PcklX4KfRWfPIUjPGvOdB4Q=";
+  };
+  djot-plugin = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-djot";
+    src =  "${djot-repo}/editors/vim";
+  };
 in
 {
   home.file = {
@@ -73,6 +84,8 @@ in
         p.tree-sitter-sql
         p.tree-sitter-graphql
       ]))
+
+      djot-plugin
 
       # Nix
       vim-nix
