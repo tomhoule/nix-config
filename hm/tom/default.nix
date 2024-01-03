@@ -57,19 +57,12 @@ in
     imv # image viewer
     jq
     mpv
-    rmlint
     signal-desktop
     unzip
     yt-dlp
     whois
     xdg-utils # for xdg-open
     zathura # PDF viewer
-
-    # Perf
-    linuxPackages.perf
-    hotspot
-
-    ffmpeg
   ];
 
   home.pointerCursor = {
