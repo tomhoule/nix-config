@@ -19,6 +19,8 @@
       pull = { rebase = true; };
       merge.conflictstyle = "diff3";
       commit.verbose = true;
+      # See `--update-refs` in `man git rebase`.
+      rebase.updateRefs = true;
     };
   };
 }
