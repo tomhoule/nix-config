@@ -17,9 +17,10 @@
     };
   };
   programs.lazygit.enable = true;
+  programs.fish.enable = true;
+  programs.zoxide.enable = true;
 
   home.packages = [
     pkgs.nil
-    pkgs.fishPlugins.z
   ];
 }
