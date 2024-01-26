@@ -66,6 +66,19 @@
           tmux new -s $DIRNAME
       end
     '';
+    shellAbbrs = {
+      e = "$EDITOR";
+      dc = "docker-compose";
+
+      # Git
+      add = "git add";
+      co = "git checkout";
+      commit = "git commit -v";
+      st = "git status";
+      db = "git branch -l | fzf | xargs git branch -d";
+      cob = "git branch -l | fzf | xargs git checkout";
+      coba = "git branch -la | fzf | xargs git checkout";
+    };
   };
   programs.starship = {
     enable = true;
