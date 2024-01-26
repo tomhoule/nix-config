@@ -13,6 +13,7 @@
 
   nix = {
     package = pkgs.nixUnstable;
+
     # https://jackson.dev/post/nix-reasonable-defaults/
     extraOptions = ''
       connect-timeout = 5
@@ -54,6 +55,15 @@
       "video" # For brillo/brightness control
       "wheel" # Enable ‘sudo’ for the user.
     ];
-    shell = "${pkgs.zsh}/bin/zsh";
+    shell = "${pkgs.fish}/bin/fish";
   };
+
+  programs.fish.enable = true;
+  programs.starship = {
+    enable = true;
+    settings = { };
+  };
+
+  # https://github.com/NixOS/nixpkgs/issues/171054
+  programs.command-not-found.enable = false;
 }
