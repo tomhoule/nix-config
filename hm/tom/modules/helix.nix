@@ -16,10 +16,6 @@
       ];
     };
   };
-  programs.lazygit.enable = true;
-  programs.fish.enable = true;
-  programs.zoxide.enable = true;
-  programs.atuin.enable = true;
 
   home.packages = [
     pkgs.nil

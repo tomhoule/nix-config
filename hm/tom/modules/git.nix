@@ -23,4 +23,6 @@
       rebase.updateRefs = true;
     };
   };
+
+  programs.lazygit.enable = true;
 }

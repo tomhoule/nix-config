@@ -1,4 +1,4 @@
-{ config, lib, pkgs, flakeInputs, ... }:
+{ pkgs, flakeInputs, ... }:
 
 {
   environment = {
@@ -66,6 +66,9 @@
           tmux new -s $DIRNAME
       end
     '';
+    shellAliases = {
+      cat = "bat --theme gruvbox-light";
+    };
     shellAbbrs = {
       e = "$EDITOR";
       dc = "docker-compose";
@@ -80,10 +83,8 @@
       coba = "git branch -la | fzf | xargs git checkout";
     };
   };
-  programs.starship = {
-    enable = true;
-    settings = { };
-  };
+
+  programs.starship.enable = true;
 
   # https://github.com/NixOS/nixpkgs/issues/171054
   programs.command-not-found.enable = false;

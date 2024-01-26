@@ -10,7 +10,7 @@
     rust-analyzer
   ];
 
-  programs.zsh.shellAliases = {
+  programs.fish.shellAliases = {
     corgi = "cargo";
   };
 }
