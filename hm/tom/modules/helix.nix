@@ -17,7 +17,8 @@
   };
   programs.lazygit.enable = true;
 
-  home.packages = [ pkgs.nil ];
-  programs.z-lua.enable = true;
-  programs.z-lua.enableAliases = true;
+  home.packages = [
+    pkgs.nil
+    pkgs.fishPlugins.z
+  ];
 }

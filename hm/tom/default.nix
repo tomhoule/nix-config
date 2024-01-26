@@ -73,5 +73,5 @@ in
     gtk.enable = true;
   };
 
-  programs.fzf = { enable = true; enableZshIntegration = true; };
+  programs.fzf = { enable = true; enableZshIntegration = true; enableFishIntegration = false; };
 }
