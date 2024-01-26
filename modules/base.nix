@@ -2,7 +2,7 @@
 
 {
   environment = {
-    pathsToLink = [ "/share/zsh" ];
+    pathsToLink = [ "/share/zsh" "/share/fish" ];
     systemPackages = with pkgs; [
       ripgrep
     ];
@@ -58,7 +58,15 @@
     shell = "${pkgs.fish}/bin/fish";
   };
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      function tn
+          set --local DIRNAME $(basename $(pwd | tr -d '\n'))
+          tmux new -s $DIRNAME
+      end
+    '';
+  };
   programs.starship = {
     enable = true;
     settings = { };
