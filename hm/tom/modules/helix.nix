@@ -5,6 +5,9 @@
     enable = true;
     settings = {
       theme = "base16_transparent";
+      editor = {
+        true-color = true;
+      };
     };
     languages = {
       language = [
