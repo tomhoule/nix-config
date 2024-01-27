@@ -3,12 +3,6 @@
 {
   environment = {
     pathsToLink = [ "/share/zsh" "/share/fish" ];
-    systemPackages = with pkgs; [
-      ripgrep
-    ];
-    variables = {
-      EDITOR = "nvim";
-    };
   };
 
   nix = {

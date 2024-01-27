@@ -57,6 +57,7 @@ in
     imv # image viewer
     jq
     mpv
+    ripgrep
     signal-desktop
     unzip
     yt-dlp
