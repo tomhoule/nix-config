@@ -57,35 +57,4 @@
     ];
     shell = "${pkgs.fish}/bin/fish";
   };
-
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      function tn
-          set --local DIRNAME $(basename $(pwd | tr -d '\n'))
-          tmux new -s $DIRNAME
-      end
-    '';
-    shellAliases = {
-      cat = "bat --theme gruvbox-light";
-    };
-    shellAbbrs = {
-      e = "$EDITOR";
-      dc = "docker-compose";
-
-      # Git
-      add = "git add";
-      co = "git checkout";
-      commit = "git commit -v";
-      st = "git status";
-      db = "git branch -l | fzf | xargs git branch -d";
-      cob = "git branch -l | fzf | xargs git checkout";
-      coba = "git branch -la | fzf | xargs git checkout";
-    };
-  };
-
-  programs.starship.enable = true;
-
-  # https://github.com/NixOS/nixpkgs/issues/171054
-  programs.command-not-found.enable = false;
 }
