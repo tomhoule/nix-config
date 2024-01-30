@@ -11,6 +11,7 @@
       theme = "base16_transparent";
       editor = {
         true-color = true;
+        soft-wrap.enable = true;
         lsp = {
           display-messages = true;
         };
