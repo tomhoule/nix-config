@@ -29,6 +29,7 @@
     };
     shellAbbrs = {
       e = "$EDITOR";
+      g = "git";
       dc = "docker-compose";
 
       # Git
