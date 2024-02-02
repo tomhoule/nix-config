@@ -27,6 +27,7 @@
             ./modules/base.nix
             ./modules/workstation.nix
             ./modules/laptop.nix
+            ./modules/docker.nix
             ./modules/tailscale.nix
             ./machines/prisma-fw
             nixos-hardware.nixosModules.framework-12th-gen-intel
