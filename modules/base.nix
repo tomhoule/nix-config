@@ -2,7 +2,7 @@
 
 {
   environment = {
-    pathsToLink = [ "/share/zsh" "/share/fish" ];
+    pathsToLink = [ "/share/fish" ];
   };
 
   nix = {
@@ -36,7 +36,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   console = {
-    #   font = "Lat2-Terminus16";
     keyMap = "fr-bepo";
   };
 
@@ -51,4 +50,7 @@
     ];
     shell = "${pkgs.fish}/bin/fish";
   };
+
+  # https://github.com/NixOS/nixpkgs/issues/171054
+  programs.command-not-found.enable = false;
 }
