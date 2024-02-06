@@ -25,5 +25,6 @@
     # Network
     dig # caaan youuuu dig iiiiit?
     whois
+    xh # http client
   ];
 }
