@@ -26,6 +26,7 @@
     '';
     shellAliases = {
       cat = "bat --theme gruvbox-light";
+      ls = "eza";
     };
     shellAbbrs = {
       e = "$EDITOR";

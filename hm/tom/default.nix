@@ -53,6 +53,7 @@ in
     bat
     chromium
     dig # caaan youuuu dig iiiiit?
+    eza # ls replacement
     firefox
     imv # image viewer
     jq
