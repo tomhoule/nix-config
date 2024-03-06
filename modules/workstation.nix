@@ -21,16 +21,14 @@
   fonts = {
     fontconfig.defaultFonts = {
       monospace = [ "Hack" ];
-      sansSerif = [ "Noto Sans" ];
+      sansSerif = [ "Inter" ];
       serif = [ "Noto Serif" ];
     };
 
     packages = with pkgs; [
-      dejavu_fonts
-      fira-code
       font-awesome # required for waybar
       hack-font
-      ibm-plex
+      inter
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
