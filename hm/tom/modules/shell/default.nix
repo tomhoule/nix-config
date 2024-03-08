@@ -25,8 +25,6 @@
         "$git_commit"
         "$git_state"
 
-        "$nix_shell"
-
         "$jobs"
         "$cmd_duration"
 
