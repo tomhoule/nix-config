@@ -10,6 +10,7 @@ let
       --excludeDirRegex '^tom/.config/' \
       --excludeDirRegex '^tom/.mozilla$' \
       --excludeDirRegex '^tom/.dropbox$' \
+      --excludeDirRegex '^tom/.grafbase$' \
       --excludeDirRegex '^tom/.local/share$' \
       --excludeDirRegex '^tom/.local/state/nvim$' \
       --excludeDirRegex '^tom/.steam$' \
