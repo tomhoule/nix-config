@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.atuin = {
@@ -9,7 +9,34 @@
     };
   };
 
-  programs.starship.enable = true;
+  programs.starship = {
+    enable = true;
+    enableTransience = true;
+    settings = {
+      format = lib.concatStrings [
+        "$username"
+        "$hostname"
+        "$shlvl"
+        "$shell"
+        "$directory"
+
+        "$git_branch"
+        "$git_commit"
+        "$git_state"
+
+        "$nix_shell"
+
+        "$jobs"
+        "$cmd_duration"
+
+        "$battery"
+        "$status"
+
+        "$character"
+      ];
+    };
+  };
+
   programs.zoxide.enable = true;
 
   # https://github.com/NixOS/nixpkgs/issues/171054
