@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   programs.atuin = {
     enable = true;
@@ -35,4 +37,8 @@
       st = "git status";
     };
   };
+
+  home.packages = [
+    (pkgs.writeShellScriptBin "today" ''date --iso-8601 | tr -d "\n"'')
+  ];
 }
