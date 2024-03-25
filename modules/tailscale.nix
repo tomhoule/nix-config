@@ -1,7 +1,8 @@
-{ config, lib, pkgs, ... }:
-
 {
   networking.firewall.checkReversePath = "loose"; # "strict" can break tailscale
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    openFirewall = true;
+  };
 }
 
