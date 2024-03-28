@@ -16,17 +16,8 @@ in
 
   services.thermald.enable = lib.mkDefault isx86;
 
-  services.tlp = {
-    enable = true;
-    # https://linrunner.de/tlp/settings
-    settings = {
-      PCIE_ASPM_ON_BAT = "powersupersave";
-
-      # https://linrunner.de/tlp/settings/radio.html
-      DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth wwan";
-      DEVICES_TO_ENABLE_ON_STARTUP = "wifi";
-    };
-  };
+  # Fingerprint reader
+  services.fprintd.enable = false;
 
   powerManagement.enable = true; # How does this mesh with tlp?
 }
