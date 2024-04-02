@@ -39,7 +39,6 @@
   # Bluetooth
   # https://nixos.wiki/wiki/Bluetooth
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
