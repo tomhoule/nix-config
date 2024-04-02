@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ lib, ... }:
 
 {
   xdg = {
@@ -10,11 +10,11 @@
         let defaultBrowser = "firefox.desktop";
         in
         {
-          "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-          "image/gif" = [ "imv.desktop" ];
-          "image/jpeg" = [ "imv.desktop" ];
-          "image/png" = [ "imv.desktop" ];
-          "image/webp" = [ "imv.desktop" ];
+          "application/pdf" = [ "okular.desktop" ];
+          "image/gif" = [ "gwenview.desktop" ];
+          "image/jpeg" = [ "gwenview.desktop" ];
+          "image/png" = [ "gwenview.desktop" ];
+          "image/webp" = [ "gwenview.desktop" ];
           "video/webm" = [ "mpv.desktop" ];
           "video/mp4" = [ "mpv.desktop" ];
 

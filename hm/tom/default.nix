@@ -55,7 +55,6 @@ in
     dig # caaan youuuu dig iiiiit?
     eza # ls replacement
     firefox
-    imv # image viewer
     jq
     mpv
     ripgrep
@@ -64,7 +63,6 @@ in
     yt-dlp
     whois
     xdg-utils # for xdg-open
-    zathura # PDF viewer
   ];
 
   home.pointerCursor = {
