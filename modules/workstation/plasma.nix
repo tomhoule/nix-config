@@ -6,6 +6,7 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.displayManager.sddm.wayland.enable = true;
   services.xserver.displayManager.defaultSession = "plasma";
+  services.xserver.displayManager.sddm.settings.General.InputMethod = "qtvirtualkeyboard";
   i18n.inputMethod.fcitx5.plasma6Support = true;
 
   environment.systemPackages = [ pkgs.kdePackages.neochat ];
