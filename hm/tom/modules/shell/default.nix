@@ -6,6 +6,7 @@
     settings = {
       # Do not execute the command, just insert it on the prompt.
       enter_accept = false;
+      search_mode = "skim";
     };
   };
 

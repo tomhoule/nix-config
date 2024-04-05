@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   capture-region = pkgs.writeShellScriptBin "capture-region" ''
