@@ -25,7 +25,7 @@
         # Alias mdx to markdown. We have to repeat the whole file-types array. Issue: https://github.com/helix-editor/helix/issues/6896.
         {
           name = "markdown";
-          file-types = [ "md" "markdown" "mkd" "mdwn" "mdown" "markdn" "mdtxt" "mdtext" "workbook" ({ suffix = "PULLREQ_EDITMSG"; }) "mdx" ];
+          file-types = [ "md" "markdown" "mkd" "mdwn" "mdown" "markdn" "mdtxt" "mdtext" "workbook" ({ glob = "*PULLREQ_EDITMSG*"; }) "mdx" ];
         }
         {
           name = "nix";
