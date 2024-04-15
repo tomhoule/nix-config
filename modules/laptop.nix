@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   isx86 = pkgs.stdenv.hostPlatform.isx86;
@@ -12,6 +12,7 @@ in
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  networking.wireless.iwd.enable = true;
   networking.networkmanager = {
     enable = true;
     wifi.backend = "iwd";
