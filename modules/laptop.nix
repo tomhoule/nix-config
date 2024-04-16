@@ -20,4 +20,5 @@ in
   services.fprintd.enable = false;
 
   powerManagement.enable = true; # How does this mesh with tlp?
+  powerManagement.powertop.enable = true;
 }
