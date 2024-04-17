@@ -13,6 +13,10 @@ in
   services.blueman.enable = true;
 
   networking.wireless.iwd.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd";
+  };
 
   services.thermald.enable = lib.mkDefault isx86;
 
