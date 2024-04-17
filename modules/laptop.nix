@@ -12,11 +12,7 @@ in
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  networking.networkmanager = {
-    enable = true;
-    wifi.backend = "iwd";
-    wifi.powersave = false;
-  };
+  networking.networkmanager.enable = true;
 
   services.thermald.enable = lib.mkDefault isx86;
 
@@ -24,4 +20,11 @@ in
   services.fprintd.enable = false;
 
   powerManagement.enable = true; # How does this mesh with tlp?
+  services.tlp = {
+    enable = true;
+    settings = {
+      WIFI_PWR_ON_AC = "off";
+      WIFI_PWR_ON_BAT = "off";
+    };
+  };
 }
