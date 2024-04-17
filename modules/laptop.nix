@@ -25,6 +25,8 @@ in
     settings = {
       WIFI_PWR_ON_AC = "off";
       WIFI_PWR_ON_BAT = "off";
+      # https://linrunner.de/tlp/settings/platform.html
+      PLATFORM_PROFILE_ON_BAT = "balance";
     };
   };
 }
