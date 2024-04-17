@@ -12,10 +12,10 @@ in
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  networking.wireless.iwd.enable = true;
   networking.networkmanager = {
     enable = true;
     wifi.backend = "iwd";
+    wifi.powersave = false;
   };
 
   services.thermald.enable = lib.mkDefault isx86;
