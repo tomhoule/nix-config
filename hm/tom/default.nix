@@ -1,4 +1,4 @@
-{ pkgs, lib, config, hostName, ... }:
+{ pkgs, config, hostName, ... }:
 
 let
   homeDirectory = "/home/tom";
@@ -67,6 +67,28 @@ in
     zathura # PDF viewer
   ];
 
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
+    };
+    theme = {
+      name = "Fluent";
+      package = pkgs.fluent-gtk-theme;
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk3";
+    style = {
+      name = "Adwaita";
+      package = pkgs.adwaita-qt;
+    };
+  };
+
+  # Cursor theme
   home.pointerCursor = {
     package = pkgs.openzone-cursors;
     name = "OpenZone_White";
