@@ -37,10 +37,6 @@ with lib;
           type = types.float;
           default = 14.0;
         };
-
-        waybarConfigDir = mkOption {
-          type = types.path;
-        };
       };
     };
   };

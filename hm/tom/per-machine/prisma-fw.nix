@@ -8,7 +8,6 @@
       output * scale 1
     '';
     termBgAlpha = 0.90;
-    waybarConfigDir = ../modules/sway/laptopWaybar;
   };
 
   home.packages = with pkgs; [ newsboat ];

@@ -25,7 +25,7 @@ in
     '';
     "sway/config.d/02-per-machine".text = config.localHome.swayExtraConfig;
 
-    "waybar".source = config.localHome.waybarConfigDir;
+    "waybar".source = ./waybar;
     "swaylock/config".source = ./swaylock-config;
   };
 }
