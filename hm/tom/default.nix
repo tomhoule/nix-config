@@ -54,6 +54,7 @@ in
     chromium
     dig # caaan youuuu dig iiiiit?
     eza # ls replacement
+    fd # find replacement
     firefox
     imv # image viewer
     jq
