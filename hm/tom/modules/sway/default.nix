@@ -20,7 +20,7 @@ in
       default_border pixel 6
       smart_borders on
       smart_gaps on
-      gaps inner ${builtins.toString config.localHome.swayInnerGapSize}
+      gaps inner 4
       gaps outer 0
     '';
     "sway/config.d/02-per-machine".text = config.localHome.swayExtraConfig;

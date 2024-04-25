@@ -3,7 +3,6 @@
 {
   localHome = {
     b2-bucket = "prisma-desktop";
-    swayInnerGapSize = 4;
     termBgAlpha = 0.95;
     termFontSize = 13.0;
     swayExtraConfig = ''

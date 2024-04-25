@@ -25,10 +25,6 @@ with lib;
           default = "";
         };
 
-        swayInnerGapSize = mkOption {
-          type = types.int;
-        };
-
         termBgAlpha = mkOption {
           type = types.float;
         };
