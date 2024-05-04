@@ -11,7 +11,7 @@
         in
         {
           "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-          "image/gif" = [ "imv.desktop" ];
+          "image/gif" = [ "mpv.desktop" ];
           "image/jpeg" = [ "imv.desktop" ];
           "image/png" = [ "imv.desktop" ];
           "image/webp" = [ "imv.desktop" ];
