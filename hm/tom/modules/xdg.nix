@@ -12,8 +12,8 @@
         {
           "application/pdf" = [ "org.pwmt.zathura.desktop" ];
           "image/gif" = [ "mpv.desktop" ];
-          "image/jpeg" = [ "imv.desktop" ];
-          "image/png" = [ "imv.desktop" ];
+          "image/jpeg" = [ "mpv.desktop" ];
+          "image/png" = [ "mpv.desktop" ];
           "image/webp" = [ "mpv.desktop" ];
           "video/webm" = [ "mpv.desktop" ];
           "video/mp4" = [ "mpv.desktop" ];

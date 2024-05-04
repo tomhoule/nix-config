@@ -56,9 +56,7 @@ in
     eza # ls replacement
     fd # find replacement
     firefox
-    imv # image viewer
     jq
-    mpv
     ripgrep
     signal-desktop
     unzip
