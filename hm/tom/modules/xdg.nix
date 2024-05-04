@@ -14,7 +14,7 @@
           "image/gif" = [ "mpv.desktop" ];
           "image/jpeg" = [ "imv.desktop" ];
           "image/png" = [ "imv.desktop" ];
-          "image/webp" = [ "imv.desktop" ];
+          "image/webp" = [ "mpv.desktop" ];
           "video/webm" = [ "mpv.desktop" ];
           "video/mp4" = [ "mpv.desktop" ];
 
