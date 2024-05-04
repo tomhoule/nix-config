@@ -95,6 +95,4 @@ in
     x11.enable = true;
     gtk.enable = true;
   };
-
-  programs.fzf = { enable = true; enableZshIntegration = true; enableFishIntegration = false; };
 }
