@@ -2,7 +2,7 @@
 
 {
   localHome = {
-    b2-bucket = "prisma-desktop";
+    b2-bucket = "prisma-desktop-home-backups";
     termBgAlpha = 0.95;
     termFontSize = 13.0;
     swayExtraConfig = ''

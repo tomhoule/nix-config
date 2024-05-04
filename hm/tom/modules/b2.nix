@@ -23,6 +23,7 @@ let
       --excludeDirRegex '^tom/src/.*/node_modules$' \
       --excludeDirRegex '^tom/src/.*/lake-packages$' \
       --excludeDirRegex '^tom/src/.*/.direnv$' \
+      --excludeDirRegex '^tom/tmp$' \
       --excludeAllSymlinks \
       --keepDays 30 \
       /home \
