@@ -6,8 +6,6 @@
   };
 
   nix = {
-    package = pkgs.nixUnstable;
-
     # https://jackson.dev/post/nix-reasonable-defaults/
     extraOptions = ''
       connect-timeout = 5
