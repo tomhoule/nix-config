@@ -10,7 +10,6 @@
     settings = {
       theme = "base16_transparent";
       editor = {
-        auto-pairs = false;
         true-color = true;
         soft-wrap.enable = true;
         lsp = {
