@@ -9,6 +9,6 @@
     termBgAlpha = 0.90;
   };
 
-  home.packages = with pkgs; [ newsboat ];
+  home.packages = with pkgs; [ newsboat postgresql ];
 }
 
