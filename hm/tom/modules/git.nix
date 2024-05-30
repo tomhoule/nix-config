@@ -21,6 +21,7 @@
       commit.verbose = true;
       # See `--update-refs` in `man git rebase`.
       rebase.updateRefs = true;
+      rerere.enabled = true;
     };
   };
 
