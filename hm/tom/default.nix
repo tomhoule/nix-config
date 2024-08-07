@@ -49,6 +49,8 @@ in
     nixpkgs-fmt
     nix-tree
 
+    gnome.cheese
+
     # & co
     bat
     chromium
