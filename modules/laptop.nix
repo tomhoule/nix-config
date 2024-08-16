@@ -7,11 +7,6 @@ in
   # Screen brightness management.
   hardware.brillo.enable = true;
 
-  # Bluetooth
-  # https://nixos.wiki/wiki/Bluetooth
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
   networking.networkmanager = {
     enable = true;
     wifi.powersave = false;

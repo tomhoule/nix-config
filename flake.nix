@@ -26,6 +26,7 @@
           modules = [
             ./modules/base.nix
             ./modules/workstation.nix
+            ./modules/bluetooth.nix
             ./modules/laptop.nix
             ./modules/docker.nix
             ./modules/tailscale.nix
@@ -38,6 +39,7 @@
           modules = [
             ./modules/base.nix
             ./modules/workstation.nix
+            ./modules/bluetooth.nix
             ./modules/docker.nix
             ./machines/prisma-desktop/config.nix
             ./modules/tailscale.nix
