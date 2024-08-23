@@ -48,6 +48,8 @@ in
     # Nix
     nixpkgs-fmt
     nix-tree
+    nh
+    nvd
 
     gnome.cheese
 
