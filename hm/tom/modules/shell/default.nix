@@ -1,15 +1,6 @@
 { pkgs, lib, ... }:
 
 {
-  programs.atuin = {
-    enable = true;
-    settings = {
-      # Do not execute the command, just insert it on the prompt.
-      enter_accept = false;
-      search_mode = "skim";
-    };
-  };
-
   programs.starship = {
     enable = true;
     enableTransience = true;
