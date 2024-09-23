@@ -51,7 +51,7 @@ in
     nh
     nvd
 
-    gnome.cheese
+    cheese
 
     # & co
     bat
@@ -74,7 +74,7 @@ in
     enable = true;
     iconTheme = {
       name = "Adwaita";
-      package = pkgs.gnome.adwaita-icon-theme;
+      package = pkgs.adwaita-icon-theme;
     };
     theme = {
       name = "Fluent";
