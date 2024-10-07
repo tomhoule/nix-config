@@ -10,7 +10,12 @@
     rust-analyzer
   ];
 
-  programs.fish.shellAliases = {
-    corgi = "cargo";
+  programs.fish = {
+    shellAliases = {
+      corgi = "cargo";
+    };
+    shellAbbrs = {
+      cntr = "cargo nextest run";
+    };
   };
 }
