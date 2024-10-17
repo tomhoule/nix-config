@@ -93,6 +93,8 @@
     pulse.enable = true;
   };
 
+  security.polkit.enable = true;
+
   xdg = {
     mime.enable = true;
     portal = {
