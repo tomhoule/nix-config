@@ -12,6 +12,8 @@ in
     wifi.powersave = false;
   };
 
+  networking.useNetworkd = true;
+
   services.thermald.enable = lib.mkDefault isx86;
 
   # Fingerprint reader
