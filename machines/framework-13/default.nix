@@ -24,7 +24,7 @@
   services.tlp.settings.RUNTIME_PM_DISABLE = "a6:00.0";
 
   networking = {
-    hostName = "prisma-fw";
+    hostName = "framework-13";
     firewall = {
       enable = true;
       checkReversePath = "loose"; # strict mode blocks wireguard

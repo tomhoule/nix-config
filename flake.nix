@@ -30,33 +30,8 @@
             ./modules/laptop.nix
             ./modules/docker.nix
             ./modules/tailscale.nix
-            ./machines/prisma-fw
+            ./machines/framework-13
             nixos-hardware.nixosModules.framework-12th-gen-intel
-          ];
-        };
-
-        prisma-desktop = mkConfig {
-          modules = [
-            ./modules/base.nix
-            ./modules/workstation.nix
-            ./modules/bluetooth.nix
-            ./modules/docker.nix
-            ./machines/prisma-desktop/config.nix
-            ./modules/tailscale.nix
-            ./modules/ssh-server.nix
-            ./modules/wireshark.nix
-            ./modules/dbeaver.nix
-          ];
-        };
-
-        xps13 = mkConfig {
-          modules = [
-            ./modules/base.nix
-            ./modules/workstation.nix
-            ./modules/laptop.nix
-            ./modules/tailscale.nix
-            ./machines/xps13/config.nix
-            nixos-hardware.nixosModules.dell-xps-13-9380
           ];
         };
       };
