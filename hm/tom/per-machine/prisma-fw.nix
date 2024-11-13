@@ -9,7 +9,7 @@
     termBgAlpha = 0.90;
   };
 
-  home.packages = with pkgs; [ newsboat postgresql kanshi ];
+  home.packages = with pkgs; [ postgresql kanshi ];
 
   services.kanshi = {
     enable = true;
