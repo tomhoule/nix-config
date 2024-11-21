@@ -59,7 +59,6 @@ in
     dig # caaan youuuu dig iiiiit?
     eza # ls replacement
     fd # find replacement
-    firefox
     jq
     ripgrep
     signal-desktop

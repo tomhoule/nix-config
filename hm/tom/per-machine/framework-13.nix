@@ -9,7 +9,7 @@
     termBgAlpha = 0.90;
   };
 
-  home.packages = with pkgs; [ postgresql kanshi ];
+  home.packages = with pkgs; [ postgresql kanshi firefox ];
 
   services.kanshi = {
     enable = true;
@@ -43,4 +43,3 @@
     ];
   };
 }
-
