@@ -2,10 +2,10 @@
 
 {
   xdg = {
-    enable = true;
+    enable = lib.mkDefault true;
 
     mimeApps = {
-      enable = true;
+      enable = lib.mkDefault true;
       defaultApplications =
         let defaultBrowser = "firefox.desktop";
         in
@@ -32,7 +32,7 @@
     };
 
     userDirs = {
-      enable = true;
+      enable = lib.mkDefault true;
       documents = "$HOME/Documents";
       download = "$HOME/Downloads";
       pictures = "$HOME/Pictures";
