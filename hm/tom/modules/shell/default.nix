@@ -51,7 +51,7 @@
     shellAbbrs = {
       e = "$EDITOR";
       g = "git";
-      dc = "docker-compose";
+      dc = "docker compose";
       st = "git status";
     };
   };
