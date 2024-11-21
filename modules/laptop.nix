@@ -21,7 +21,7 @@ in
 
   powerManagement.enable = true; # How does this mesh with tlp?
   services.tlp = {
-    enable = true;
+    enable = false;
     settings = {
       WIFI_PWR_ON_AC = "off";
       WIFI_PWR_ON_BAT = "off";

@@ -52,12 +52,17 @@
   };
 
   i18n.inputMethod = {
-    enable = true;
+    enable = false;
     type = "fcitx5";
     fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-chinese-addons ];
   };
 
-  nix.settings.trusted-users = [ "root" "tom" ];
+  nix.settings = {
+    trusted-users = [ "root" "tom" ];
+
+    substituters = [ "https://cosmic.cachix.org/" ];
+    trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+  };
 
   programs = {
     sway = {
