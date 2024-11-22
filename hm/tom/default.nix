@@ -60,6 +60,7 @@ in
     eza # ls replacement
     fd # find replacement
     jq
+    jujutsu
     ripgrep
     signal-desktop
     unzip
