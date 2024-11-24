@@ -47,8 +47,8 @@ in
   # changes in each release.
   #
   # Link for the release notes:
-  # https://nix-community.github.io/home-manager/release-notes.html
-  home.stateVersion = "22.11";
+  # https://nix-community.github.io/home-manager/release-notes.xhtml
+  home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
     # Nix
