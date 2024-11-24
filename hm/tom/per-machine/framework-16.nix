@@ -7,7 +7,6 @@
   programs.helix.settings.theme = lib.mkForce "kanagawa";
 
   xdg.enable = false;
-  xdg.mimeApps.enable = false;
   xdg.userDirs.enable = false;
 
   # Only necessary as long as this machine isn't on nixos
