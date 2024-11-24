@@ -22,6 +22,7 @@ in
 
   home = {
     username = "tom";
+    language.base = "en_US.UTF-8";
     sessionVariables = {
       npm_config_prefix = "${config.xdg.cacheHome}/node_modules";
       npm_cache = "${config.xdg.cacheHome}/npm_cache";
