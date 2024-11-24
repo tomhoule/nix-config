@@ -1,8 +1,14 @@
-{config, ...}: {
+{
+  config,
+  userFullName,
+  userEmail,
+  ...
+}: {
   programs.git = {
     enable = true;
-    userName = "Tom Houlé";
-    userEmail = config.accounts.email.accounts.main.address;
+    userName = userFullName;
+    inherit userEmail;
+
     aliases = {
       st = "status";
       ca = "commit --amend";
