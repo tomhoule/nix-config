@@ -6,17 +6,17 @@
 }: {
   imports = [
     flakeInputs.home-manager.nixosModules.home-manager
-    ./workstation/display-manager.nix
   ];
 
   environment = {
     systemPackages = with pkgs; [
       cachix # the cachix client
-      # helvum # audio/video piping
 
       pavucontrol # GUI
       pulseaudio # for utilities like pactl — not the daemon
 
+      # Random utilities
+      pciutils
       usbutils
     ];
   };
@@ -72,9 +72,6 @@
       enable = true;
       extraPackages = with pkgs; [
         hicolor-icon-theme # for wofi
-
-        # Random utilities
-        pciutils
 
         # Wayland screenshots (sway)
         slurp

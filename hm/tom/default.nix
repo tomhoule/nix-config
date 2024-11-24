@@ -32,7 +32,6 @@ in {
     sessionVariables = {
       npm_config_prefix = "${config.xdg.cacheHome}/node_modules";
       npm_cache = "${config.xdg.cacheHome}/npm_cache";
-      QT_SCALE_FACTOR = 1.5;
       DO_NOT_TRACK = 1; # https://consoledonottrack.com/
     };
     inherit homeDirectory;
