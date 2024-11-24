@@ -5,9 +5,6 @@
 }: let
   isx86 = pkgs.stdenv.hostPlatform.isx86;
 in {
-  # Screen brightness management.
-  hardware.brillo.enable = true;
-
   networking.networkmanager = {
     enable = true;
     wifi.powersave = false;

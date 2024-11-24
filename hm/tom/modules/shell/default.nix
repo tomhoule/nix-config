@@ -47,7 +47,7 @@
       set -U fish_greeting
     '';
     shellAliases = {
-      cat = "bat --theme gruvbox-light";
+      cat = "bat";
       ls = "eza";
     };
     shellAbbrs = {

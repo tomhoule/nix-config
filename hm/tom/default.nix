@@ -63,7 +63,6 @@ in {
     # & co
     bat
     chromium
-    dig # caaan youuuu dig iiiiit?
     eza # ls replacement
     fd # find replacement
     jq
@@ -71,7 +70,6 @@ in {
     signal-desktop
     unzip
     yt-dlp
-    whois
     xdg-utils # for xdg-open
     zathura # PDF viewer
   ];

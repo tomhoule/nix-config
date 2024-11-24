@@ -1,8 +1,6 @@
 {
   pkgs,
-  lib,
   config,
-  hostName,
   ...
 }: let
   inherit (pkgs) backblaze-b2;

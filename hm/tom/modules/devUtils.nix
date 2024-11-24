@@ -15,8 +15,6 @@
 
     sshfs
 
-    tokei
-
     # Graphics & video
     imagemagick
 

@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   xdg = {
     enable = lib.mkDefault true;
 

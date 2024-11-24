@@ -16,20 +16,6 @@ with lib; {
             The name of the b2 bucket to use for backups.
           '';
         };
-
-        swayExtraConfig = mkOption {
-          type = types.lines;
-          default = "";
-        };
-
-        termBgAlpha = mkOption {
-          type = types.float;
-        };
-
-        termFontSize = mkOption {
-          type = types.float;
-          default = 14.0;
-        };
       };
     };
   };

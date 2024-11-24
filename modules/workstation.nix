@@ -29,7 +29,6 @@
     };
 
     packages = with pkgs; [
-      font-awesome # required for waybar
       hack-font
       inter
       noto-fonts
@@ -67,29 +66,6 @@
     trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
   };
 
-  programs = {
-    sway = {
-      enable = true;
-      extraPackages = with pkgs; [
-        hicolor-icon-theme # for wofi
-
-        # Wayland screenshots (sway)
-        slurp
-        grim
-
-        swayidle
-        swaylock
-        waybar
-        wofi
-        wev # xev but for wayland
-      ];
-      wrapperFeatures = {
-        base = true;
-        gtk = true;
-      };
-    };
-  };
-
   # Sound and screen sharing
   services.pipewire = {
     enable = true;
@@ -105,7 +81,6 @@
     portal = {
       enable = true;
       extraPortals = [pkgs.xdg-desktop-portal-gtk];
-      wlr.enable = true;
     };
   };
 }
