@@ -13,6 +13,9 @@ in {
     wifi.powersave = false;
   };
 
+  # Not necessary if you have NetworkManager (see docs).
+  boot.initrd.systemd.network.wait-online.enable = false;
+
   services.thermald.enable = lib.mkDefault isx86;
   powerManagement.enable = true;
 
