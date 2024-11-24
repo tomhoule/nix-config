@@ -3,7 +3,7 @@
     enable = true;
     defaultEditor = true;
     settings = {
-      theme = "base16_transparent";
+      theme = "kanagawa";
       editor = {
         true-color = true;
         soft-wrap.enable = true;
