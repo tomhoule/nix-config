@@ -1,19 +1,20 @@
-{ pkgs, config, hostName, ... }:
-
-let
+{
+  pkgs,
+  config,
+  hostName,
+  ...
+}: let
   homeDirectory = "/home/tom";
   homeDomain = "tomhoule.com";
   homeEmail = "tom@" + homeDomain;
 
   inherit (builtins) map attrNames readDir;
-in
-{
-  imports =
-    let
-      moduleImports = map (moduleName: ./. + "/modules/${moduleName}") (attrNames (readDir ./modules));
-      perMachineImport = ./. + "/per-machine/${hostName}.nix";
-    in
-    moduleImports ++ [ perMachineImport ];
+in {
+  imports = let
+    moduleImports = map (moduleName: ./. + "/modules/${moduleName}") (attrNames (readDir ./modules));
+    perMachineImport = ./. + "/per-machine/${hostName}.nix";
+  in
+    moduleImports ++ [perMachineImport];
 
   _module.args = {
     userFullName = "Tom Houlé";
@@ -52,7 +53,8 @@ in
 
   home.packages = with pkgs; [
     # Nix
-    nixpkgs-fmt
+    alejandra
+    nil
     nix-tree
     nh
     nvd

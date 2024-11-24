@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   virtualisation.docker = {
     enable = true;
     enableOnBoot = false;
@@ -11,6 +14,6 @@
   ];
 
   home-manager.users.tom = {
-    home.packages = [ pkgs.docker-compose ];
+    home.packages = [pkgs.docker-compose];
   };
 }

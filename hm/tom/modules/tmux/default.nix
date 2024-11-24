@@ -1,8 +1,5 @@
-{ ... }:
-
-with builtins;
-
-{
+{...}:
+with builtins; {
   programs.tmux = {
     enable = true;
     extraConfig = readFile ./tmux.conf;

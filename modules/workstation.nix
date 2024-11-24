@@ -1,6 +1,9 @@
-{ config, pkgs, flakeInputs, ... }:
-
 {
+  config,
+  pkgs,
+  flakeInputs,
+  ...
+}: {
   imports = [
     flakeInputs.home-manager.nixosModules.home-manager
     ./workstation/display-manager.nix
@@ -20,9 +23,9 @@
 
   fonts = {
     fontconfig.defaultFonts = {
-      monospace = [ "Hack" ];
-      sansSerif = [ "Inter" ];
-      serif = [ "Noto Serif" ];
+      monospace = ["Hack"];
+      sansSerif = ["Inter"];
+      serif = ["Noto Serif"];
     };
 
     packages = with pkgs; [
@@ -41,10 +44,10 @@
     useUserPackages = true;
 
     /*
-      We can't use _module.args here because using regular arguments
-      to determine which modules to resolve causes infinite loops.
+    We can't use _module.args here because using regular arguments
+    to determine which modules to resolve causes infinite loops.
     */
-    extraSpecialArgs = { hostName = config.networking.hostName; };
+    extraSpecialArgs = {hostName = config.networking.hostName;};
 
     users.tom.imports = [
       ../hm/tom
@@ -54,14 +57,14 @@
   i18n.inputMethod = {
     enable = false;
     type = "fcitx5";
-    fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-chinese-addons ];
+    fcitx5.addons = with pkgs; [fcitx5-mozc fcitx5-chinese-addons];
   };
 
   nix.settings = {
-    trusted-users = [ "root" "tom" ];
+    trusted-users = ["root" "tom"];
 
-    substituters = [ "https://cosmic.cachix.org/" ];
-    trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+    substituters = ["https://cosmic.cachix.org/"];
+    trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
   };
 
   programs = {
@@ -104,8 +107,7 @@
     mime.enable = true;
     portal = {
       enable = true;
-      extraPortals =
-        [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
       wlr.enable = true;
     };
   };

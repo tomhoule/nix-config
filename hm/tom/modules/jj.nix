@@ -1,6 +1,9 @@
-{ pkgs, userFullName, userEmail, ... }:
-
 {
+  pkgs,
+  userFullName,
+  userEmail,
+  ...
+}: {
   home.packages = [
     pkgs.jujutsu
   ];

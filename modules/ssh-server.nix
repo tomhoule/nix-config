@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   services.openssh = {
     enable = true;
     settings = {
@@ -9,4 +12,3 @@
     };
   };
 }
-

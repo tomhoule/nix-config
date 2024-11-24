@@ -1,6 +1,10 @@
-{ pkgs, lib, config, hostName, ... }:
-
-let
+{
+  pkgs,
+  lib,
+  config,
+  hostName,
+  ...
+}: let
   inherit (pkgs) backblaze-b2;
   backup-to-b2 = pkgs.writeShellScriptBin "backup-to-b2" ''
     set -x
@@ -29,8 +33,7 @@ let
       /home \
       b2://${config.localHome.b2-bucket}
   '';
-in
-{
+in {
   home.packages = [
     backblaze-b2
     backup-to-b2

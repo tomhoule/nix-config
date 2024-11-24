@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   programs.git = {
     enable = true;
     userName = "Tom Houlé";
@@ -15,8 +13,8 @@
       pf = "push --force";
     };
     extraConfig = {
-      init = { defaultBranch = "main"; };
-      pull = { rebase = true; };
+      init = {defaultBranch = "main";};
+      pull = {rebase = true;};
       merge.conflictstyle = "diff3";
       commit.verbose = true;
       # See `--update-refs` in `man git rebase`.

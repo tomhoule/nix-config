@@ -1,14 +1,11 @@
-{ config, ... }:
-
-let
+{config, ...}: let
   localHome = config.localHome;
   fontSize = builtins.toString localHome.termFontSize;
   termBgAlpha = builtins.toString localHome.termBgAlpha;
-in
-{
+in {
   programs.foot = {
     enable = true;
-    server = { enable = true; };
+    server = {enable = true;};
     settings = {
       main = {
         font = "Hack:size=${fontSize},Fira Code:size=${fontSize}";

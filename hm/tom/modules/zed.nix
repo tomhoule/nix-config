@@ -1,1 +1,1 @@
-{ pkgs, ... }: { home.packages = [ pkgs.zed-editor ]; }
+{pkgs, ...}: {home.packages = [pkgs.zed-editor];}

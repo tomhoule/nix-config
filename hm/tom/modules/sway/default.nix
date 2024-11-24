@@ -1,11 +1,12 @@
-{ config, pkgs, ... }:
-
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   capture-region = pkgs.writeShellScriptBin "capture-region" ''
     wf-recorder --codec=libvpx --audio-codec=libvorbis -f recording.webm -g "$(slurp)" $@
   '';
-in
-{
+in {
   services.mako.enable = true; # notification daemon
 
   home.packages = with pkgs; [

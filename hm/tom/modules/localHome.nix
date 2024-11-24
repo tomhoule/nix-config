@@ -1,15 +1,12 @@
-{ lib, ... }:
-
-with lib;
-
-{
+{lib, ...}:
+with lib; {
   options.localHome = mkOption {
     description = ''
       Tom's custom options to extend the home-manager
       configuration in a more fine-grained way.
     '';
 
-    default = { };
+    default = {};
 
     type = types.submodule {
       options = {
@@ -37,4 +34,3 @@ with lib;
     };
   };
 }
-

@@ -1,8 +1,10 @@
-{ pkgs, flakeInputs, ... }:
-
 {
+  pkgs,
+  flakeInputs,
+  ...
+}: {
   environment = {
-    pathsToLink = [ "/share/fish" ];
+    pathsToLink = ["/share/fish"];
   };
 
   nix = {

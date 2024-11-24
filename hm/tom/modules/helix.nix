@@ -1,12 +1,7 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    extraPackages = [
-      pkgs.nil
-    ];
     settings = {
       theme = "base16_transparent";
       editor = {
@@ -25,17 +20,17 @@
         # Alias mdx to markdown. We have to repeat the whole file-types array. Issue: https://github.com/helix-editor/helix/issues/6896.
         {
           name = "markdown";
-          file-types = [ "md" "markdown" "mkd" "mdwn" "mdown" "markdn" "mdtxt" "mdtext" "workbook" ({ glob = "*PULLREQ_EDITMSG*"; }) "mdx" ];
+          file-types = ["md" "markdown" "mkd" "mdwn" "mdown" "markdn" "mdtxt" "mdtext" "workbook" {glob = "*PULLREQ_EDITMSG*";} "mdx"];
         }
         {
           name = "nix";
-          formatter = { command = "nixpkgs-fmt"; };
+          formatter = {command = "alejandra";};
           auto-format = true;
-          language-servers = [ "nil" "gpt" ];
+          language-servers = ["nil" "gpt"];
         }
         {
           name = "rust";
-          language-servers = [ "rust-analyzer" "gpt" ];
+          language-servers = ["rust-analyzer" "gpt"];
         }
       ];
     };

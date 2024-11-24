@@ -1,9 +1,10 @@
-{ lib, pkgs, ... }:
-
-let
-  isx86 = pkgs.stdenv.hostPlatform.isx86;
-in
 {
+  lib,
+  pkgs,
+  ...
+}: let
+  isx86 = pkgs.stdenv.hostPlatform.isx86;
+in {
   # Screen brightness management.
   hardware.brillo.enable = true;
 
