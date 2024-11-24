@@ -73,13 +73,4 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-  security.polkit.enable = true;
-
-  xdg = {
-    mime.enable = true;
-    portal = {
-      extraPortals = [pkgs.kdePackages.xdg-desktop-portal-kde];
-    };
-  };
 }
