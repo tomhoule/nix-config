@@ -80,7 +80,7 @@
     mime.enable = true;
     portal = {
       enable = true;
-      extraPortals = [pkgs.xdg-desktop-portal-gtk];
+      extraPortals = [pkgs.kdePackages.xdg-desktop-portal-kde];
     };
   };
 }
