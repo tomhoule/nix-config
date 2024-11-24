@@ -15,6 +15,11 @@ in
     in
     moduleImports ++ [ perMachineImport ];
 
+  _module.args = {
+    userFullName = "Tom Houlé";
+    userEmail = homeEmail;
+  };
+
   accounts.email.accounts.main = {
     primary = true;
     address = homeEmail;
@@ -61,7 +66,6 @@ in
     eza # ls replacement
     fd # find replacement
     jq
-    jujutsu
     ripgrep
     signal-desktop
     unzip
