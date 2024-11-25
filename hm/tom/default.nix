@@ -19,6 +19,7 @@ in {
   _module.args = {
     userFullName = "Tom Houlé";
     userEmail = homeEmail;
+    githubHandle = "tomhoule";
   };
 
   accounts.email.accounts.main = {

@@ -2,6 +2,7 @@
   pkgs,
   userFullName,
   userEmail,
+  githubHandle,
   ...
 }: {
   home.packages = [
@@ -11,5 +12,6 @@
   xdg.configFile."jj/config.toml".text = ''
     user.name = "${userFullName}"
     user.email = "${userEmail}"
+    git.push-branch-prefix = "${githubHandle}-"
   '';
 }
