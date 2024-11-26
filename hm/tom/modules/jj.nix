@@ -12,6 +12,6 @@
   xdg.configFile."jj/config.toml".text = ''
     user.name = "${userFullName}"
     user.email = "${userEmail}"
-    git.push-branch-prefix = "${githubHandle}-"
+    git.push-bookmark-prefix = "${githubHandle}-"
   '';
 }
