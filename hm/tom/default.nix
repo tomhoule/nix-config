@@ -74,13 +74,4 @@ in {
     xdg-utils # for xdg-open
     zathura # PDF viewer
   ];
-
-  # Cursor theme
-  home.pointerCursor = {
-    package = pkgs.openzone-cursors;
-    name = "OpenZone_White";
-    size = 64;
-    x11.enable = true;
-    gtk.enable = true;
-  };
 }
