@@ -75,27 +75,6 @@ in {
     zathura # PDF viewer
   ];
 
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
-    };
-    theme = {
-      name = "Fluent";
-      package = pkgs.fluent-gtk-theme;
-    };
-  };
-
-  qt = {
-    enable = true;
-    platformTheme.name = "gtk3";
-    style = {
-      name = "Adwaita";
-      package = pkgs.adwaita-qt;
-    };
-  };
-
   # Cursor theme
   home.pointerCursor = {
     package = pkgs.openzone-cursors;
