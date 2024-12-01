@@ -6,6 +6,7 @@
 }: {
   imports = [
     flakeInputs.home-manager.nixosModules.home-manager
+    ./workstation/plasma.nix
   ];
 
   environment = {

@@ -6,10 +6,6 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
   };
@@ -18,7 +14,6 @@
     nixpkgs,
     home-manager,
     nixos-hardware,
-    nixos-cosmic,
     ...
   }: let
     system = "x86_64-linux";
@@ -40,12 +35,6 @@
           ./modules/tailscale.nix
           ./machines/framework-13
           nixos-hardware.nixosModules.framework-12th-gen-intel
-          nixos-cosmic.nixosModules.default
-          {
-            services.desktopManager.cosmic.enable = true;
-            services.desktopManager.plasma6.enable = true;
-            services.displayManager.cosmic-greeter.enable = true;
-          }
         ];
       };
     };
