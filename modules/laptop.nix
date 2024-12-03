@@ -10,6 +10,9 @@ in {
     wifi.powersave = false;
   };
 
+  # Do not wait for NetworkManager to be online on configuration activation.
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   # Not necessary if you have NetworkManager (see docs).
   boot.initrd.systemd.network.wait-online.enable = false;
 
