@@ -15,7 +15,7 @@
       min-free = 128000000
       max-free = 1000000000
       experimental-features = nix-command flakes
-      max-jobs = auto  # Allow building multiple derivations in parallel
+      max-jobs = auto # Allow building multiple derivations in parallel
       cores = 0 # use all cores
 
       auto-optimise-store = true
@@ -33,7 +33,17 @@
 
   # TZ & locales.
   time.timeZone = "Europe/Berlin";
-  i18n.defaultLocale = "en_HK.UTF-8";
+  i18n = {
+    extraLocaleSettings = {
+      LC_ALL = "fr_FR.UTF-8";
+    };
+    supportedLocales = [
+      "C.UTF-8/UTF-8"
+      "en_US.UTF-8/UTF-8"
+      "fr_FR.UTF-8/UTF-8"
+      "de_DE.UTF-8/UTF-8"
+    ];
+  };
 
   console = {
     keyMap = "fr-bepo";
