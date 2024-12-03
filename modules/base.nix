@@ -33,7 +33,7 @@
 
   # TZ & locales.
   time.timeZone = "Europe/Berlin";
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_HK.UTF-8";
 
   console = {
     keyMap = "fr-bepo";
