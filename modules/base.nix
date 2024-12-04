@@ -33,15 +33,19 @@
 
   # TZ & locales.
   time.timeZone = "Europe/Berlin";
-  i18n = {
+  i18n = let
+    langLocale = "de_DE.UTF-8";
+  in {
+    defaultLocale = langLocale;
     extraLocaleSettings = {
-      LC_ALL = "fr_FR.UTF-8";
+      LC_ALL = langLocale;
     };
     supportedLocales = [
       "C.UTF-8/UTF-8"
       "en_US.UTF-8/UTF-8"
       "fr_FR.UTF-8/UTF-8"
       "de_DE.UTF-8/UTF-8"
+      "${langLocale}/UTF-8"
     ];
   };
 
