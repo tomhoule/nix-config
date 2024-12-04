@@ -15,9 +15,9 @@
         "$shell"
         "$directory"
 
-        "$git_branch"
-        "$git_commit"
-        "$git_state"
+        # "$git_branch"
+        # "$git_commit"
+        # "$git_state"
 
         "$jobs"
         "$cmd_duration"
