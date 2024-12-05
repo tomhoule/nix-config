@@ -5,31 +5,34 @@
 }: let
   inherit (pkgs) backblaze-b2;
   backup-to-b2 = pkgs.writeShellScriptBin "backup-to-b2" ''
-    set -x
+    set -eux
 
-    ${backblaze-b2}/bin/backblaze-b2 sync \
-      --exclude-dir-regex '^tom/.cache$' \
-      --exclude-dir-regex '^tom/.config/' \
-      --exclude-dir-regex '^tom/.mozilla$' \
-      --exclude-dir-regex '^tom/.dropbox$' \
-      --exclude-dir-regex '^tom/.grafbase$' \
-      --exclude-dir-regex '^tom/.local/share$' \
-      --exclude-dir-regex '^tom/.local/state/nvim$' \
-      --exclude-dir-regex '^tom/.steam$' \
-      --exclude-dir-regex '^tom/.vscode-oss$' \
-      --exclude-dir-regex '^tom/src/gh$' \
-      --exclude-dir-regex '^tom/src/.*/target/debug$' \
-      --exclude-dir-regex '^tom/src/.*/target/release$' \
-      --exclude-dir-regex '^tom/src/.*/target/doc$' \
-      --exclude-dir-regex '^tom/src/.*/zig-cache$' \
-      --exclude-dir-regex '^tom/src/.*/node_modules$' \
-      --exclude-dir-regex '^tom/src/.*/lake-packages$' \
-      --exclude-dir-regex '^tom/src/.*/.direnv$' \
-      --exclude-dir-regex '^tom/tmp$' \
+    ${backblaze-b2}/bin/backblaze-b2 sync ${config.xdg.userDirs.documents} \
+        b2://${config.localHome.b2-bucket}/tom/Documents \
+        --replace-newer \
+        --keep-days 30
+
+    ${backblaze-b2}/bin/backblaze-b2 sync ${config.xdg.userDirs.download} \
+        b2://${config.localHome.b2-bucket}/tom/Downloads \
+        --replace-newer \
+        --keep-days 30
+
+    ${backblaze-b2}/bin/backblaze-b2 sync ${config.xdg.userDirs.pictures} \
+        b2://${config.localHome.b2-bucket}/tom/Pictures \
+        --replace-newer \
+        --keep-days 30
+
+    ${backblaze-b2}/bin/backblaze-b2 sync ${config.xdg.userDirs.videos} \
+        b2://${config.localHome.b2-bucket}/tom/Videos \
+        --replace-newer \
+        --keep-days 30
+
+    ${backblaze-b2}/bin/backblaze-b2 sync ~/src \
+        b2://${config.localHome.b2-bucket}/tom/src \
+      --exclude-dir-regex '^gh$' \
       --exclude-all-symlinks \
-      --keep-days 30 \
-      /home \
-      b2://${config.localHome.b2-bucket}
+      --replace-newer \
+      --keep-days 30
   '';
 in {
   home.packages = [
