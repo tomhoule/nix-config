@@ -2,6 +2,7 @@
   config,
   pkgs,
   flakeInputs,
+  nixpkgs-unstable,
   ...
 }: {
   imports = [
@@ -47,7 +48,10 @@
     We can't use _module.args here because using regular arguments
     to determine which modules to resolve causes infinite loops.
     */
-    extraSpecialArgs = {hostName = config.networking.hostName;};
+    extraSpecialArgs = {
+      hostName = config.networking.hostName;
+      inherit nixpkgs-unstable;
+    };
 
     users.tom.imports = [
       ../hm/tom

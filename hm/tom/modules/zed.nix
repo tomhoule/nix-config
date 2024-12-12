@@ -1,1 +1,1 @@
-{pkgs, ...}: {home.packages = [pkgs.zed-editor];}
+{nixpkgs-unstable, ...}: {home.packages = [nixpkgs-unstable.zed-editor];}

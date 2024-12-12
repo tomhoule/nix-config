@@ -8,19 +8,25 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
   outputs = flakeInputs @ {
     nixpkgs,
     home-manager,
     nixos-hardware,
+    nixpkgs-unstable,
     ...
   }: let
     system = "x86_64-linux";
 
     mkConfig = {modules}:
       nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit flakeInputs;};
+        specialArgs = {
+          nixpkgs-unstable = import nixpkgs-unstable {inherit system;};
+          inherit flakeInputs;
+        };
+
         inherit system modules;
       };
   in {
