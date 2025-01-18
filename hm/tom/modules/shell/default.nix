@@ -3,33 +3,6 @@
   lib,
   ...
 }: {
-  programs.starship = {
-    enable = true;
-    enableTransience = true;
-    settings = {
-      add_newline = false;
-      format = lib.concatStrings [
-        "$username"
-        "$hostname"
-        "$shlvl"
-        "$shell"
-        "$directory"
-
-        # "$git_branch"
-        # "$git_commit"
-        # "$git_state"
-
-        "$jobs"
-        "$cmd_duration"
-
-        "$battery"
-        "$status"
-
-        "$character"
-      ];
-    };
-  };
-
   programs.zoxide.enable = true;
 
   # https://github.com/NixOS/nixpkgs/issues/171054
