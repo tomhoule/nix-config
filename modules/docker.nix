@@ -1,14 +1,8 @@
 {pkgs, ...}: {
-  virtualisation.docker = {
+  virtualisation.podman = {
     enable = true;
-    enableOnBoot = false;
+    dockerCompat = true;
   };
 
-  users.users.tom.extraGroups = [
-    "docker"
-  ];
-
-  home-manager.users.tom = {
-    home.packages = [pkgs.docker-compose];
-  };
+  environment.systemPackages = [pkgs.distrobox];
 }
