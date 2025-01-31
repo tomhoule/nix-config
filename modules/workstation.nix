@@ -2,7 +2,6 @@
   config,
   pkgs,
   flakeInputs,
-  nixpkgs-unstable,
   ...
 }: {
   imports = [
@@ -50,7 +49,6 @@
     */
     extraSpecialArgs = {
       hostName = config.networking.hostName;
-      inherit nixpkgs-unstable;
     };
 
     users.tom.imports = [

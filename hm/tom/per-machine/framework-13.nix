@@ -1,13 +1,9 @@
-{
-  pkgs,
-  nixpkgs-unstable,
-  ...
-}: {
+{pkgs, ...}: {
   localHome = {
     b2-bucket = "xps13-home-backups";
   };
 
-  home.packages = with pkgs; [postgresql kanshi firefox nixpkgs-unstable.zed-editor];
+  home.packages = with pkgs; [postgresql kanshi firefox];
 
   services.kanshi = {
     enable = true;
