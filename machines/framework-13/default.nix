@@ -23,6 +23,8 @@
   # Check with lspci. Disable network card power management.
   services.tlp.settings.RUNTIME_PM_DISABLE = "a6:00.0";
 
+  services.flatpak.enable = true;
+
   networking = {
     hostName = "framework-13";
     firewall = {
