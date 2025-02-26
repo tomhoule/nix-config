@@ -76,4 +76,8 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  # Printing
+  services.printing.enable = true;
+  services.avahi.enable = true;
 }
