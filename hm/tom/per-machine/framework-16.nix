@@ -9,6 +9,8 @@
   xdg.enable = false;
   xdg.userDirs.enable = false;
 
+  programs.fish.enable = false;
+
   # Only necessary as long as this machine isn't on nixos
   nix = {
     package = pkgs.nix;
