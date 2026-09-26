@@ -2,17 +2,12 @@
   description = "ich lieb dich nix du liebst mich nix, da da da";
 
   inputs = {
-    home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
   };
 
   outputs = flakeInputs @ {
     nixpkgs,
-    home-manager,
     nixos-hardware,
     ...
   }: let

@@ -1,11 +1,5 @@
-{
-  config,
-  pkgs,
-  flakeInputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    flakeInputs.home-manager.nixosModules.home-manager
     ./workstation/plasma.nix
   ];
 
@@ -36,23 +30,6 @@
       noto-fonts-cjk-sans
       noto-fonts-emoji
       noto-fonts-extra
-    ];
-  };
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-
-    /*
-    We can't use _module.args here because using regular arguments
-    to determine which modules to resolve causes infinite loops.
-    */
-    extraSpecialArgs = {
-      hostName = config.networking.hostName;
-    };
-
-    users.tom.imports = [
-      ../hm/tom
     ];
   };
 

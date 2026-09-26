@@ -29,7 +29,6 @@ and the `nixos-install` manpage.
 
 The entrypoint is `flake.nix`.
 
-- The `hm` directory contains the home-manager config for my main user.
 - The `machines` directory contains machine-specific configuration. In order to
   maximise reuse, I try to keep its contents to a minimum.
 - The `modules` directory contains NixOS configuration modules. Each machine
