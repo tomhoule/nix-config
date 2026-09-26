@@ -8,8 +8,6 @@
 
     xserver = {
       enable = false;
-      xkb.layout = "fr";
-      xkb.variant = "bepo";
     };
   };
 }

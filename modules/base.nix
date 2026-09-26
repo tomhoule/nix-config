@@ -49,10 +49,6 @@
     ];
   };
 
-  console = {
-    keyMap = "fr-bepo";
-  };
-
   # Use the default systemd NTP mechanism.
   services.timesyncd.enable = true;
 
