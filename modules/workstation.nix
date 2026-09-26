@@ -3,6 +3,8 @@
     ./workstation/plasma.nix
   ];
 
+  users.users.tom.packages = [pkgs.firefox];
+
   environment = {
     systemPackages = with pkgs; [
       cachix # the cachix client
