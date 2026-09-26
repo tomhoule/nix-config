@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   flakeInputs,
   ...
@@ -50,7 +51,7 @@
   };
 
   # Use the default systemd NTP mechanism.
-  services.timesyncd.enable = true;
+  services.timesyncd.enable = lib.mkDefault true;
 
   users.users.tom = {
     isNormalUser = true;
