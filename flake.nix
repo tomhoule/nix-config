@@ -34,11 +34,11 @@
           nixos-hardware.nixosModules.framework-12th-gen-intel
         ];
       };
-      vm = mkConfig {
+      workstation-vm = mkConfig {
         modules = [
           ./modules/base.nix
           ./modules/workstation.nix
-          ./machines/vm.nix
+          ./machines/workstation-vm.nix
         ];
       };
     };

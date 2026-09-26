@@ -1,5 +1,5 @@
 {
-  networking.hostName = "nixos-vm";
+  networking.hostName = "workstation-vm";
   networking.networkmanager.enable = true;
 
   # Only for this disposable VM; the physical machine has no default password.
