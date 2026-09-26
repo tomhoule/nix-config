@@ -29,7 +29,6 @@
           ./modules/workstation.nix
           ./modules/bluetooth.nix
           ./modules/laptop.nix
-          ./modules/docker.nix
           ./modules/tailscale.nix
           ./machines/framework-13
           nixos-hardware.nixosModules.framework-12th-gen-intel
